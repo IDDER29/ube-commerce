@@ -1,0 +1,105 @@
+<!--
+title: La boutique — Éclat d’Ubé en canette et en coffret | Ube Halaya
+description: Achetez Éclat d’Ubé, la poudre d’ube pour lattes et desserts : canette de 50 g, coffret découverte de 3 canettes ou coffret à partager de 6 canettes. Livraison offerte dès 45 €.
+nav: shop
+styles: shop
+scripts: shop
+-->
+    <header class="page-hero page-hero--wall">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+          <ol><li><a href="index.html">Accueil</a></li><li aria-current="page">Boutique</li></ol>
+        </nav>
+        <div class="page-hero__inner">
+          <h1 class="h1">La boutique</h1>
+          <p class="lead">Une seule poudre, trois formats. Plus vous prenez de canettes, moins chaque latte vous coûte.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="section shop" aria-label="Produits">
+      <div class="container">
+        <div class="shop__toolbar">
+          <p class="shop__count"><strong>3</strong> produits</p>
+          <div class="shop__sort">
+            <label for="sort">Trier par</label>
+            <select class="select select--sm" id="sort" data-sort>
+              <option value="order">Recommandés</option>
+              <option value="price-asc">Prix croissant</option>
+              <option value="price-desc">Prix décroissant</option>
+              <option value="per-latte">Prix par latte</option>
+            </select>
+          </div>
+        </div>
+        <div class="product-grid" data-product-list>
+          {{card:canette-1}}
+          {{card:coffret-3}}
+          {{card:coffret-6}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="comparer" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <div class="section-head__text">
+            <p class="eyebrow">Guide</p>
+            <h2 class="h2" id="compare-title">Quel format choisir ?</h2>
+            <p class="lead">Tous les formats contiennent la même poudre. Seuls la quantité et le prix par latte changent.</p>
+          </div>
+        </div>
+        <div class="compare" data-reveal>
+          <table class="compare__table">
+            <caption class="sr-only">Comparaison des formats Éclat d’Ubé</caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th scope="col"><span class="compare__name">Une canette</span><span class="compare__price">{{price:canette-1}}</span></th>
+                <th scope="col" class="is-featured"><span class="badge compare__badge">Idéal pour offrir</span><span class="compare__name">Coffret découverte</span><span class="compare__price">{{price:coffret-3}}</span></th>
+                <th scope="col"><span class="badge badge--save compare__badge">Meilleur prix</span><span class="compare__name">Coffret à partager</span><span class="compare__price">{{price:coffret-6}}</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Contenu</th><td>1 canette · 50 g</td><td class="is-featured">3 canettes · 150 g</td><td>6 canettes · 300 g</td></tr>
+              <tr><th scope="row">Nombre de lattes</th><td>jusqu’à 25</td><td class="is-featured">jusqu’à 75</td><td>jusqu’à 150</td></tr>
+              <tr><th scope="row">Prix par latte</th><td>0,72&nbsp;€</td><td class="is-featured">0,63&nbsp;€</td><td><strong>0,57&nbsp;€</strong></td></tr>
+              <tr><th scope="row">Économie</th><td>—</td><td class="is-featured">6,80&nbsp;€ (−13&nbsp;%)</td><td><strong>22,50&nbsp;€ (−21&nbsp;%)</strong></td></tr>
+              <tr><th scope="row">Livraison</th><td>4,90&nbsp;€</td><td class="is-featured">{{icon:check}} Offerte</td><td>{{icon:check}} Offerte</td></tr>
+              <tr><th scope="row">Idéal pour</th><td>Découvrir l’ube</td><td class="is-featured">Partager ou offrir</td><td>Les amateurs quotidiens</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td><button class="btn btn--ghost btn--sm btn--block" type="button" data-add-to-cart="canette-1">Ajouter</button></td>
+                <td class="is-featured"><button class="btn btn--sm btn--block" type="button" data-add-to-cart="coffret-3">Ajouter</button></td>
+                <td><button class="btn btn--ghost btn--sm btn--block" type="button" data-add-to-cart="coffret-6">Ajouter</button></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="compare__note muted">Économie calculée par rapport à l’achat du même nombre de canettes à l’unité ({{price:canette-1}}).</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="shop-help-title">
+      <div class="container split">
+        <figure class="split__media" data-reveal>
+          <img src="assets/img/ube-latte.webp" width="606" height="384" alt="Latte glacé à l’ube, marbré de violet" loading="lazy">
+        </figure>
+        <div class="split__text" data-reveal>
+          <p class="eyebrow">Première fois ?</p>
+          <h2 class="h2" id="shop-help-title">Commencez par une canette.</h2>
+          <p>Elle suffit pour préparer jusqu’à 25 lattes et tester l’ube en pâtisserie. Vous l’aimez ? Passez au coffret pour profiter du meilleur prix par latte et de la livraison offerte.</p>
+          <div class="split__actions">
+            <a class="btn btn--dark" href="product.html?format=canette-1">Voir la canette</a>
+            <a class="link" href="recipes.html">Idées de recettes {{icon:arrow-right}}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint reassurance-band" aria-label="Nos engagements">
+      <div class="container">
+        {{include:reassurance}}
+      </div>
+    </section>

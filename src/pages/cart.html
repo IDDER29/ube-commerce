@@ -1,0 +1,63 @@
+<!--
+title: Votre panier | Ube Halaya
+description: Votre panier Ube Halaya. Livraison offerte dès 45 € d’achat.
+styles: cart
+scripts: cart
+-->
+    <div class="container cart-page">
+      <nav class="breadcrumb" aria-label="Fil d’Ariane">
+        <ol><li><a href="index.html">Accueil</a></li><li aria-current="page">Panier</li></ol>
+      </nav>
+      <h1 class="h1 cart-page__title">Votre panier <span class="cart-page__count" data-page-count></span></h1>
+
+      <div class="cart-layout" data-cart-filled hidden>
+        <section class="cart-main" aria-label="Articles">
+          <div class="ship-meter ship-meter--card" data-page-ship>
+            <p class="ship-meter__text" data-ship-text></p>
+            <div class="ship-meter__track"><span class="ship-meter__bar" data-ship-bar></span></div>
+          </div>
+          <ul class="cart-lines" data-page-items></ul>
+          <a class="link cart-main__continue" href="shop.html">{{icon:arrow-left}} Continuer mes achats</a>
+        </section>
+
+        <aside class="cart-summary panel" aria-labelledby="summary-title">
+          <h2 class="cart-summary__title" id="summary-title">Récapitulatif</h2>
+          <dl class="totals">
+            <div><dt>Sous-total</dt><dd data-page-subtotal></dd></div>
+            <div><dt>Livraison</dt><dd data-page-shipping></dd></div>
+            <div class="totals__savings" data-page-savings-row hidden><dt>Vos économies</dt><dd data-page-savings></dd></div>
+            <div class="totals__grand"><dt>Total <small>TTC</small></dt><dd data-page-total></dd></div>
+          </dl>
+          <a class="btn btn--lg btn--block" href="checkout.html">{{icon:lock}}<span>Passer commande</span></a>
+          <ul class="cart-summary__trust">
+            <li>{{icon:truck}} Livraison en France métropolitaine</li>
+            <li>{{icon:return}} Retours sous 14 jours sur les canettes non ouvertes</li>
+            <li>{{icon:chat}} Une question ? <a href="contact.html">Contactez-nous</a></li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="empty-state cart-empty" data-cart-empty hidden>
+        <div class="empty-state__icon">{{icon:bag}}</div>
+        <h3>Votre panier est vide</h3>
+        <p>Une canette suffit pour préparer jusqu’à 25 lattes violets. Laissez-vous tenter.</p>
+        <a class="btn btn--lg" href="shop.html">Découvrir la boutique</a>
+      </div>
+    </div>
+
+    <section class="section section--tint" aria-labelledby="upsell-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__text">
+            <p class="eyebrow">Tous les formats</p>
+            <h2 class="h2" id="upsell-title">Complétez votre commande</h2>
+          </div>
+          <a class="link" href="shop.html#comparer">Comparer les formats {{icon:arrow-right}}</a>
+        </div>
+        <div class="product-grid">
+          {{card:canette-1}}
+          {{card:coffret-3}}
+          {{card:coffret-6}}
+        </div>
+      </div>
+    </section>

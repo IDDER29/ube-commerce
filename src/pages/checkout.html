@@ -1,0 +1,120 @@
+<!--
+title: Commande | Ube Halaya
+description: Finalisez votre commande Ube Halaya.
+layout: checkout
+styles: cart
+scripts: checkout
+-->
+    <div class="container checkout">
+      <ol class="checkout-steps" aria-label="Étapes de la commande">
+        <li class="is-done"><a href="cart.html">Panier</a></li>
+        <li class="is-current" aria-current="step">Informations</li>
+        <li>Paiement</li>
+      </ol>
+
+      <div class="checkout__layout" data-checkout-filled hidden>
+        <form class="checkout-form" data-checkout-form novalidate>
+          <section class="checkout-block" aria-labelledby="contact-title">
+            <h2 class="checkout-block__title" id="contact-title"><span>1</span>Contact</h2>
+            <div class="form-grid">
+              <div class="field span-2">
+                <label for="email">Adresse e-mail</label>
+                <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+                <p class="field__error">Indiquez une adresse e-mail valide.</p>
+                <p class="field__hint">Pour vous envoyer la confirmation et le suivi de votre commande.</p>
+              </div>
+              <label class="checkbox span-2"><input type="checkbox" name="newsletter"> Recevoir nos recettes et nouveautés par e-mail</label>
+            </div>
+          </section>
+
+          <section class="checkout-block" aria-labelledby="address-title">
+            <h2 class="checkout-block__title" id="address-title"><span>2</span>Adresse de livraison</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label for="firstname">Prénom</label>
+                <input class="input" id="firstname" name="firstname" autocomplete="given-name" required>
+                <p class="field__error">Indiquez votre prénom.</p>
+              </div>
+              <div class="field">
+                <label for="lastname">Nom</label>
+                <input class="input" id="lastname" name="lastname" autocomplete="family-name" required>
+                <p class="field__error">Indiquez votre nom.</p>
+              </div>
+              <div class="field span-2">
+                <label for="address">Adresse</label>
+                <input class="input" id="address" name="address" autocomplete="address-line1" required>
+                <p class="field__error">Indiquez votre adresse.</p>
+              </div>
+              <div class="field span-2">
+                <label for="address2">Complément d’adresse <span class="optional">(facultatif)</span></label>
+                <input class="input" id="address2" name="address2" autocomplete="address-line2">
+              </div>
+              <div class="field">
+                <label for="zip">Code postal</label>
+                <input class="input" id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" required>
+                <p class="field__error">Indiquez un code postal à 5 chiffres.</p>
+              </div>
+              <div class="field">
+                <label for="city">Ville</label>
+                <input class="input" id="city" name="city" autocomplete="address-level2" required>
+                <p class="field__error">Indiquez votre ville.</p>
+              </div>
+              <div class="field">
+                <label for="country">Pays</label>
+                <select class="select" id="country" name="country" autocomplete="country-name">
+                  <option>France métropolitaine</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="phone">Téléphone <span class="optional">(facultatif)</span></label>
+                <input class="input" id="phone" name="phone" type="tel" autocomplete="tel">
+                <p class="field__hint">Utile au transporteur en cas de besoin.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="checkout-block" aria-labelledby="shipping-title">
+            <h2 class="checkout-block__title" id="shipping-title"><span>3</span>Livraison</h2>
+            <label class="ship-option">
+              <input type="radio" name="shipping" value="standard" checked>
+              <span class="ship-option__body">
+                <span><strong>Livraison à domicile</strong><span>France métropolitaine</span></span>
+                <strong data-checkout-ship-price></strong>
+              </span>
+            </label>
+          </section>
+
+          <section class="checkout-block" aria-labelledby="payment-title">
+            <h2 class="checkout-block__title" id="payment-title"><span>4</span>Paiement</h2>
+            <p class="note">{{icon:lock}}<span>Vous serez redirigé·e vers notre partenaire de paiement sécurisé pour régler votre commande. Aucune donnée bancaire n’est saisie ni conservée sur ce site.</span></p>
+            <label class="checkbox checkout-form__terms">
+              <input type="checkbox" name="terms" required>
+              <span>J’ai lu et j’accepte les <a href="cgv.html" target="_blank" rel="noopener">conditions générales de vente</a>.</span>
+            </label>
+            <p class="field__error checkout-form__terms-error" data-terms-error>Merci d’accepter les conditions générales de vente.</p>
+            <button class="btn btn--lg btn--block checkout-form__submit" type="submit">{{icon:lock}}<span>Payer <span data-checkout-pay></span></span></button>
+            <div class="checkout-form__status" data-checkout-status role="status" hidden></div>
+          </section>
+        </form>
+
+        <aside class="checkout-summary" aria-labelledby="order-title">
+          <div class="panel">
+            <h2 class="cart-summary__title" id="order-title">Votre commande</h2>
+            <ul class="checkout-summary__items" data-checkout-items></ul>
+            <dl class="totals">
+              <div><dt>Sous-total</dt><dd data-checkout-subtotal></dd></div>
+              <div><dt>Livraison</dt><dd data-checkout-shipping></dd></div>
+              <div class="totals__grand"><dt>Total <small>TTC</small></dt><dd data-checkout-total></dd></div>
+            </dl>
+            <a class="checkout-summary__edit" href="cart.html">Modifier le panier</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="empty-state" data-checkout-empty hidden>
+        <div class="empty-state__icon">{{icon:bag}}</div>
+        <h3>Votre panier est vide</h3>
+        <p>Ajoutez un produit avant de passer commande.</p>
+        <a class="btn btn--lg" href="shop.html">Découvrir la boutique</a>
+      </div>
+    </div>

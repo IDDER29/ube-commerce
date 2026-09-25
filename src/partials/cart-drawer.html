@@ -1,0 +1,22 @@
+  <div class="drawer-backdrop" data-close-cart></div>
+  <aside class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title" inert>
+    <header class="drawer__head">
+      <h2 id="cart-drawer-title">Votre panier <span class="drawer__count" data-cart-count-text></span></h2>
+      <button class="icon-btn" type="button" data-close-cart aria-label="Fermer le panier">{{icon:close}}</button>
+    </header>
+    <div class="ship-meter" data-ship-meter>
+      <p class="ship-meter__text" data-ship-text></p>
+      <div class="ship-meter__track"><span class="ship-meter__bar" data-ship-bar></span></div>
+    </div>
+    <ul class="drawer__items" data-cart-items></ul>
+    <footer class="drawer__foot" data-cart-foot>
+      <dl class="totals">
+        <div><dt>Sous-total</dt><dd data-cart-subtotal>0,00 €</dd></div>
+        <div><dt>Livraison</dt><dd data-cart-shipping>—</dd></div>
+        <div class="totals__grand"><dt>Total <small>TTC</small></dt><dd data-cart-total>0,00 €</dd></div>
+      </dl>
+      <a class="btn btn--block btn--lg" href="checkout.html" data-checkout-link>Commander</a>
+      <a class="btn btn--block btn--ghost" href="cart.html">Voir le panier</a>
+      <p class="drawer__note">{{icon:lock}} Paiement sécurisé · Retours sous 14 jours</p>
+    </footer>
+  </aside>

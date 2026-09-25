@@ -1,48 +1,44 @@
-
   <footer class="site-footer">
-    <div class="wrap site-footer__inner">
-      <a class="logo logo--sm" href="index.html" aria-label="Ube Halaya — accueil">
-        <img src="assets/img/logo.svg" width="72" height="72" alt="" loading="lazy">
-      </a>
-      <ul class="footer-links">
-        <li><a href="index.html#recettes">Recettes</a></li>
-        <li><a href="index.html#histoire">Notre histoire</a></li>
-        <li><a href="mailto:bonjour@ubehalaya.fr">Contact</a></li>
-        <li><a href="eclat-dube.html#faq">Livraison et retours</a></li>
-      </ul>
-      <form class="newsletter" novalidate>
-        <label for="nl-email">Une nouvelle recette dans votre boîte mail.</label>
-        <div class="newsletter__row">
-          <input id="nl-email" type="email" name="email" placeholder="Votre e-mail" required autocomplete="email">
-          <button type="submit">S’inscrire</button>
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand brand--footer" href="index.html" aria-label="Ube Halaya — accueil"><img src="assets/img/logo.svg" width="72" height="72" alt="" loading="lazy"></a>
+          <p>La poudre d’ube pour vos lattes et vos desserts maison.</p>
         </div>
-        <p class="newsletter__msg" aria-live="polite"></p>
-      </form>
+        <nav class="site-footer__col" aria-label="Boutique">
+          <h2>Boutique</h2>
+          <ul>
+            <li><a href="shop.html">Tous les produits</a></li>
+            <li><a href="product.html?format=canette-1">Une canette</a></li>
+            <li><a href="product.html?format=coffret-3">Coffret découverte</a></li>
+            <li><a href="product.html?format=coffret-6">Coffret à partager</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__col" aria-label="Découvrir">
+          <h2>Découvrir</h2>
+          <ul>
+            <li><a href="recipes.html">Recettes</a></li>
+            <li><a href="about.html">Notre histoire</a></li>
+            <li><a href="about.html#ube">Qu’est-ce que l’ube ?</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__col" aria-label="Aide">
+          <h2>Aide</h2>
+          <ul>
+            <li><a href="faq.html">Questions fréquentes</a></li>
+            <li><a href="faq.html#livraison">Livraison et retours</a></li>
+            <li><a href="contact.html">Nous contacter</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> Ube Halaya · Prix TTC</p>
+        <ul class="site-footer__legal">
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cgv.html">CGV</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+        </ul>
+        <p class="site-footer__secure">{{icon:lock}} Paiement sécurisé</p>
+      </div>
     </div>
-    <p class="copyright">© <span data-year>2026</span> Ube Halaya</p>
   </footer>
-
-  <!-- Cart drawer -->
-  <div class="drawer-backdrop" data-close-cart></div>
-  <aside class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" inert>
-    <div class="drawer__head">
-      <h2 id="cart-title">Votre panier</h2>
-      <button class="drawer__close" type="button" data-close-cart aria-label="Fermer le panier">×</button>
-    </div>
-    <div class="ship-progress">
-      <span id="ship-msg"></span>
-      <div class="ship-progress__bar"><span id="ship-bar"></span></div>
-    </div>
-    <ul class="drawer__items" id="cart-items"></ul>
-    <div class="drawer__foot">
-      <div class="drawer__row"><span>Sous-total</span><span id="cart-subtotal">0,00 €</span></div>
-      <div class="drawer__row"><span>Livraison</span><span id="cart-shipping">—</span></div>
-      <div class="drawer__row drawer__total"><span>Total</span><span id="cart-total">0,00 €</span></div>
-      <button class="btn btn--block" type="button" id="checkout-btn">Passer commande</button>
-      <p class="drawer__note">Paiement sécurisé · Livraison offerte dès 45 €</p>
-    </div>
-  </aside>
-
-  <script src="assets/js/main.js" defer></script>
-</body>
-</html>

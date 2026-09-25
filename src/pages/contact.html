@@ -1,0 +1,83 @@
+<!--
+title: Contact | Ube Halaya
+description: Une question sur Éclat d’Ubé, votre commande ou une idée de recette ? Écrivez-nous.
+nav: contact
+styles: content
+scripts: contact
+-->
+    <header class="page-hero page-hero--wall">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+          <ol><li><a href="index.html">Accueil</a></li><li aria-current="page">Contact</li></ol>
+        </nav>
+        <div class="page-hero__inner">
+          <h1 class="h1">Écrivez-nous</h1>
+          <p class="lead">Une question sur une commande, un conseil de préparation, une idée de recette à partager ? Nous lisons chaque message.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container contact">
+        <form class="contact-form panel" data-contact-form data-email="{{store_email}}" novalidate>
+          <h2 class="h3 contact-form__title">Votre message</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label for="c-name">Nom</label>
+              <input class="input" id="c-name" name="name" autocomplete="name" required>
+              <p class="field__error">Indiquez votre nom.</p>
+            </div>
+            <div class="field">
+              <label for="c-email">Adresse e-mail</label>
+              <input class="input" id="c-email" name="email" type="email" autocomplete="email" required>
+              <p class="field__error">Indiquez une adresse e-mail valide.</p>
+            </div>
+            <div class="field">
+              <label for="c-subject">Sujet</label>
+              <select class="select" id="c-subject" name="subject">
+                <option>Question sur un produit</option>
+                <option>Suivi de commande</option>
+                <option>Retour ou problème de livraison</option>
+                <option>Partenariat ou revente</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="c-order">N° de commande <span class="optional">(facultatif)</span></label>
+              <input class="input" id="c-order" name="order">
+            </div>
+            <div class="field span-2">
+              <label for="c-message">Message</label>
+              <textarea class="textarea" id="c-message" name="message" required minlength="10"></textarea>
+              <p class="field__error">Votre message doit contenir au moins 10 caractères.</p>
+            </div>
+          </div>
+          <button class="btn btn--lg contact-form__submit" type="submit">{{icon:mail}}<span>Envoyer le message</span></button>
+          <div class="contact-form__status" data-contact-status role="status" hidden></div>
+        </form>
+
+        <aside class="contact-aside">
+          <div class="contact-card">
+            <span class="contact-card__icon">{{icon:mail}}</span>
+            <div>
+              <h2>Par e-mail</h2>
+              <p><a href="mailto:{{store_email}}">{{store_email}}</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card__icon">{{icon:info}}</span>
+            <div>
+              <h2>Réponse rapide</h2>
+              <p>Dosage, livraison, retours : la plupart des réponses sont déjà dans notre <a href="faq.html">aide</a>.</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card__icon">{{icon:truck}}</span>
+            <div>
+              <h2>Suivi de commande</h2>
+              <p>Pensez à indiquer votre numéro de commande pour que nous puissions vous répondre plus vite.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>

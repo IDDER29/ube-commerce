@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Commande | Ube Halaya</title>
+  <meta name="description" content="Finalisez votre commande Ube Halaya.">
+  <meta name="theme-color" content="#3b0b27">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ube Halaya">
+  <meta property="og:title" content="Commande | Ube Halaya">
+  <meta property="og:description" content="Finalisez votre commande Ube Halaya.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/cart.css">
+</head>
+
+<body class="page-checkout layout-checkout">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="checkout-header">
+    <div class="container checkout-header__inner">
+      <a class="checkout-header__back" href="cart.html"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>Retour au panier</span></a>
+      <a class="brand" href="index.html" aria-label="Ube Halaya — accueil"><img src="assets/img/logo.svg" width="56" height="56" alt=""></a>
+      <span class="checkout-header__secure"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><span>Paiement sécurisé</span></span>
+    </div>
+  </header>
+  <main id="contenu" tabindex="-1">
+    <div class="container checkout">
+      <ol class="checkout-steps" aria-label="Étapes de la commande">
+        <li class="is-done"><a href="cart.html">Panier</a></li>
+        <li class="is-current" aria-current="step">Informations</li>
+        <li>Paiement</li>
+      </ol>
+
+      <div class="checkout__layout" data-checkout-filled hidden>
+        <form class="checkout-form" data-checkout-form novalidate>
+          <section class="checkout-block" aria-labelledby="contact-title">
+            <h2 class="checkout-block__title" id="contact-title"><span>1</span>Contact</h2>
+            <div class="form-grid">
+              <div class="field span-2">
+                <label for="email">Adresse e-mail</label>
+                <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+                <p class="field__error">Indiquez une adresse e-mail valide.</p>
+                <p class="field__hint">Pour vous envoyer la confirmation et le suivi de votre commande.</p>
+              </div>
+              <label class="checkbox span-2"><input type="checkbox" name="newsletter"> Recevoir nos recettes et nouveautés par e-mail</label>
+            </div>
+          </section>
+
+          <section class="checkout-block" aria-labelledby="address-title">
+            <h2 class="checkout-block__title" id="address-title"><span>2</span>Adresse de livraison</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label for="firstname">Prénom</label>
+                <input class="input" id="firstname" name="firstname" autocomplete="given-name" required>
+                <p class="field__error">Indiquez votre prénom.</p>
+              </div>
+              <div class="field">
+                <label for="lastname">Nom</label>
+                <input class="input" id="lastname" name="lastname" autocomplete="family-name" required>
+                <p class="field__error">Indiquez votre nom.</p>
+              </div>
+              <div class="field span-2">
+                <label for="address">Adresse</label>
+                <input class="input" id="address" name="address" autocomplete="address-line1" required>
+                <p class="field__error">Indiquez votre adresse.</p>
+              </div>
+              <div class="field span-2">
+                <label for="address2">Complément d’adresse <span class="optional">(facultatif)</span></label>
+                <input class="input" id="address2" name="address2" autocomplete="address-line2">
+              </div>
+              <div class="field">
+                <label for="zip">Code postal</label>
+                <input class="input" id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" required>
+                <p class="field__error">Indiquez un code postal à 5 chiffres.</p>
+              </div>
+              <div class="field">
+                <label for="city">Ville</label>
+                <input class="input" id="city" name="city" autocomplete="address-level2" required>
+                <p class="field__error">Indiquez votre ville.</p>
+              </div>
+              <div class="field">
+                <label for="country">Pays</label>
+                <select class="select" id="country" name="country" autocomplete="country-name">
+                  <option>France métropolitaine</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="phone">Téléphone <span class="optional">(facultatif)</span></label>
+                <input class="input" id="phone" name="phone" type="tel" autocomplete="tel">
+                <p class="field__hint">Utile au transporteur en cas de besoin.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="checkout-block" aria-labelledby="shipping-title">
+            <h2 class="checkout-block__title" id="shipping-title"><span>3</span>Livraison</h2>
+            <label class="ship-option">
+              <input type="radio" name="shipping" value="standard" checked>
+              <span class="ship-option__body">
+                <span><strong>Livraison à domicile</strong><span>France métropolitaine</span></span>
+                <strong data-checkout-ship-price></strong>
+              </span>
+            </label>
+          </section>
+
+          <section class="checkout-block" aria-labelledby="payment-title">
+            <h2 class="checkout-block__title" id="payment-title"><span>4</span>Paiement</h2>
+            <p class="note"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><span>Vous serez redirigé·e vers notre partenaire de paiement sécurisé pour régler votre commande. Aucune donnée bancaire n’est saisie ni conservée sur ce site.</span></p>
+            <label class="checkbox checkout-form__terms">
+              <input type="checkbox" name="terms" required>
+              <span>J’ai lu et j’accepte les <a href="cgv.html" target="_blank" rel="noopener">conditions générales de vente</a>.</span>
+            </label>
+            <p class="field__error checkout-form__terms-error" data-terms-error>Merci d’accepter les conditions générales de vente.</p>
+            <button class="btn btn--lg btn--block checkout-form__submit" type="submit"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><span>Payer <span data-checkout-pay></span></span></button>
+            <div class="checkout-form__status" data-checkout-status role="status" hidden></div>
+          </section>
+        </form>
+
+        <aside class="checkout-summary" aria-labelledby="order-title">
+          <div class="panel">
+            <h2 class="cart-summary__title" id="order-title">Votre commande</h2>
+            <ul class="checkout-summary__items" data-checkout-items></ul>
+            <dl class="totals">
+              <div><dt>Sous-total</dt><dd data-checkout-subtotal></dd></div>
+              <div><dt>Livraison</dt><dd data-checkout-shipping></dd></div>
+              <div class="totals__grand"><dt>Total <small>TTC</small></dt><dd data-checkout-total></dd></div>
+            </dl>
+            <a class="checkout-summary__edit" href="cart.html">Modifier le panier</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="empty-state" data-checkout-empty hidden>
+        <div class="empty-state__icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/></svg></div>
+        <h3>Votre panier est vide</h3>
+        <p>Ajoutez un produit avant de passer commande.</p>
+        <a class="btn btn--lg" href="shop.html">Découvrir la boutique</a>
+      </div>
+    </div>
+  </main>
+  <footer class="checkout-footer">
+    <div class="container">
+      <a href="cgv.html">Conditions générales de vente</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="faq.html#livraison">Livraison et retours</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/cart.js" defer></script>
+  <script src="assets/js/ui.js" defer></script>
+  <script src="assets/js/pages/checkout.js" defer></script>
+</body>
+</html>

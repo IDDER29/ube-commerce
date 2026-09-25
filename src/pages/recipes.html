@@ -1,0 +1,190 @@
+<!--
+title: Recettes à l’ube — lattes et pâtisseries | Ube Halaya
+description: Latte signature, cake marbré, cookies au chocolat blanc : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.
+nav: recipes
+styles: content
+scripts: recipes
+-->
+    <header class="page-hero page-hero--wall page-hero--center">
+      <div class="container">
+        <div class="page-hero__inner">
+          <p class="script page-hero__script">Un peu de violet dans la cuisine</p>
+          <h1 class="h1">Nos recettes</h1>
+          <p class="lead">Des idées simples pour profiter de votre canette, du latte du matin au goûter du dimanche.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="recipes-list-title">
+      <div class="container">
+        <div class="recipes-toolbar">
+          <h2 class="sr-only" id="recipes-list-title">Toutes les recettes</h2>
+          <div class="chips" role="group" aria-label="Filtrer les recettes" data-recipe-filter>
+            <button class="chip" type="button" aria-pressed="true" data-filter="all">Toutes</button>
+            <button class="chip" type="button" aria-pressed="false" data-filter="boissons">Boissons</button>
+            <button class="chip" type="button" aria-pressed="false" data-filter="patisserie">Pâtisserie</button>
+          </div>
+          <p class="muted" data-recipe-count>3 recettes</p>
+        </div>
+        <div class="recipe-grid" data-recipe-list>
+          {{include:recipe-card-latte}}
+          {{include:recipe-card-cake}}
+          {{include:recipe-card-cookies}}
+        </div>
+      </div>
+    </section>
+
+    <!-- Latte -->
+    <article class="recipe section section--tint" id="latte-signature" aria-labelledby="latte-title">
+      <div class="container recipe__layout">
+        <div class="recipe__media">
+          <img src="assets/img/recipe-latte.webp" width="458" height="312" alt="Latte à l’ube marbré surmonté d’une mousse vanille" loading="lazy">
+        </div>
+        <div class="recipe__intro">
+          <p class="eyebrow">Boisson</p>
+          <h2 class="h2" id="latte-title">Latte signature, mousse vanille</h2>
+          <p class="lead">Le classique d’Éclat d’Ubé. Chaud en hiver, sur glaçons en été, toujours marbré de violet.</p>
+          <ul class="recipe__facts">
+            <li>{{icon:clock}}<span><strong>5 min</strong>préparation</span></li>
+            <li>{{icon:users}}<span><strong>1 verre</strong>de 30 cl</span></li>
+            <li>{{icon:gauge}}<span><strong>Facile</strong>difficulté</span></li>
+          </ul>
+        </div>
+        <div class="recipe__body">
+          <section class="recipe__ingredients" aria-label="Ingrédients">
+            <h3 class="recipe__subtitle">Ingrédients</h3>
+            <ul class="ingredients">
+              <li><label><input type="checkbox"> 2 à 3 g d’<a href="product.html">Éclat d’Ubé</a> (1 c. à café rase)</label></li>
+              <li><label><input type="checkbox"> 3 cl d’eau chaude, non bouillante</label></li>
+              <li><label><input type="checkbox"> 20 cl de lait, chaud ou froid</label></li>
+              <li><label><input type="checkbox"> Sucre ou sirop, selon votre goût</label></li>
+              <li><label><input type="checkbox"> Glaçons, pour la version glacée</label></li>
+              <li><label><input type="checkbox"> 5 cl de crème liquide entière</label></li>
+              <li><label><input type="checkbox"> ½ c. à café d’extrait de vanille</label></li>
+            </ul>
+          </section>
+          <section class="recipe__steps" aria-label="Préparation">
+            <h3 class="recipe__subtitle">Préparation</h3>
+            <ol class="method">
+              <li>Déposez la poudre dans un bol et versez l’eau chaude.</li>
+              <li>Fouettez au mousseur jusqu’à obtenir une pâte lisse, sans grumeaux.</li>
+              <li>Sucrez à ce stade : le sucre se dissout mieux dans la base chaude.</li>
+              <li>Versez la base violette dans un verre rempli de glaçons, ou dans une tasse pour la version chaude.</li>
+              <li>Ajoutez le lait doucement, sans mélanger, pour garder l’effet marbré.</li>
+              <li>Fouettez la crème et la vanille en mousse souple et déposez-la sur le dessus.</li>
+            </ol>
+          </section>
+        </div>
+      </div>
+    </article>
+
+    <!-- Cake -->
+    <article class="recipe section" id="cake-ube" aria-labelledby="cake-title">
+      <div class="container recipe__layout">
+        <div class="recipe__media">
+          <img src="assets/img/recipe-cake.webp" width="444" height="312" alt="Cake marbré à l’ube nappé d’un glaçage blanc" loading="lazy">
+        </div>
+        <div class="recipe__intro">
+          <p class="eyebrow">Pâtisserie</p>
+          <h2 class="h2" id="cake-title">Cake marbré à l’ube</h2>
+          <p class="lead">Un cake moelleux dont chaque tranche révèle ses volutes violettes. Idéal pour le goûter.</p>
+          <ul class="recipe__facts">
+            <li>{{icon:clock}}<span><strong>1 h 05</strong>dont 50 min de cuisson</span></li>
+            <li>{{icon:users}}<span><strong>8 parts</strong>moule à cake</span></li>
+            <li>{{icon:gauge}}<span><strong>Facile</strong>difficulté</span></li>
+          </ul>
+        </div>
+        <div class="recipe__body">
+          <section class="recipe__ingredients" aria-label="Ingrédients">
+            <h3 class="recipe__subtitle">Ingrédients</h3>
+            <ul class="ingredients">
+              <li><label><input type="checkbox"> 12 g d’<a href="product.html">Éclat d’Ubé</a></label></li>
+              <li><label><input type="checkbox"> 3 œufs</label></li>
+              <li><label><input type="checkbox"> 150 g de sucre</label></li>
+              <li><label><input type="checkbox"> 150 g de beurre fondu</label></li>
+              <li><label><input type="checkbox"> 200 g de farine</label></li>
+              <li><label><input type="checkbox"> 1 sachet de levure chimique (11 g)</label></li>
+              <li><label><input type="checkbox"> 12 cl de lait</label></li>
+              <li><label><input type="checkbox"> Glaçage : 100 g de sucre glace et 2 c. à soupe de lait</label></li>
+            </ul>
+          </section>
+          <section class="recipe__steps" aria-label="Préparation">
+            <h3 class="recipe__subtitle">Préparation</h3>
+            <ol class="method">
+              <li>Préchauffez le four à 180&nbsp;°C et beurrez un moule à cake.</li>
+              <li>Fouettez les œufs et le sucre jusqu’à ce que le mélange blanchisse, puis ajoutez le beurre fondu et 10 cl de lait.</li>
+              <li>Incorporez la farine et la levure tamisées.</li>
+              <li>Délayez la poudre d’ube dans les 2 cl de lait restants, bien chauds, et mélangez-la à la moitié de la pâte.</li>
+              <li>Versez les deux pâtes en alternant dans le moule, puis tracez des vagues avec la lame d’un couteau.</li>
+              <li>Enfournez 45 à 50 minutes : la lame doit ressortir sèche. Laissez refroidir avant de napper de glaçage.</li>
+            </ol>
+          </section>
+        </div>
+      </div>
+    </article>
+
+    <!-- Cookies -->
+    <article class="recipe section section--tint" id="cookies-ube" aria-labelledby="cookies-title">
+      <div class="container recipe__layout">
+        <div class="recipe__media">
+          <img src="assets/img/recipe-cookies.webp" width="454" height="312" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy">
+        </div>
+        <div class="recipe__intro">
+          <p class="eyebrow">Pâtisserie</p>
+          <h2 class="h2" id="cookies-title">Cookies à l’ube et chocolat blanc</h2>
+          <p class="lead">Croustillants autour, fondants au centre. Le chocolat blanc répond parfaitement à la douceur de l’ube.</p>
+          <ul class="recipe__facts">
+            <li>{{icon:clock}}<span><strong>30 min</strong>dont 12 min de cuisson</span></li>
+            <li>{{icon:users}}<span><strong>12 cookies</strong>environ</span></li>
+            <li>{{icon:gauge}}<span><strong>Facile</strong>difficulté</span></li>
+          </ul>
+        </div>
+        <div class="recipe__body">
+          <section class="recipe__ingredients" aria-label="Ingrédients">
+            <h3 class="recipe__subtitle">Ingrédients</h3>
+            <ul class="ingredients">
+              <li><label><input type="checkbox"> 10 g d’<a href="product.html">Éclat d’Ubé</a></label></li>
+              <li><label><input type="checkbox"> 125 g de beurre mou</label></li>
+              <li><label><input type="checkbox"> 100 g de sucre roux</label></li>
+              <li><label><input type="checkbox"> 50 g de sucre blanc</label></li>
+              <li><label><input type="checkbox"> 1 œuf</label></li>
+              <li><label><input type="checkbox"> 200 g de farine</label></li>
+              <li><label><input type="checkbox"> ½ c. à café de levure chimique et 1 pincée de sel</label></li>
+              <li><label><input type="checkbox"> 100 g de chocolat blanc en pépites</label></li>
+            </ul>
+          </section>
+          <section class="recipe__steps" aria-label="Préparation">
+            <h3 class="recipe__subtitle">Préparation</h3>
+            <ol class="method">
+              <li>Préchauffez le four à 180&nbsp;°C et couvrez une plaque de papier cuisson.</li>
+              <li>Mélangez le beurre mou et les deux sucres, puis ajoutez l’œuf.</li>
+              <li>Incorporez la farine, la levure, le sel et la poudre d’ube jusqu’à obtenir une pâte homogène.</li>
+              <li>Ajoutez les pépites de chocolat blanc.</li>
+              <li>Formez 12 boules et espacez-les bien sur la plaque.</li>
+              <li>Faites cuire 11 à 12 minutes : le centre doit rester tendre. Laissez raffermir 10 minutes sur la plaque.</li>
+            </ol>
+          </section>
+        </div>
+      </div>
+    </article>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="recipes-cta-title">
+      <div class="container">
+        <div class="promo">
+          <div class="promo__media">
+            <img src="assets/img/cta-tray.webp" width="830" height="326" alt="Canette Éclat d’Ubé, poudre et latte sur un plateau en bois" loading="lazy">
+          </div>
+          <div>
+            <p class="eyebrow">L’ingrédient clé</p>
+            <h2 class="h2" id="recipes-cta-title">Tout commence par une canette.</h2>
+            <p>50 g de poudre d’ube : de quoi préparer jusqu’à 25 lattes, ou 4 cakes marbrés.</p>
+            <p class="promo__price"><span class="price">{{price:canette-1}}</span></p>
+            <div class="promo__actions">
+              <button class="btn btn--lg" type="button" data-add-to-cart="canette-1">{{icon:bag}}<span>Ajouter au panier</span></button>
+              <a class="btn btn--lg btn--ghost" href="shop.html">Voir tous les formats</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

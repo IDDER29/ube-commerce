@@ -1,0 +1,26 @@
+{{include:document-head}}
+<body class="page-{{page}} layout-checkout">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="checkout-header">
+    <div class="container checkout-header__inner">
+      <a class="checkout-header__back" href="cart.html">{{icon:arrow-left}}<span>Retour au panier</span></a>
+      <a class="brand" href="index.html" aria-label="Ube Halaya — accueil"><img src="assets/img/logo.svg" width="56" height="56" alt=""></a>
+      <span class="checkout-header__secure">{{icon:lock}}<span>Paiement sécurisé</span></span>
+    </div>
+  </header>
+  <main id="contenu" tabindex="-1">
+{{body}}
+  </main>
+  <footer class="checkout-footer">
+    <div class="container">
+      <a href="cgv.html">Conditions générales de vente</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="faq.html#livraison">Livraison et retours</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/cart.js" defer></script>
+  <script src="assets/js/ui.js" defer></script>{{page_scripts}}
+</body>
+</html>

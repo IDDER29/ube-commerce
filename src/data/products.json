@@ -1,0 +1,71 @@
+{
+  "store": {
+    "name": "Ube Halaya",
+    "email": "bonjour@ubehalaya.fr"
+  },
+  "unit_price": 17.9,
+  "lattes_per_can": 25,
+  "free_shipping": 45,
+  "shipping_cost": 4.9,
+  "products": [
+    {
+      "id": "canette-1",
+      "order": 1,
+      "name": "Une canette",
+      "full_name": "Éclat d’Ubé — Une canette",
+      "meta": "1 canette · 50 g",
+      "cans": 1,
+      "price": 17.9,
+      "tag": "Pour découvrir",
+      "card_image": "format-1.webp",
+      "card_alt": "Une canette Éclat d’Ubé",
+      "hover_image": "ube-latte.webp",
+      "gallery": [
+        "product-main.webp",
+        "ube-latte.webp",
+        "ube-powder.webp",
+        "pstep-mix.webp"
+      ]
+    },
+    {
+      "id": "coffret-3",
+      "order": 2,
+      "name": "Coffret découverte",
+      "full_name": "Éclat d’Ubé — Coffret découverte",
+      "meta": "3 canettes · 150 g",
+      "cans": 3,
+      "price": 46.9,
+      "tag": "À partager ou à offrir",
+      "label": "Idéal pour offrir",
+      "card_image": "format-3.webp",
+      "card_alt": "Trois canettes Éclat d’Ubé",
+      "hover_image": "gift-pyramid.webp",
+      "gallery": [
+        "gift-pyramid.webp",
+        "format-3.webp",
+        "ube-latte.webp",
+        "ube-powder.webp"
+      ]
+    },
+    {
+      "id": "coffret-6",
+      "order": 3,
+      "name": "Coffret à partager",
+      "full_name": "Éclat d’Ubé — Coffret à partager",
+      "meta": "6 canettes · 300 g",
+      "cans": 6,
+      "price": 84.9,
+      "tag": "Pour en profiter plus longtemps",
+      "label": "Meilleur prix par latte",
+      "card_image": "format-6.webp",
+      "card_alt": "Six canettes Éclat d’Ubé",
+      "hover_image": "recipe-latte.webp",
+      "gallery": [
+        "format-6.webp",
+        "gift-trio.webp",
+        "ube-latte.webp",
+        "ube-powder.webp"
+      ]
+    }
+  ]
+}

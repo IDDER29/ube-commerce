@@ -1,0 +1,18 @@
+<article class="p-card" data-product-card data-id="{{id}}" data-price="{{price_raw}}" data-per-latte="{{per_latte_raw}}" data-order="{{order}}">
+  <a class="p-card__media" href="{{url}}" tabindex="-1" aria-hidden="true">
+    <img class="p-card__img" src="assets/img/{{image}}" width="454" height="236" alt="" loading="lazy">
+    <img class="p-card__img p-card__img--hover" src="assets/img/{{hover_image}}" width="454" height="236" alt="" loading="lazy">
+    <span class="p-card__badges">{{label}}{{badge}}</span>
+  </a>
+  <div class="p-card__body">
+    <p class="p-card__tag">{{tag}}</p>
+    <h3 class="p-card__title"><a href="{{url}}">{{name}}</a></h3>
+    <p class="p-card__meta">{{meta}} · jusqu’à {{lattes}} lattes</p>
+    <p class="p-card__price"><span class="price">{{price}}</span>{{compare}}</p>
+    <p class="p-card__unit">soit {{per_latte}} par latte</p>
+    <div class="p-card__actions">
+      <button class="btn btn--block" type="button" data-add-to-cart="{{id}}">{{icon:bag}}<span>Ajouter au panier</span></button>
+      <a class="p-card__details" href="{{url}}">Voir le détail</a>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,16 @@
+{{include:document-head}}
+<body class="page-{{page}}">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+{{include:announcement}}
+{{include:header}}
+  <main id="contenu" tabindex="-1">
+{{body}}
+  </main>
+{{include:newsletter}}
+{{include:footer}}
+{{include:cart-drawer}}
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/cart.js" defer></script>
+  <script src="assets/js/ui.js" defer></script>{{page_scripts}}
+</body>
+</html>

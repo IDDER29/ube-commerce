@@ -1,0 +1,66 @@
+/* Home page ---------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: var(--cream-100) url("../../img/wall.webp") center top / 600px;
+}
+.hero__copy { position: relative; z-index: 1; padding-top: clamp(2rem, 1rem + 3vw, 3.5rem); }
+.hero__script { font-size: clamp(2.1rem, 1.5rem + 2.6vw, 3.6rem); }
+.hero .display { margin-top: .08em; }
+.hero__lead { max-width: 40rem; margin: 1rem auto 0; }
+.hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); margin-top: var(--space-6); }
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem 1.75rem;
+  margin-top: var(--space-5);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink-2);
+}
+.hero__facts li { display: inline-flex; align-items: center; gap: .45em; }
+.hero__facts svg { width: 18px; height: 18px; color: var(--magenta-ink); }
+.hero__scene { margin-top: clamp(-4rem, -2vw, -1rem); }
+.hero__scene img {
+  width: 100%;
+  height: clamp(260px, 30vw, 440px);
+  object-fit: cover;
+  object-position: center 80%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 28%);
+}
+
+.benefits-band { padding-block: clamp(2.5rem, 2rem + 2vw, 3.75rem); border-bottom: 1px solid var(--line); }
+
+.ritual__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3) var(--space-5);
+  margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+.ritual__cta p { font-size: var(--fs-sm); }
+
+.faq-split {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+.faq-split .lead { margin-top: var(--space-4); }
+.faq-split__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); margin-top: var(--space-6); }
+@media (max-width: 860px) {
+  .faq-split { grid-template-columns: 1fr; }
+}
+
+.reassurance-band { padding-block: clamp(2.5rem, 2rem + 2vw, 3.5rem); }
+
+@media (max-width: 600px) {
+  .hero__actions .btn { width: 100%; }
+  .hero__facts { gap: .35rem 1rem; }
+  .hero__scene img { height: 240px; object-position: 55% 80%; }
+}
