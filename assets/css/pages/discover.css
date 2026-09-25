@@ -74,7 +74,7 @@
   .journey {
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: 78%;
+    grid-auto-columns: 84%;
     gap: 14px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;

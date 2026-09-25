@@ -129,7 +129,7 @@
   .recipe-tiles {
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: 78%;
+    grid-auto-columns: 84%;
     gap: 14px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -142,6 +142,27 @@
   .recipe-tile { scroll-snap-align: start; }
   .recipe-tile h3 { font-size: 1.25rem; }
 }
+
+/* Page dots under swipeable rows (added by ui.js on phones) */
+.carousel-dots { display: flex; justify-content: center; gap: 4px; margin-top: .75rem; }
+.carousel-dots button {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.carousel-dots button::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--line-strong);
+  transition: width .3s var(--ease), background-color .3s;
+}
+.carousel-dots button[aria-current="true"]::before { width: 22px; background: var(--plum-900); }
 
 /* Story banner ("Des Philippines à votre cuisine.") — dark brand block */
 .story-banner {
