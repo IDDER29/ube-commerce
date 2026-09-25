@@ -11,7 +11,7 @@
   gap: clamp(1.5rem, 1rem + 3vw, 4rem);
   align-items: start;
 }
-.ship-meter--card { border: 1px solid var(--lilac-100); border-radius: var(--radius); }
+.ship-meter--card { border: 0; border-radius: var(--radius); }
 .cart-lines { margin-top: var(--space-2); }
 .cart-lines .line-item { grid-template-columns: 110px 1fr auto; gap: 1.25rem; padding-block: 1.5rem; }
 .cart-lines .line-item__img { width: 110px; height: 110px; border-radius: var(--radius); }
@@ -31,7 +31,7 @@
 .cart-empty { padding-block: clamp(2rem, 1rem + 4vw, 4rem); }
 
 /* Checkout */
-.layout-checkout { background: var(--cream-50); }
+.layout-checkout { background: var(--sand-50); }
 .checkout { padding-block: var(--space-6) var(--section); }
 .checkout-steps {
   display: flex;
@@ -48,7 +48,7 @@
 .checkout-steps .is-current { color: var(--plum-900); font-weight: 700; }
 
 .checkout-form { display: grid; gap: var(--space-5); }
-.checkout-block { padding: clamp(1.25rem, 1rem + 1.5vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+.checkout-block { padding: clamp(1.25rem, 1rem + 1.5vw, 2.25rem); border-radius: var(--radius-lg); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
 .checkout-block__title {
   display: flex;
   align-items: center;

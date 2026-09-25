@@ -59,7 +59,7 @@
   <div class="nav-backdrop" data-close-menu></div>
 
   <main id="contenu" tabindex="-1">
-    <div class="product-top wall">
+    <div class="product-top">
       <div class="container">
         <nav class="breadcrumb product-top__crumbs" aria-label="Fil d’Ariane">
           <ol><li><a href="index.html">Accueil</a></li><li aria-current="page">Éclat d’Ubé</li></ol>
@@ -182,10 +182,10 @@
     <!-- Gift -->
     <section class="section section--gift" aria-labelledby="gift-title">
       <div class="container">
-        <div class="gift-banner gift-banner--card" data-reveal>
+        <div class="gift-banner" data-reveal>
           <div class="gift-banner__inner">
-            <img src="assets/img/gift-pyramid.webp" width="710" height="396" alt="Trois canettes Éclat d’Ubé empilées" loading="lazy">
-            <div>
+            <div class="gift-banner__media"><img src="assets/img/gift-pyramid.webp" width="710" height="396" alt="Trois canettes Éclat d’Ubé empilées" loading="lazy"></div>
+            <div class="gift-banner__copy">
               <h2 id="gift-title">À partager, à offrir.</h2>
               <p>Faites découvrir Éclat d’Ubé à vos proches.</p>
               <a class="btn btn--lg" href="product.html?format=coffret-3" data-select-format="coffret-3">Découvrir le trio · 46,90 €</a>
@@ -197,7 +197,7 @@
 
     <!-- FAQ -->
     <section class="section section--flush-top" id="faq" aria-labelledby="faq-title">
-      <div class="container">
+      <div class="container container--narrow">
         <h2 class="section-title" id="faq-title">Vos questions, tout simplement.</h2>
         <div class="faq-list faq-list--panel">
           <details>
@@ -257,7 +257,7 @@
         </ul>
       </nav>
       <form class="site-footer__newsletter" data-newsletter novalidate>
-        <label for="newsletter-email">Une nouvelle recette dans votre boîte mail.</label>
+        <label class="site-footer__nl-title" for="newsletter-email">Une nouvelle recette dans votre boîte mail.</label>
         <div class="site-footer__field">
           <input id="newsletter-email" type="email" name="email" placeholder="Votre e-mail" autocomplete="email" required>
           <button type="submit">S’inscrire</button>

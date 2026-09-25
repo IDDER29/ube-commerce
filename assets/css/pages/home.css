@@ -1,32 +1,41 @@
 /* Home page (mockup 1) ------------------------------------------------------ */
 
-.hero { position: relative; overflow: hidden; text-align: center; }
-.hero__copy { position: relative; z-index: 1; padding-top: .5rem; }
-.hero__script { font-size: clamp(2.2rem, 1.4rem + 3.2vw, 4.2rem); }
+.hero { padding-top: clamp(2.5rem, 1.5rem + 4vw, 5.5rem); text-align: center; }
+.hero__copy { display: flex; flex-direction: column; align-items: center; }
+.hero__script { font-size: clamp(1.35rem, 1.05rem + 1.2vw, 2.1rem); }
 .hero__title {
-  margin-top: .08em;
+  margin-top: .12em;
   font-family: var(--font-serif);
-  font-size: clamp(3.3rem, 1.5rem + 7.6vw, 7.4rem);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -.02em;
+  font-size: clamp(3.6rem, 1.4rem + 9.5vw, 9.5rem);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.04em;
   color: var(--plum-900);
-  font-variation-settings: "opsz" 60;
+  font-variation-settings: "opsz" 144;
 }
-.hero__lead { margin: .35em 0 1em; font-size: clamp(1.1rem, .9rem + .9vw, 1.7rem); }
-.hero__meta { margin-top: 1rem; font-size: 1.15rem; font-weight: 500; }
-.hero__scene { margin-top: clamp(-3rem, -2vw, -1rem); }
-.hero__scene img {
-  width: 100%;
-  height: clamp(250px, 30vw, 440px);
-  object-fit: cover;
-  object-position: center 80%;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+.hero__lead { max-width: 30ch; margin: .9em 0 1.6em; font-size: clamp(1.15rem, .95rem + .8vw, 1.55rem); line-height: 1.4; color: var(--ink-2); }
+.hero__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  margin-top: 1.1rem;
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
-
+.hero__meta::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px var(--success-bg); }
+.hero__scene {
+  overflow: hidden;
+  margin-top: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  border-radius: var(--radius-lg);
+  background: var(--sand-100);
+  aspect-ratio: 16 / 5.4;
+}
+.hero__scene img { width: 100%; height: 100%; object-fit: cover; object-position: center 75%; }
 
 @media (max-width: 600px) {
   .hero__copy .btn { width: 100%; }
-  .hero__scene img { height: 240px; object-position: 55% 80%; }
+  .hero__scene { aspect-ratio: 4 / 3; }
+  .hero__scene img { object-position: 55% 80%; }
 }

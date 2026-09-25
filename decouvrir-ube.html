@@ -60,12 +60,12 @@
 
   <main id="contenu" tabindex="-1">
     <!-- Hero -->
-    <section class="discover-hero wall" aria-labelledby="discover-title">
+    <section class="discover-hero" aria-labelledby="discover-title">
       <div class="container discover-hero__inner">
         <div class="discover-hero__copy">
           <p class="script discover-hero__script">À la découverte de l’ube</p>
           <h1 class="discover-hero__title" id="discover-title">Une racine.<br>Une couleur.<br>Mille envies.</h1>
-          <p class="discover-hero__lead">L’ube est une igname violette,<br>différente du taro et de la patate douce.</p>
+          <p class="discover-hero__lead">L’ube est une igname violette, <br>différente du taro et de la patate douce.</p>
         </div>
         <figure class="discover-hero__media">
           <img src="assets/img/ube-hero.webp" width="1136" height="592" alt="Racines d’ube coupées en deux, chair violette, avec un bol de poudre" fetchpriority="high">
@@ -124,9 +124,9 @@
 
     <!-- FAQ -->
     <section class="section section--snug" aria-labelledby="faq-title">
-      <div class="container">
+      <div class="container container--narrow">
         <h2 class="section-title" id="faq-title">Les premières questions</h2>
-        <div class="faq-list faq-list--narrow">
+        <div class="faq-list">
           <details>
             <summary>Quelle différence avec le taro ?</summary>
             <div><p>Le taro est un tubercule à chair blanche mouchetée de violet, au goût plus neutre. L’ube est une igname à la chair entièrement violette, naturellement douce, aux notes de vanille et de noisette.</p></div>
@@ -148,13 +148,15 @@
     </section>
 
     <!-- CTA -->
-    <section class="discover-cta wall" aria-labelledby="cta-title">
-      <div class="container discover-cta__inner">
-        <img src="assets/img/cta-tray.webp" width="830" height="326" alt="Canette Éclat d’Ubé, poudre et latte sur un plateau en bois" loading="lazy">
-        <div class="discover-cta__copy" data-reveal>
-          <h2 id="cta-title">Prêt à préparer votre premier latte ?</h2>
-          <p>Éclat d’Ubé · 50 g · 17,90 €</p>
-          <a class="btn btn--lg" href="product.html">Découvrir Éclat d’Ubé</a>
+    <section class="section section--flush-top" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="discover-cta" data-reveal>
+          <div class="discover-cta__media"><img src="assets/img/cta-tray.webp" width="830" height="326" alt="Canette Éclat d’Ubé, poudre et latte sur un plateau en bois" loading="lazy"></div>
+          <div class="discover-cta__copy">
+            <h2 id="cta-title">Prêt à préparer votre premier latte ?</h2>
+            <p>Éclat d’Ubé · 50 g · 17,90 €</p>
+            <a class="btn btn--lg btn--light" href="product.html">Découvrir Éclat d’Ubé</a>
+          </div>
         </div>
       </div>
     </section>
@@ -171,7 +173,7 @@
         </ul>
       </nav>
       <form class="site-footer__newsletter" data-newsletter novalidate>
-        <label for="newsletter-email">Une nouvelle recette dans votre boîte mail.</label>
+        <label class="site-footer__nl-title" for="newsletter-email">Une nouvelle recette dans votre boîte mail.</label>
         <div class="site-footer__field">
           <input id="newsletter-email" type="email" name="email" placeholder="Votre e-mail" autocomplete="email" required>
           <button type="submit">S’inscrire</button>
