@@ -144,6 +144,22 @@ def tags(kind, names):
 
 # --- build -----------------------------------------------------------------
 
+NBSP_BEFORE = re.compile(r"[ \t]+([?!:;»])")
+SKIP_BLOCK = re.compile(r"(<script\b.*?</script>|<style\b.*?</style>)", re.S | re.I)
+
+
+def french_spacing(html):
+    """Non-breaking space before ? ! : ; » in visible text only, so French
+    punctuation never wraps onto its own line. Tags, attributes, scripts
+    and styles are left untouched."""
+    def fix_text(chunk):
+        # split into tags and text; only rewrite the text parts
+        parts = re.split(r"(<[^>]+>)", chunk)
+        return "".join(p if p.startswith("<") else NBSP_BEFORE.sub("\u00a0\\1", p) for p in parts)
+    pieces = SKIP_BLOCK.split(html)
+    return "".join(p if SKIP_BLOCK.fullmatch(p) else fix_text(p) for p in pieces)
+
+
 def build_page(path):
     name = path.stem
     meta, body = parse_page(read(path))
@@ -164,7 +180,7 @@ def build_page(path):
     meta["body"] = body.strip("\n")
 
     layout = read(SRC / "partials" / f"layout-{meta['layout']}.html")
-    html = render(layout, meta)
+    html = french_spacing(render(layout, meta))
     (ROOT / f"{name}.html").write_text(html, encoding="utf-8")
     return name
 

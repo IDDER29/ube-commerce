@@ -56,8 +56,9 @@
 }
 .recipe__ingredients { padding: clamp(1.25rem, 1rem + 1.2vw, 2rem); border-radius: var(--radius-lg); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
 .ingredients li + li { border-top: 1px solid var(--line); }
-.ingredients label { display: flex; gap: .75rem; align-items: flex-start; padding: .65rem 0; cursor: pointer; }
-.ingredients input { width: 19px; height: 19px; margin: 2px 0 0; flex: none; accent-color: var(--magenta); }
+/* Checkbox sits in a gutter so the label text (and its links) flows as one line */
+.ingredients label { position: relative; display: block; padding: .7rem 0 .7rem 2rem; cursor: pointer; }
+.ingredients input { position: absolute; left: 0; top: .85rem; width: 19px; height: 19px; margin: 0; accent-color: var(--magenta); }
 .ingredients input:checked + * , .ingredients label:has(input:checked) { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line-strong); }
 .ingredients a { color: var(--magenta-ink); font-weight: 600; }
 .method { counter-reset: method; }
