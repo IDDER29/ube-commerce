@@ -15,3 +15,5 @@ Static HTML/CSS/JS storefront built from the UI flow mockups.
 The flow goes: home → "Choisir ce format" opens the product page with that format preselected (`eclat-dube.html?format=coffret-3`) → add to cart → cart drawer.
 
 Open `index.html` in a browser, or serve the folder: `python3 -m http.server`.
+
+Screenshots of every page (desktop and mobile) are in `docs/screenshots/`.
