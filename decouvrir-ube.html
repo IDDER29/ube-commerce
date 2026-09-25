@@ -5,36 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Découvrir l’ube — Une racine, une couleur | Ube Halaya</title>
   <meta name="description" content="L’ube est une igname violette des Philippines. De la racine à la poudre, découvrez comment la cuisiner en latte et en pâtisserie.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Pacifico&family=Sacramento&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#3b0b27">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ube Halaya">
+  <meta property="og:title" content="Découvrir l’ube — Une racine, une couleur | Ube Halaya">
+  <meta property="og:description" content="L’ube est une igname violette des Philippines. De la racine à la poudre, découvrez comment la cuisiner en latte et en pâtisserie.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/ube-hero.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="page-decouvrir-ube">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <div class="announce">Livraison offerte dès 45 €</div>
+  <div class="announce">Livraison offerte dès 45&nbsp;€</div>
 
-  <header class="site-header wall">
-      <div class="wrap site-header__inner">
-        <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false"><span></span><span class="sr-only">Menu</span></button>
-        <a class="logo" href="index.html" aria-label="Ube Halaya — accueil"><span>Ube</span><span>Halaya</span></a>
-        <nav class="nav" id="site-nav" aria-label="Navigation principale">
-          <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="eclat-dube.html">Boutique</a></li>
-            <li><a href="decouvrir-ube.html" aria-current="page">Découvrir l’ube</a></li>
-            <li><a href="index.html#recettes">Recettes</a></li>
-            <li><a href="index.html#histoire">Notre histoire</a></li>
-          </ul>
-        </nav>
-        <button class="cart-btn" type="button" data-open-cart aria-label="Ouvrir le panier">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20l-1.4 18H7.4z"/><path d="M11.5 13V8.5a4.5 4.5 0 0 1 9 0V13"/></svg>
-          <span class="cart-count" hidden>0</span>
-        </button>
-      </div>
-    </header>
+  <header class="site-header" id="site-header">
+    <div class="wrap site-header__inner">
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only">Menu</span>
+      </button>
+      <a class="logo" href="index.html" aria-label="Ube Halaya — accueil">
+        <img src="assets/img/logo.svg" width="108" height="108" alt="">
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="eclat-dube.html">Boutique</a></li>
+          <li><a href="decouvrir-ube.html" aria-current="page">Découvrir l’ube</a></li>
+          <li><a href="index.html#recettes">Recettes</a></li>
+          <li><a href="index.html#histoire">Notre histoire</a></li>
+        </ul>
+      </nav>
+      <button class="cart-btn" type="button" data-open-cart aria-label="Ouvrir le panier" aria-controls="cart-drawer">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20l-1.4 18H7.4z"/><path d="M11.5 13V8.5a4.5 4.5 0 0 1 9 0V13"/></svg>
+        <span class="cart-count" hidden>0</span>
+      </button>
+    </div>
+  </header>
 
-  <main id="top">
+  <main id="contenu">
     <section class="ube-hero wall">
       <div class="wrap ube-hero__inner">
         <div class="ube-hero__copy">
@@ -42,29 +56,29 @@
           <h1 class="h-display">Une racine.<br>Une couleur.<br>Mille envies.</h1>
           <p>L’ube est une igname violette,<br>différente du taro et de la patate douce.</p>
         </div>
-        <figure class="ube-hero__img" style="margin:0">
-          <img src="assets/img/ube-hero.jpg" width="568" height="296" alt="Racines d’ube coupées en deux, chair violette, avec un bol de poudre">
-          <figcaption>Illustration de la racine d’ube</figcaption>
+        <figure class="ube-hero__img">
+          <img src="assets/img/ube-hero.webp" width="568" height="296" alt="Racines d’ube coupées en deux, chair violette, avec un bol de poudre">
+          <figcaption class="img-credit">Illustration de la racine d’ube</figcaption>
         </figure>
       </div>
     </section>
 
     <section class="section section--tight">
       <div class="wrap">
-        <h2 class="h-section" style="margin-bottom:1rem">De la racine à votre cuisine.</h2>
+        <h2 class="h-section">De la racine à votre cuisine.</h2>
         <div class="journey">
           <article>
-            <img src="assets/img/ube-root.jpg" width="303" height="192" alt="Racine d’ube ouverte, chair violette intense" loading="lazy">
+            <img src="assets/img/ube-root.webp" width="303" height="192" alt="Racine d’ube ouverte, chair violette intense" loading="lazy">
             <h3>La racine</h3>
             <p>Une igname naturellement violette, à la chair intense.</p>
           </article>
           <article>
-            <img src="assets/img/ube-powder.jpg" width="297" height="192" alt="Bol de poudre d’ube" loading="lazy">
+            <img src="assets/img/ube-powder.webp" width="297" height="192" alt="Bol de poudre d’ube" loading="lazy">
             <h3>La poudre</h3>
             <p>Une poudre d’ube au violet délicat, facile à incorporer dans vos boissons et vos recettes.</p>
           </article>
           <article>
-            <img src="assets/img/ube-latte.jpg" width="303" height="192" alt="Latte à l’ube marbré" loading="lazy">
+            <img src="assets/img/ube-latte.webp" width="303" height="192" alt="Latte à l’ube marbré" loading="lazy">
             <h3>Votre recette</h3>
             <p>Un latte, un gâteau, un moment gourmand, à votre façon.</p>
           </article>
@@ -74,30 +88,30 @@
 
     <section class="section section--tight" id="recettes">
       <div class="wrap">
-        <h2 class="h-section" style="margin-bottom:1rem">Comment allez-vous le découvrir ?</h2>
+        <h2 class="h-section">Comment allez-vous le découvrir ?</h2>
         <div class="discover">
-          <a class="discover-card" href="eclat-dube.html#preparation">
+          <a class="discover-card" href="eclat-dube.html#latte-signature">
             <div class="discover-card__copy">
               <h3>En latte</h3>
               <p>Une boisson onctueuse et visuellement irrésistible.</p>
             </div>
-            <img src="assets/img/discover-latte.jpg" width="276" height="186" alt="" loading="lazy">
+            <img src="assets/img/discover-latte.webp" width="276" height="186" alt="" loading="lazy">
           </a>
           <a class="discover-card" href="index.html#recettes">
             <div class="discover-card__copy">
               <h3>En pâtisserie</h3>
               <p>Des gâteaux colorés et gourmands.</p>
             </div>
-            <img src="assets/img/discover-cake.jpg" width="298" height="186" alt="" loading="lazy">
+            <img src="assets/img/discover-cake.webp" width="298" height="186" alt="" loading="lazy">
           </a>
         </div>
-        <p class="center" style="margin-top:1rem"><a class="link-arrow link-arrow--pink" href="index.html#recettes">Explorer les recettes</a></p>
+        <p class="section-more"><a class="link-arrow link-arrow--pink" href="index.html#recettes">Explorer les recettes</a></p>
       </div>
     </section>
 
     <section class="section section--tight">
       <div class="wrap">
-        <h2 class="h-section" style="margin-bottom:1rem">Les premières questions</h2>
+        <h2 class="h-section">Les premières questions</h2>
         <div class="faq faq--narrow">
           <details>
             <summary>Quelle différence avec le taro ?</summary>
@@ -121,7 +135,7 @@
 
     <section class="final-cta wall">
       <div class="wrap final-cta__inner">
-        <img src="assets/img/cta-tray.jpg" width="415" height="163" alt="Canette Éclat d’Ubé, poudre et latte sur un plateau en bois" loading="lazy">
+        <img src="assets/img/cta-tray.webp" width="415" height="163" alt="Canette Éclat d’Ubé, poudre et latte sur un plateau en bois" loading="lazy">
         <div class="final-cta__copy">
           <h2>Prêt à préparer votre premier latte ?</h2>
           <p>Éclat d’Ubé · 50 g · 17,90 €</p>
@@ -133,7 +147,9 @@
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
-      <a class="logo logo--sm" href="index.html" aria-label="Ube Halaya — accueil"><span>Ube</span><span>Halaya</span></a>
+      <a class="logo logo--sm" href="index.html" aria-label="Ube Halaya — accueil">
+        <img src="assets/img/logo.svg" width="72" height="72" alt="" loading="lazy">
+      </a>
       <ul class="footer-links">
         <li><a href="index.html#recettes">Recettes</a></li>
         <li><a href="index.html#histoire">Notre histoire</a></li>
@@ -154,7 +170,7 @@
 
   <!-- Cart drawer -->
   <div class="drawer-backdrop" data-close-cart></div>
-  <aside class="drawer" id="cart-drawer" aria-hidden="true" aria-labelledby="cart-title" role="dialog">
+  <aside class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" inert>
     <div class="drawer__head">
       <h2 id="cart-title">Votre panier</h2>
       <button class="drawer__close" type="button" data-close-cart aria-label="Fermer le panier">×</button>
@@ -173,6 +189,6 @@
     </div>
   </aside>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
