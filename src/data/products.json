@@ -19,13 +19,14 @@
       "tag": "Pour découvrir",
       "card_image": "format-1.webp",
       "card_alt": "Une canette Éclat d’Ubé",
-      "hover_image": "ube-latte.webp",
       "gallery": [
         "product-main.webp",
         "ube-latte.webp",
         "ube-powder.webp",
-        "pstep-mix.webp"
-      ]
+        "gift-pyramid.webp"
+      ],
+      "size": "50 g",
+      "variant_label": "1 canette · 50 g"
     },
     {
       "id": "coffret-3",
@@ -35,17 +36,17 @@
       "meta": "3 canettes · 150 g",
       "cans": 3,
       "price": 46.9,
-      "tag": "À partager ou à offrir",
-      "label": "Idéal pour offrir",
+      "tag": "À partager",
       "card_image": "format-3.webp",
       "card_alt": "Trois canettes Éclat d’Ubé",
-      "hover_image": "gift-pyramid.webp",
       "gallery": [
         "gift-pyramid.webp",
         "format-3.webp",
         "ube-latte.webp",
         "ube-powder.webp"
-      ]
+      ],
+      "size": "3 canettes · 150 g",
+      "variant_label": "3 canettes · 150 g"
     },
     {
       "id": "coffret-6",
@@ -56,16 +57,17 @@
       "cans": 6,
       "price": 84.9,
       "tag": "Pour en profiter plus longtemps",
-      "label": "Meilleur prix par latte",
       "card_image": "format-6.webp",
       "card_alt": "Six canettes Éclat d’Ubé",
-      "hover_image": "recipe-latte.webp",
       "gallery": [
         "format-6.webp",
         "gift-trio.webp",
         "ube-latte.webp",
         "ube-powder.webp"
-      ]
+      ],
+      "size": "6 canettes · 300 g",
+      "variant_label": "6 canettes · 300 g",
+      "tag_plum": true
     }
   ]
 }

@@ -1,5 +1,5 @@
-/* Product page: format selector, gallery, quantity, add to cart,
-   free-shipping preview and the sticky add-to-cart bar on phones. */
+/* Product page: format selector, gallery, quantity, add to cart and the
+   sticky add-to-cart bar on phones. */
 (function () {
   "use strict";
 
@@ -28,17 +28,19 @@
   var mainWrap = $(".gallery__main", gallery);
   var mainImg = $("[data-gallery-main]", gallery);
   var thumbsWrap = $("[data-gallery-thumbs]", gallery);
+  var zoomBtn = $("[data-gallery-zoom]", gallery);
+  var ALTS = ["", "Latte à l’ube marbré", "Bol de poudre d’ube", "Canettes Éclat d’Ubé"];
   var images = [];
   var current = 0;
 
-  function readThumbs() {
-    images = $$("button img", thumbsWrap).map(function (img) { return { src: img.getAttribute("src"), alt: img.alt }; });
+  function setZoom(on) {
+    mainWrap.classList.toggle("is-zoomed", on);
+    zoomBtn.setAttribute("aria-label", on ? "Réduire l’image" : "Agrandir l’image");
   }
   function show(i, instant) {
-    if (!images.length) return;
     current = (i + images.length) % images.length;
     var img = images[current];
-    mainWrap.classList.remove("is-zoomed");
+    setZoom(false);
     $$("button", thumbsWrap).forEach(function (b, n) { b.setAttribute("aria-pressed", String(n === current)); });
     if (mainImg.getAttribute("src") === img.src) return;
     if (instant || UI.reduceMotion) { mainImg.src = img.src; mainImg.alt = img.alt; return; }
@@ -46,16 +48,17 @@
     setTimeout(function () {
       mainImg.src = img.src;
       mainImg.alt = img.alt;
-      mainImg.onload = function () { mainImg.classList.remove("is-fading"); };
       if (mainImg.complete) mainImg.classList.remove("is-fading");
+      else mainImg.onload = function () { mainImg.classList.remove("is-fading"); };
     }, 160);
   }
   function setGallery(p, instant) {
-    var alts = [p.name + " — Éclat d’Ubé", "Latte à l’ube marbré", "Bol de poudre d’ube", "Préparation de la poudre"];
-    thumbsWrap.innerHTML = p.gallery.map(function (src, n) {
-      return '<button type="button" aria-pressed="' + (n === 0) + '"><img src="' + src + '" alt="' + UI.esc(alts[n] || p.name) + '" width="120" height="120"></button>';
+    images = p.gallery.map(function (src, n) {
+      return { src: src, alt: n === 0 ? p.fullName : ALTS[n] || p.name };
+    });
+    thumbsWrap.innerHTML = images.map(function (img, n) {
+      return '<button type="button" aria-pressed="' + (n === 0) + '"><img src="' + img.src + '" alt="' + UI.esc(img.alt) + '" width="120" height="120"></button>';
     }).join("");
-    readThumbs();
     show(0, instant);
   }
 
@@ -63,19 +66,14 @@
     var b = e.target.closest("button");
     if (b) show($$("button", thumbsWrap).indexOf(b));
   });
-  $("[data-gallery-prev]", gallery).addEventListener("click", function () { show(current - 1); });
-  $("[data-gallery-next]", gallery).addEventListener("click", function () { show(current + 1); });
-  $("[data-gallery-zoom]", gallery).addEventListener("click", function () {
-    var z = mainWrap.classList.toggle("is-zoomed");
-    this.setAttribute("aria-label", z ? "Réduire l’image" : "Agrandir l’image");
-  });
-  mainImg.addEventListener("click", function () { mainWrap.classList.toggle("is-zoomed"); });
+  zoomBtn.addEventListener("click", function () { setZoom(!mainWrap.classList.contains("is-zoomed")); });
+  mainImg.addEventListener("click", function () { setZoom(!mainWrap.classList.contains("is-zoomed")); });
   mainWrap.addEventListener("mousemove", function (e) {
     if (!mainWrap.classList.contains("is-zoomed")) return;
     var r = mainWrap.getBoundingClientRect();
     mainImg.style.transformOrigin = ((e.clientX - r.left) / r.width) * 100 + "% " + ((e.clientY - r.top) / r.height) * 100 + "%";
   });
-  // Swipe on touch screens
+  // Swipe between photos on touch screens
   var touchX = null;
   mainWrap.addEventListener("touchstart", function (e) { touchX = e.touches[0].clientX; }, { passive: true });
   mainWrap.addEventListener("touchend", function (e) {
@@ -85,57 +83,44 @@
     touchX = null;
   });
 
-  /* ---------- Pricing & selection ---------- */
-
-  var shipBox = $("[data-product-ship]");
-
-  function updateShipPreview() {
-    var p = product();
-    var inCart = Cart.subtotal();
-    var withSelection = inCart + p.price * qty();
-    var text = $("[data-ship-text]", shipBox);
-    var left = Math.max(0, DATA.freeShipping - withSelection);
-    shipBox.classList.toggle("is-complete", left === 0);
-    if (inCart >= DATA.freeShipping) text.innerHTML = "Votre livraison est déjà offerte.";
-    else if (left === 0) text.innerHTML = "Avec cet ajout, <strong>la livraison vous est offerte</strong>.";
-    else text.innerHTML = "Plus que <strong>" + money(left) + "</strong> après cet ajout pour la livraison offerte.";
-    $("[data-ship-bar]", shipBox).style.width = Math.min(100, (withSelection / DATA.freeShipping) * 100) + "%";
-  }
+  /* ---------- Selection & pricing ---------- */
 
   function update() {
     var p = product();
     var q = qty();
     $("[data-price]").textContent = money(p.price);
-    var compare = $("[data-compare]");
     var saving = $("[data-saving]");
-    compare.hidden = saving.hidden = !p.compareAt;
-    if (p.compareAt) {
-      compare.textContent = money(p.compareAt);
-      saving.textContent = "Économisez " + money(p.compareAt - p.price);
-    }
-    var badge = $("[data-gallery-badge]");
-    badge.hidden = !p.savingPct;
-    badge.className = "badge badge--save gallery__badge";
-    badge.textContent = "−" + p.savingPct + " %";
+    saving.hidden = !p.compareAt;
+    if (p.compareAt) saving.textContent = "Économisez " + money(p.compareAt - p.price);
     $("[data-per-latte]").textContent = money(p.perLatte);
-    $("[data-variant-name]").textContent = "· " + p.name;
+    $("[data-spec-content]").textContent = p.cans === 1
+      ? "1 canette de poudre d’ube de 50 g"
+      : p.cans + " canettes de poudre d’ube de 50 g (" + p.cans * 50 + " g)";
+    $("[data-spec-yield]").textContent = "Jusqu’à " + p.lattes + " lattes à 2 g";
     var btnPrice = $("[data-button-price]", addBtn);
     if (btnPrice) btnPrice.textContent = money(p.price * q);
-    $("[data-sticky-name]").textContent = p.name + (q > 1 ? " × " + q : "");
+    $("[data-sticky-name]").textContent = p.variantLabel + (q > 1 ? " × " + q : "");
     $("[data-sticky-price]").textContent = money(p.price * q);
     $('[data-qty-step="-1"]', form).disabled = q <= 1;
     $('[data-qty-step="1"]', form).disabled = q >= Cart.MAX_QTY;
-    updateShipPreview();
+  }
+
+  function selectFormat(id, opts) {
+    var radio = $('input[name="format"][value="' + id + '"]', form);
+    if (!radio) return;
+    radio.checked = true;
+    setGallery(DATA.products[id], opts && opts.instant);
+    update();
+    if (!(opts && opts.keepUrl)) {
+      var url = new URL(location.href);
+      url.searchParams.set("format", id);
+      history.replaceState(null, "", url);
+    }
   }
 
   form.addEventListener("change", function (e) {
-    if (e.target.name === "format") {
-      setGallery(product());
-      var url = new URL(location.href);
-      url.searchParams.set("format", selectedId());
-      history.replaceState(null, "", url);
-    }
-    update();
+    if (e.target.name === "format") selectFormat(e.target.value);
+    else update();
   });
   $$("[data-qty-step]", form).forEach(function (b) {
     b.addEventListener("click", function () {
@@ -147,8 +132,7 @@
   qtyInput.addEventListener("blur", function () { qtyInput.value = qty(); update(); });
 
   function addSelection() {
-    var p = product();
-    Cart.add(p.id, qty());
+    Cart.add(selectedId(), qty());
     addBtn.classList.add("is-success");
     addBtn.innerHTML = UI.icons.check + "<span>Ajouté au panier</span>";
     setTimeout(function () {
@@ -159,23 +143,28 @@
     setTimeout(UI.openCart, 300);
   }
   form.addEventListener("submit", function (e) { e.preventDefault(); addSelection(); });
-  Cart.onChange(function () { updateShipPreview(); });
+
+  // "Découvrir le trio": pick the 3-can box without reloading the page
+  $$("[data-select-format]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      selectFormat(a.dataset.selectFormat);
+      form.scrollIntoView({ behavior: UI.reduceMotion ? "auto" : "smooth", block: "center" });
+      UI.toast("Format sélectionné : " + DATA.products[a.dataset.selectFormat].variantLabel);
+    });
+  });
 
   // Initial format from the URL (?format=coffret-3)
   var fromUrl = new URLSearchParams(location.search).get("format");
-  if (fromUrl && DATA.products[fromUrl]) {
-    $('input[name="format"][value="' + fromUrl + '"]', form).checked = true;
-  }
-  setGallery(product(), true);
-  update();
+  selectFormat(fromUrl && DATA.products[fromUrl] ? fromUrl : selectedId(), { instant: true, keepUrl: true });
 
   /* ---------- Sticky bar (phones) ---------- */
 
   var bar = $("[data-sticky-buy]");
   var barBtn = $("[data-sticky-add]");
   barBtn.addEventListener("click", addSelection);
-  // A scroll check (not an IntersectionObserver) so fast flings past the
-  // button still reveal the bar.
+  // A scroll check (not an IntersectionObserver) so a fast fling past the
+  // button still reveals the bar.
   var barShown = null;
   var ticking = false;
   function syncBar() {

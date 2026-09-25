@@ -1,0 +1,106 @@
+/* Découvrir l'ube (mockup 3) ------------------------------------------------ */
+
+.discover-hero { overflow: hidden; }
+.discover-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  align-items: center;
+  min-height: 420px;
+}
+.discover-hero__copy { position: relative; z-index: 1; padding-block: 1rem 2.5rem; text-align: center; }
+.discover-hero__script { margin-left: 5%; text-align: left; font-size: clamp(2.3rem, 1.6rem + 2.8vw, 3.6rem); }
+.discover-hero__title {
+  margin: .2em 0 .45em;
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 1.5rem + 4.4vw, 4.7rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.015em;
+  color: var(--plum-900);
+  font-variation-settings: "opsz" 60;
+}
+.discover-hero__lead { font-size: clamp(1.05rem, .95rem + .45vw, 1.25rem); }
+.discover-hero__media {
+  position: relative;
+  align-self: stretch;
+  margin: 0 calc((100vw - min(100vw - var(--gutter) * 2, var(--container))) / -2) 0 0;
+}
+.discover-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20%);
+          mask-image: linear-gradient(to right, transparent 0, #000 20%);
+}
+
+
+.journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, .6rem + 1vw, 1.25rem); text-align: center; }
+.journey img { width: 100%; aspect-ratio: 303 / 192; object-fit: cover; border-radius: var(--radius-sm); }
+.journey h3 { margin: .8rem 0 .2rem; font-family: var(--font-serif); font-size: 1.65rem; font-weight: 500; color: var(--plum-900); }
+.journey p { max-width: 30ch; margin-inline: auto; font-size: 1.05rem; }
+
+.discover-cards { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, .6rem + 1vw, 1.25rem); }
+.discover-card {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, #f3ebe6 0%, #efe4dd 100%);
+  text-decoration: none;
+  transition: box-shadow .3s, transform .3s var(--ease);
+}
+.discover-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.discover-card__copy { display: grid; gap: .35rem; padding: 1.5rem 0 1.5rem 1.6rem; }
+.discover-card__copy strong { font-family: var(--font-serif); font-size: 2rem; font-weight: 500; color: var(--plum-900); }
+.discover-card__copy span { font-size: 1.08rem; }
+.discover-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  aspect-ratio: 298 / 200;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%);
+          mask-image: linear-gradient(to right, transparent 0, #000 22%);
+}
+.discover-more { margin-top: 1.25rem; text-align: center; }
+
+.discover-cta__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding-block: 1.25rem;
+}
+.discover-cta img {
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 75% 80% at center, #000 60%, transparent 100%);
+          mask-image: radial-gradient(ellipse 75% 80% at center, #000 60%, transparent 100%);
+}
+.discover-cta__copy { text-align: center; }
+.discover-cta h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  color: var(--plum-900);
+}
+.discover-cta p { margin: .4em 0 1.1rem; font-size: 1.2rem; }
+
+@media (max-width: 900px) {
+  .discover-hero__inner { grid-template-columns: 1fr; min-height: 0; text-align: center; }
+  .discover-hero__media { order: -1; margin: 0 calc(var(--gutter) * -1); aspect-ratio: 16 / 10; }
+  .discover-hero__media img { -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent); }
+  .discover-hero__script { margin-left: 0; text-align: center; }
+  .discover-hero__copy { padding-top: 0; }
+  .discover-cards { grid-template-columns: 1fr; }
+  .discover-cta__inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .journey { grid-template-columns: 1fr; gap: 1.75rem; }
+  .discover-card { grid-template-columns: 1.15fr 1fr; }
+  .discover-card__copy { padding: 1rem 0 1rem 1rem; }
+  .discover-card__copy strong { font-size: 1.45rem; }
+  .discover-card img { min-height: 170px; }
+}

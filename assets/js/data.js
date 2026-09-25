@@ -10,6 +10,7 @@ window.UBE_DATA = {
       "name": "Une canette",
       "fullName": "Éclat d’Ubé — Une canette",
       "meta": "1 canette · 50 g",
+      "variantLabel": "1 canette · 50 g",
       "cans": 1,
       "price": 17.9,
       "compareAt": null,
@@ -22,7 +23,7 @@ window.UBE_DATA = {
         "assets/img/product-main.webp",
         "assets/img/ube-latte.webp",
         "assets/img/ube-powder.webp",
-        "assets/img/pstep-mix.webp"
+        "assets/img/gift-pyramid.webp"
       ],
       "url": "product.html?format=canette-1"
     },
@@ -31,6 +32,7 @@ window.UBE_DATA = {
       "name": "Coffret découverte",
       "fullName": "Éclat d’Ubé — Coffret découverte",
       "meta": "3 canettes · 150 g",
+      "variantLabel": "3 canettes · 150 g",
       "cans": 3,
       "price": 46.9,
       "compareAt": 53.7,
@@ -52,6 +54,7 @@ window.UBE_DATA = {
       "name": "Coffret à partager",
       "fullName": "Éclat d’Ubé — Coffret à partager",
       "meta": "6 canettes · 300 g",
+      "variantLabel": "6 canettes · 300 g",
       "cans": 6,
       "price": 84.9,
       "compareAt": 107.4,

@@ -42,7 +42,7 @@ UNIT_PRICE = CATALOGUE["unit_price"]
 LATTES_PER_CAN = CATALOGUE["lattes_per_can"]
 PRODUCTS = {p["id"]: p for p in CATALOGUE["products"]}
 
-NAV_KEYS = ["home", "shop", "recipes", "about", "faq", "contact"]
+NAV_KEYS = ["home", "product", "discover", "recipes", "about"]
 
 
 # --- helpers ---------------------------------------------------------------
@@ -78,28 +78,20 @@ def icon(name):
 
 
 def card(pid):
+    """Format card, as in the home page mockup ("Choisissez votre format")."""
     p = PRODUCTS[pid]
-    tpl = read(SRC / "partials" / "product-card.html")
     values = {
         "id": p["id"],
         "name": p["name"],
-        "meta": p["meta"],
+        "size": p["size"],
         "tag": p["tag"],
+        "tag_class": " format-card__tag--plum" if p.get("tag_plum") else "",
         "url": p["url"],
         "image": p["card_image"],
         "image_alt": p["card_alt"],
-        "hover_image": p["hover_image"],
-        "lattes": str(p["lattes"]),
         "price": money(p["price"]),
-        "price_raw": f"{p['price']:.2f}",
-        "per_latte": money(p["per_latte"]),
-        "per_latte_raw": f"{p['per_latte']:.2f}",
-        "order": str(p["order"]),
-        "compare": f'<s class="price-compare">{money(p["compare_at"])}</s>' if p["compare_at"] else "",
-        "badge": f'<span class="badge badge--save">−{p["saving_pct"]}&nbsp;%</span>' if p["saving_pct"] else "",
-        "label": f'<span class="badge">{p["label"]}</span>' if p.get("label") else "",
     }
-    return render(tpl, values)
+    return render(read(SRC / "partials" / "format-card.html"), values)
 
 
 DIRECTIVE = re.compile(r"\{\{\s*(?:(include|icon|card|price):)?([\w\-.]+)\s*\}\}")
@@ -189,6 +181,7 @@ def write_data_js():
                 "name": p["name"],
                 "fullName": p["full_name"],
                 "meta": p["meta"],
+                "variantLabel": p["variant_label"],
                 "cans": p["cans"],
                 "price": p["price"],
                 "compareAt": p["compare_at"],

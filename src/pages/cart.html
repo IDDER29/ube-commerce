@@ -17,7 +17,7 @@ scripts: cart
             <div class="ship-meter__track"><span class="ship-meter__bar" data-ship-bar></span></div>
           </div>
           <ul class="cart-lines" data-page-items></ul>
-          <a class="link cart-main__continue" href="shop.html">{{icon:arrow-left}} Continuer mes achats</a>
+          <a class="link cart-main__continue" href="product.html">{{icon:arrow-left}} Continuer mes achats</a>
         </section>
 
         <aside class="cart-summary panel" aria-labelledby="summary-title">
@@ -41,20 +41,15 @@ scripts: cart
         <div class="empty-state__icon">{{icon:bag}}</div>
         <h3>Votre panier est vide</h3>
         <p>Une canette suffit pour préparer jusqu’à 25 lattes violets. Laissez-vous tenter.</p>
-        <a class="btn btn--lg" href="shop.html">Découvrir la boutique</a>
+        <a class="btn btn--lg" href="product.html">Découvrir Éclat d’Ubé</a>
       </div>
     </div>
 
     <section class="section section--tint" aria-labelledby="upsell-title">
       <div class="container">
-        <div class="section-head">
-          <div class="section-head__text">
-            <p class="eyebrow">Tous les formats</p>
-            <h2 class="h2" id="upsell-title">Complétez votre commande</h2>
-          </div>
-          <a class="link" href="shop.html#comparer">Comparer les formats {{icon:arrow-right}}</a>
-        </div>
-        <div class="product-grid">
+        <h2 class="section-title" id="upsell-title">Choisissez votre format</h2>
+        <p class="script section-sub">Pour vous, ou à partager.</p>
+        <div class="formats">
           {{card:canette-1}}
           {{card:coffret-3}}
           {{card:coffret-6}}

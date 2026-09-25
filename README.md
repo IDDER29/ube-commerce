@@ -5,19 +5,25 @@ Plain HTML, CSS and JavaScript with no framework and no runtime dependencies. A 
 
 ## Pages
 
-| Page | File | Purpose |
+The three pages from the UI flow mockups follow their layout, content and wording:
+
+| Mockup | Page | File |
 | --- | --- | --- |
-| Accueil | `index.html` | Hero, benefits, formats, ritual, recipes, story, gift offer, FAQ |
-| Boutique | `shop.html` | Product grid with sorting, format comparison table |
-| Fiche produit | `product.html?format=…` | Gallery, format selector, quantity, add to cart, details, recipes |
-| Panier | `cart.html` | Full cart with quantities, savings, free-shipping meter |
-| Commande | `checkout.html` | Contact + delivery form with validation, order summary |
-| Recettes | `recipes.html` | Filterable recipes, each with ingredients checklist and steps |
-| Notre histoire | `about.html` | What ube is, from root to recipe, brand values |
-| Aide | `faq.html` | Searchable FAQ by topic |
-| Contact | `contact.html` | Validated contact form (opens the visitor’s mail app) |
-| Légal | `mentions-legales.html`, `cgv.html`, `confidentialite.html` | Templates with `[placeholders]` to complete |
-| 404 | `404.html` | Not-found page |
+| 1 | Accueil | `index.html` |
+| 2 | Fiche produit (Boutique) | `product.html?format=canette-1 / coffret-3 / coffret-6` |
+| 3 | Découvrir l’ube | `decouvrir-ube.html` |
+
+Supporting pages, styled to match, so every link in the mockups leads somewhere:
+
+| Page | File |
+| --- | --- |
+| Recettes (latte signature, cake à l’ube, cookiez à l’ube) | `recipes.html` |
+| Notre histoire | `about.html` |
+| Aide / Livraison et retours | `faq.html` |
+| Contact | `contact.html` |
+| Panier, Commande | `cart.html`, `checkout.html` |
+| Mentions légales, CGV, Confidentialité | `mentions-legales.html`, `cgv.html`, `confidentialite.html` |
+| Page introuvable | `404.html` |
 
 ## Project structure
 
@@ -32,7 +38,7 @@ assets/
   css/base.css           design tokens, typography, buttons, forms
   css/layout.css         announcement bar, header/menu, footer, newsletter, drawer
   css/components.css     product card, steps, recipe cards, accordion, promo…
-  css/pages/*.css        page-specific styles
+  css/pages/*.css        page-specific styles (home, product, discover, content, cart)
   js/data.js             generated from products.json (do not edit)
   js/cart.js             cart store (localStorage, synced across tabs)
   js/ui.js               shared UI: menu, drawer, add-to-cart, toast, newsletter

@@ -217,7 +217,7 @@
         '<li class="empty-state"><div class="empty-state__icon">' + ICONS.bag + "</div>" +
         "<h3>Votre panier est vide</h3>" +
         "<p>Une canette suffit pour préparer jusqu’à 25 lattes violets.</p>" +
-        '<a class="btn" href="shop.html">Découvrir la boutique</a></li>';
+        '<a class="btn" href="product.html">Découvrir Éclat d’Ubé</a></li>';
       return;
     }
     list.innerHTML = lines.map(function (l) { return lineItemHTML(l); }).join("");

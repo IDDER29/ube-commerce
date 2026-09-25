@@ -1,66 +1,32 @@
-/* Home page ---------------------------------------------------------------- */
+/* Home page (mockup 1) ------------------------------------------------------ */
 
-.hero {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  background: var(--cream-100) url("../../img/wall.webp") center top / 600px;
+.hero { position: relative; overflow: hidden; text-align: center; }
+.hero__copy { position: relative; z-index: 1; padding-top: .5rem; }
+.hero__script { font-size: clamp(2.2rem, 1.4rem + 3.2vw, 4.2rem); }
+.hero__title {
+  margin-top: .08em;
+  font-family: var(--font-serif);
+  font-size: clamp(3.3rem, 1.5rem + 7.6vw, 7.4rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--plum-900);
+  font-variation-settings: "opsz" 60;
 }
-.hero__copy { position: relative; z-index: 1; padding-top: clamp(2rem, 1rem + 3vw, 3.5rem); }
-.hero__script { font-size: clamp(2.1rem, 1.5rem + 2.6vw, 3.6rem); }
-.hero .display { margin-top: .08em; }
-.hero__lead { max-width: 40rem; margin: 1rem auto 0; }
-.hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); margin-top: var(--space-6); }
-.hero__facts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: .5rem 1.75rem;
-  margin-top: var(--space-5);
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  color: var(--ink-2);
-}
-.hero__facts li { display: inline-flex; align-items: center; gap: .45em; }
-.hero__facts svg { width: 18px; height: 18px; color: var(--magenta-ink); }
-.hero__scene { margin-top: clamp(-4rem, -2vw, -1rem); }
+.hero__lead { margin: .35em 0 1em; font-size: clamp(1.1rem, .9rem + .9vw, 1.7rem); }
+.hero__meta { margin-top: 1rem; font-size: 1.15rem; font-weight: 500; }
+.hero__scene { margin-top: clamp(-3rem, -2vw, -1rem); }
 .hero__scene img {
   width: 100%;
-  height: clamp(260px, 30vw, 440px);
+  height: clamp(250px, 30vw, 440px);
   object-fit: cover;
   object-position: center 80%;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 28%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
 }
 
-.benefits-band { padding-block: clamp(2.5rem, 2rem + 2vw, 3.75rem); border-bottom: 1px solid var(--line); }
-
-.ritual__cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3) var(--space-5);
-  margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
-}
-.ritual__cta p { font-size: var(--fs-sm); }
-
-.faq-split {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: clamp(2rem, 1rem + 4vw, 5rem);
-  align-items: start;
-}
-.faq-split .lead { margin-top: var(--space-4); }
-.faq-split__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); margin-top: var(--space-6); }
-@media (max-width: 860px) {
-  .faq-split { grid-template-columns: 1fr; }
-}
-
-.reassurance-band { padding-block: clamp(2.5rem, 2rem + 2vw, 3.5rem); }
 
 @media (max-width: 600px) {
-  .hero__actions .btn { width: 100%; }
-  .hero__facts { gap: .35rem 1rem; }
+  .hero__copy .btn { width: 100%; }
   .hero__scene img { height: 240px; object-position: 55% 80%; }
 }

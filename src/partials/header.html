@@ -2,7 +2,7 @@
     <div class="container site-header__inner">
       <button class="icon-btn menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu">{{icon:menu}}</button>
       <a class="brand" href="index.html" aria-label="Ube Halaya — accueil">
-        <img src="assets/img/logo.svg" width="64" height="64" alt="">
+        <img src="assets/img/logo.svg" width="108" height="108" alt="">
       </a>
       <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
         <div class="main-nav__head">
@@ -10,24 +10,21 @@
           <button class="icon-btn" type="button" data-close-menu aria-label="Fermer le menu">{{icon:close}}</button>
         </div>
         <ul class="main-nav__list">
-          <li><a href="shop.html"{{nav_shop}}>Boutique</a></li>
+          <li><a href="index.html"{{nav_home}}>Accueil</a></li>
+          <li><a href="product.html"{{nav_product}}>Boutique</a></li>
+          <li><a href="decouvrir-ube.html"{{nav_discover}}>Découvrir l’ube</a></li>
           <li><a href="recipes.html"{{nav_recipes}}>Recettes</a></li>
           <li><a href="about.html"{{nav_about}}>Notre histoire</a></li>
-          <li><a href="faq.html"{{nav_faq}}>Aide</a></li>
-          <li><a href="contact.html"{{nav_contact}}>Contact</a></li>
         </ul>
         <div class="main-nav__foot">
-          <a class="btn btn--block" href="product.html">Acheter Éclat d’Ubé · dès {{price:canette-1}}</a>
-          <p>{{icon:truck}} Livraison offerte dès 45&nbsp;€</p>
+          <a class="btn btn--block" href="product.html">Découvrir Éclat d’Ubé</a>
+          <p>Livraison offerte dès 45&nbsp;€</p>
         </div>
       </nav>
-      <div class="site-header__actions">
-        <a class="header-shop-link" href="shop.html">Acheter</a>
-        <button class="icon-btn cart-btn" type="button" data-open-cart aria-controls="cart-drawer" aria-label="Ouvrir le panier">
-          {{icon:bag}}
-          <span class="cart-count" data-cart-count hidden>0</span>
-        </button>
-      </div>
+      <button class="icon-btn cart-btn" type="button" data-open-cart aria-controls="cart-drawer" aria-label="Ouvrir le panier">
+        {{icon:bag}}
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </button>
     </div>
   </header>
   <div class="nav-backdrop" data-close-menu></div>

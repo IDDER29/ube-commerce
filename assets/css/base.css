@@ -35,9 +35,11 @@
   --lilac-50: #fbf4f8;
 
   /* Neutrals (warm) */
-  --paper: #fcf9f7;          /* page */
-  --cream-50: #f8f3ef;
-  --cream-100: #f2ebe5;      /* soft surfaces */
+  --paper: #f8f1f1;          /* page (blush, as in the mockups) */
+  --cream-50: #f3ece9;
+  --cream-100: #efe7e3;      /* soft surfaces, panels */
+  --card: #f2e6e8;           /* format cards */
+  --wall: #f0eae6;           /* plaster wall behind heroes */
   --cream-200: #e8ded6;
   --line: #e6dbd6;
   --line-strong: #d4c5bf;
@@ -73,21 +75,21 @@
   --space-6: 2rem;
   --space-7: 3rem;
   --space-8: 4rem;
-  --section: clamp(3.5rem, 2.5rem + 4.5vw, 6.5rem);
+  --section: clamp(2.75rem, 2rem + 3vw, 4.5rem);
   --gutter: clamp(16px, 4vw, 32px);
-  --container: 1240px;
+  --container: 1160px;
 
   /* Shape & depth */
-  --radius-sm: 8px;
-  --radius: 14px;
-  --radius-lg: 22px;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
   --radius-pill: 999px;
   --shadow-xs: 0 1px 2px rgba(38, 18, 29, .06);
   --shadow-sm: 0 2px 10px rgba(38, 18, 29, .06);
   --shadow: 0 14px 36px -10px rgba(59, 11, 39, .18);
   --shadow-lg: 0 30px 60px -20px rgba(59, 11, 39, .28);
   --ease: cubic-bezier(.2, .7, .2, 1);
-  --header-h: 76px;
+  --header-h: 100px;
 }
 
 /* Reset ------------------------------------------------------------------- */
@@ -97,6 +99,7 @@
 *::after { box-sizing: border-box; }
 
 html {
+  font-size: 100%;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 24px);
@@ -126,6 +129,9 @@ p, li { text-wrap: pretty; }
 :where(ul[class], ol[class]) { list-style: none; margin: 0; padding: 0; }
 main:focus { outline: none; }
 [hidden] { display: none !important; }
+
+/* Slightly larger type on wide screens, matching the mockups' proportions */
+@media (min-width: 1100px) { html { font-size: 106.25%; } }
 
 :focus-visible {
   outline: 2px solid var(--magenta);
@@ -164,7 +170,9 @@ main:focus { outline: none; }
 .section { padding-block: var(--section); }
 .section--tint { background: var(--cream-50); }
 .section--lilac { background: var(--lilac-50); }
-.section + .section--flush-top { padding-top: 0; }
+.section--first { padding-top: clamp(2.5rem, 2rem + 2.5vw, 4rem); }
+.section--snug { padding-block: clamp(1.5rem, 1rem + 2vw, 2.75rem); }
+.section--flush-top { padding-top: 0; }
 
 .text-center { text-align: center; }
 .muted { color: var(--muted); }
@@ -181,7 +189,7 @@ main:focus { outline: none; }
   letter-spacing: -.012em;
   line-height: 1.08;
 }
-.display { font-size: var(--fs-display); line-height: 1; letter-spacing: -.02em; font-variation-settings: "opsz" 144; }
+.display { font-size: var(--fs-display); line-height: 1; letter-spacing: -.02em; font-variation-settings: "opsz" 60; }
 .h1 { font-size: var(--fs-h1); font-variation-settings: "opsz" 96; }
 .h2 { font-size: var(--fs-h2); font-variation-settings: "opsz" 60; }
 .h3 { font-size: var(--fs-h3); font-weight: 500; line-height: 1.25; font-variation-settings: "opsz" 24; }
@@ -197,14 +205,7 @@ main:focus { outline: none; }
   text-transform: uppercase;
   color: var(--magenta-ink);
 }
-.eyebrow::before {
-  content: "";
-  width: 22px;
-  height: 1.5px;
-  background: currentColor;
-}
-.text-center .eyebrow::after,
-.eyebrow--center::after { content: ""; width: 22px; height: 1.5px; background: currentColor; }
+
 .eyebrow--light { color: var(--orchid); }
 
 .script {
@@ -226,6 +227,40 @@ main:focus { outline: none; }
 .prose a { color: var(--magenta-ink); }
 .prose .placeholder { background: #fff4d6; padding: 0 .25em; border-radius: 3px; color: #6a4b00; }
 
+/* Mockup section title + script subtitle */
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.95rem, 1.4rem + 2.1vw, 2.9rem);
+  line-height: 1.1;
+  letter-spacing: -.012em;
+  color: var(--plum-900);
+  text-align: center;
+  font-variation-settings: "opsz" 48;
+}
+.section-sub { text-align: center; font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.5rem); margin-top: .1em; }
+.section-title + :not(.section-sub) { margin-top: clamp(1.25rem, 1rem + 1vw, 1.75rem); }
+.section-sub + * { margin-top: clamp(1.25rem, 1rem + 1vw, 1.75rem); }
+
+/* Underlined link with arrow ("Voir la recette →") */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  padding: 4px 0 2px;
+  border-bottom: 1px solid currentColor;
+  color: var(--plum-900);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color .2s;
+}
+.text-link::after { content: "→"; transition: transform .25s var(--ease); }
+.text-link:hover { color: var(--magenta-ink); }
+.text-link:hover::after { transform: translateX(3px); }
+.text-link--pink { color: var(--magenta-ink); font-size: 1.1rem; }
+
+.wall { background: var(--wall) url("../img/wall.webp") center top / 600px; }
+
 /* Price */
 .price { font-family: var(--font-serif); font-weight: 600; color: var(--plum-900); font-variant-numeric: lining-nums; }
 .price-compare { margin-left: .5em; font-size: .8em; color: var(--muted); font-weight: 400; }
@@ -246,10 +281,9 @@ main:focus { outline: none; }
   border-radius: var(--radius-sm);
   background: var(--btn-bg);
   color: var(--btn-fg);
-  font-weight: 600;
-  font-size: .98rem;
+  font-weight: 500;
+  font-size: 1rem;
   line-height: 1.2;
-  letter-spacing: .01em;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -257,6 +291,7 @@ main:focus { outline: none; }
 }
 .btn svg { width: 1.2em; height: 1.2em; flex: none; }
 .btn:hover { background: var(--btn-bg-hover); }
+.btn:not(.btn--ghost):not(.btn--light):not(.btn--soft):not(.btn--dark) { box-shadow: 0 6px 16px rgba(184, 55, 159, .22); }
 .btn:active { transform: scale(.98); }
 .btn:disabled, .btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
 
@@ -270,7 +305,7 @@ main:focus { outline: none; }
 }
 .btn--ghost:hover { color: #fff; }
 .btn--soft { --btn-bg: var(--lilac-100); --btn-bg-hover: #efd6e6; --btn-fg: var(--plum-900); }
-.btn--lg { min-height: 56px; padding-inline: 2em; font-size: 1.05rem; }
+.btn--lg { min-height: 56px; padding-inline: 2em; font-size: 1.15rem; }
 .btn--sm { min-height: 40px; padding: .5em 1.1em; font-size: .9rem; }
 .btn--block { width: 100%; }
 .btn.is-success { --btn-bg: var(--success); --btn-bg-hover: var(--success); }
