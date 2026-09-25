@@ -55,6 +55,16 @@ python3 build.py
 Template directives available in pages and partials: `{{include:name}}`, `{{icon:name}}`,
 `{{card:product-id}}`, `{{price:product-id}}`, `{{store_email}}`.
 
+## Widths & breakpoints
+
+- Page content never exceeds `--container` (1240px); FAQ, specs and forms use
+  `--container-narrow` (880px); long text is capped at `--measure` (62ch).
+  All three are tokens at the top of `assets/css/base.css`.
+- Tested at 320, 390, 768, 1024, 1440, 1920 and 2560px with no horizontal scroll.
+- Main breakpoints: 1100px (laptop), 960px (mobile menu), 860/820px (single
+  column), 560px (phone). The product format picker uses a container query, so
+  it switches to a list whenever the buy box itself is narrow.
+
 ## Run locally
 
 ```

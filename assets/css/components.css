@@ -59,8 +59,14 @@
 }
 .format-card__tag--plum { background: var(--sand-100); color: var(--plum-900); }
 .format-card__btn { grid-area: btn; position: relative; z-index: 1; width: 100%; margin-top: 1.25rem; }
+/* Laptops/tablets in landscape: price goes under the name so nothing collides */
+@media (min-width: 861px) and (max-width: 1100px) {
+  .format-card__body { grid-template-areas: "name name" "size size" "price price" "tag tag" "btn btn"; }
+  .format-card__price { margin-top: .6rem; }
+  .format-card__name { font-size: 1.35rem; }
+}
 @media (max-width: 860px) {
-  .formats { grid-template-columns: 1fr; }
+  .formats { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
   .format-card { display: grid; grid-template-columns: 40% 1fr; gap: .25rem; }
   .format-card__media { aspect-ratio: auto; height: 100%; min-height: 170px; }
   .format-card__body { grid-template-areas: "name name" "size size" "price price" "tag tag" "btn btn"; padding: .75rem .75rem .5rem 1rem; }
@@ -141,7 +147,7 @@
   letter-spacing: -.025em;
   color: #fff;
 }
-.story-banner__copy p { max-width: 32em; margin-bottom: 1.75rem; font-size: 1.12rem; line-height: 1.6; }
+.story-banner__copy p { max-width: 34em; margin-bottom: 1.75rem; font-size: 1.12rem; line-height: 1.6; }
 .story-banner__copy strong { color: #fff; }
 .text-link--light { color: #fff; }
 .text-link--light:hover { color: var(--orchid); }
@@ -183,7 +189,7 @@
 }
 
 /* FAQ list */
-.faq-list { max-width: 880px; margin-inline: auto; border-top: 1px solid var(--line-strong); }
+.faq-list { max-width: var(--container-narrow); margin-inline: auto; border-top: 1px solid var(--line-strong); }
 .faq-list details { border-bottom: 1px solid var(--line-strong); }
 .faq-list summary {
   display: flex;

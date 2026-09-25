@@ -79,7 +79,11 @@
   --space-8: 4rem;
   --section: clamp(4rem, 2.8rem + 5vw, 7.5rem);
   --gutter: clamp(16px, 4vw, 40px);
-  --container: 1280px;
+  /* Width system: pages never exceed --container; long text never exceeds
+     --measure; narrow blocks (FAQ, specs, forms) use --container-narrow. */
+  --container: 1240px;
+  --container-narrow: 880px;
+  --measure: 62ch;
 
   /* Shape & depth */
   --radius-xs: 8px;
@@ -138,7 +142,7 @@ main:focus { outline: none; }
 /* Utilities --------------------------------------------------------------- */
 
 .container { width: min(100% - var(--gutter) * 2, var(--container)); margin-inline: auto; }
-.container--narrow { --container: 880px; }
+.container--narrow { --container: var(--container-narrow); }
 .container--text { --container: 720px; }
 
 .sr-only {
@@ -224,9 +228,10 @@ main:focus { outline: none; }
 }
 .eyebrow--light { color: var(--orchid); }
 
-.lead { font-size: clamp(1.05rem, .95rem + .45vw, 1.3rem); line-height: 1.5; color: var(--ink-2); }
+.lead { max-width: var(--measure); font-size: clamp(1.05rem, .95rem + .45vw, 1.3rem); line-height: 1.5; color: var(--ink-2); }
+.text-center .lead, .page-hero .lead, .section-head--center .lead { margin-inline: auto; }
 
-.prose { color: var(--ink-2); }
+.prose { max-width: var(--measure); color: var(--ink-2); }
 .prose > * + * { margin-top: 1em; }
 .prose h2 { font-family: var(--font-serif); font-weight: 500; font-size: 1.6rem; letter-spacing: -.02em; color: var(--plum-900); margin-top: 2em; line-height: 1.2; }
 .prose h3 { font-family: var(--font-serif); font-weight: 500; font-size: 1.2rem; color: var(--plum-900); margin-top: 1.6em; }
