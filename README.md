@@ -35,7 +35,7 @@ python3 build.py           → writes index.html, eclat-dube.html, decouvrir-ube
 - `assets/css/styles.css` — design tokens and all styles, organised by section (see the table of contents at the top).
 - `assets/js/main.js` — cart drawer (saved in `localStorage`, synced across tabs), free-shipping progress from 45 €, format/quantity picker, gallery and zoom, sticky header, mobile menu, sticky add-to-cart bar on phones, recipe panel, newsletter.
 - `assets/fonts/` — self-hosted Fraunces, Figtree and Sacramento (no Google Fonts request).
-- `assets/img/` — WebP photos cropped from the mockups, `logo.svg` / `favicon.svg`, `wall.webp` texture tile. Replace the photos with full-resolution shots (same file names) for the sharpest result.
+- `assets/img/` — WebP photos made from the photo shoot, `logo.svg` / `favicon.svg`, `wall.webp` texture tile, `og-image.jpg` (link preview, 1200×630). The original photos are in `assets/img/assets/`; `ASSET-MAP.md` there says which photo goes where.
 
 ## Flow
 
@@ -80,5 +80,5 @@ dans `src/` pour toutes les retrouver.
 | valeurs nutritionnelles, responsable | fiche produit, fiche technique |
 | raison sociale, SIREN, hébergeur, médiateur… | mentions légales, CGV, confidentialité |
 
-Photos : les visuels actuels sont provisoires ; les remplacer par la séance photo prévue dans le
-cahier de modifications, avec les mêmes noms de fichiers dans `assets/img/`.
+Aperçu de lien : `og:image` pointe vers `assets/img/og-image.jpg` sans domaine ; y mettre l’adresse
+complète (`https://…/assets/img/og-image.jpg`) une fois le domaine connu.

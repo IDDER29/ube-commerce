@@ -69,16 +69,16 @@
   --fs-base: 1rem;                                    /* 16  body */
   --fs-md: 1.125rem;                                  /* 18  leads, large body */
   --fs-lg: 1.375rem;                                  /* 22  card titles (h3) */
-  --fs-xl: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem);    /* 28→40 section titles (h2) */
-  --fs-h1: clamp(2.6rem, 1.6rem + 3.6vw, 4.75rem);    /* 42→76 page titles */
-  --fs-display: clamp(3.2rem, 1.8rem + 5.4vw, 6.5rem);/* 51→104 home hero */
-  --fs-script: clamp(1.7rem, 1.35rem + 1.1vw, 2.3rem);/* handwritten line above/below titles */
-  --fs-script-lg: clamp(2.2rem, 1.5rem + 2.4vw, 3.6rem); /* handwritten line in heroes */
+  --fs-xl: clamp(1.625rem, 1.2rem + 1.1vw, 2.125rem); /* 26→34 section titles (h2) */
+  --fs-h1: clamp(2.4rem, 1.5rem + 2.2vw, 3.5rem);     /* 38→56 page titles */
+  --fs-display: clamp(2.8rem, 1.6rem + 3.4vw, 4.5rem);/* 45→72 home hero */
+  --fs-script: clamp(1.5rem, 1.25rem + .7vw, 1.9rem); /* 24→30 handwritten line above/below titles */
+  --fs-script-lg: clamp(1.9rem, 1.4rem + 1.4vw, 2.6rem); /* 30→42 handwritten line in heroes */
 
   /* Spacing scale (8px grid) */
-  --space-section: clamp(3.5rem, 2rem + 5vw, 6rem);  /* 56→96 above AND below every section */
-  --space-title: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);/* section title → content */
-  --space-band: clamp(2.5rem, 1.5rem + 3.5vw, 4.5rem); /* inner padding of banners */
+  --space-section: clamp(3rem, 1.75rem + 3.5vw, 4.5rem); /* 48→72 above AND below every section */
+  --space-title: clamp(1.25rem, .9rem + 1vw, 2rem);   /* section title → content */
+  --space-band: clamp(2rem, 1.25rem + 2.5vw, 3.5rem); /* inner padding of banners */
   --measure: 65ch;                                    /* max line length */
   --header-h: 96px;
 
@@ -266,14 +266,14 @@ p { text-wrap: pretty; }
 .logo {
   flex: none;
   display: block;
-  width: 108px;
-  height: 108px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   box-shadow: var(--shadow);
   transition: width .3s var(--ease), height .3s var(--ease);
 }
 .logo img { width: 100%; height: 100%; }
-.site-header.is-scrolled .logo { width: 64px; height: 64px; }
+.site-header.is-scrolled .logo { width: 56px; height: 56px; }
 .logo--sm { width: 72px; height: 72px; box-shadow: 0 0 0 2px var(--pink-light); }
 
 .nav { flex: 1; display: flex; justify-content: center; }
@@ -468,11 +468,6 @@ p { text-wrap: pretty; }
 .steps__note { text-align: center; margin: 1.6rem 0 .5rem; font-size: .98rem; }
 
 .steps--tall img { aspect-ratio: 232 / 203; }
-.steps--tall figcaption { justify-content: flex-start; gap: 1.4rem; font-size: 1.2rem; }
-.steps--tall .step__num {
-  width: auto; height: auto; background: none; color: var(--plum);
-  font-family: var(--font-serif); font-size: 1.35rem; font-weight: 500;
-}
 
 /* Recipes */
 .recipes {
@@ -547,14 +542,13 @@ p { text-wrap: pretty; }
   gap: 2rem;
   padding: 1.5rem 0;
 }
-/* multiply blends the photo's light backdrop into the pink banner — no hard edges */
+/* Studio photos have a cream backdrop that can't fade into the pink: show them as a tile */
 .gift__inner img {
   width: 100%;
   max-width: 440px;
   margin-inline: auto;
-  mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 58% 62% at center, #000 55%, transparent 100%);
-          mask-image: radial-gradient(ellipse 58% 62% at center, #000 55%, transparent 100%);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 .gift h2 {
   font-family: var(--font-serif);
@@ -625,13 +619,13 @@ p { text-wrap: pretty; }
   min-height: 240px;
   object-fit: cover;
   object-position: center bottom;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 10%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 45%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 45%);
 }
 
 /* 7. Product page --------------------------------------------------------- */
 
-.breadcrumb { font-size: .88rem; padding: .4rem 0 1rem; }
+.breadcrumb { font-size: .88rem; padding: .4rem 0 .75rem; }
 .breadcrumb ol { display: flex; gap: .5rem; list-style: none; margin: 0; padding: 0; }
 .breadcrumb li + li::before { content: "/"; margin-right: .5rem; color: var(--muted); }
 .breadcrumb a { text-decoration: none; }
@@ -702,9 +696,10 @@ p { text-wrap: pretty; }
   font-weight: 600;
   color: var(--plum);
   font-size: 2.3rem;
+  line-height: 1.15;
   margin: .2em 0 .25em;
 }
-.buybox__desc { margin: 0 0 .8rem; }
+.buybox__desc { margin: 0 0 .7rem; }
 .buybox__dose { font-size: .92rem; color: var(--muted); margin: 0 0 1.5rem; }
 .buybox h2 {
   font-family: var(--font-serif);
@@ -837,8 +832,6 @@ p { text-wrap: pretty; }
 }
 .cta-row__sep { width: 1px; height: 32px; background: var(--line); }
 .cta-row a:not(.btn) { color: var(--magenta-dark); padding: 8px 0; }
-
-.product-gift { padding-top: var(--section-y); }
 
 /* Sticky add-to-cart bar (phones only, shown once the main button scrolls away) */
 .mobile-buy {
@@ -1129,7 +1122,6 @@ body.cart-open { overflow: hidden; }
   .recipes::-webkit-scrollbar, .journey::-webkit-scrollbar { display: none; }
   .recipes > *, .journey > * { scroll-snap-align: start; }
   .step figcaption { font-size: 1rem; gap: .6rem; }
-  .steps--tall figcaption { gap: .8rem; font-size: 1.05rem; }
   .recipe h3 { font-size: 1.08rem; }
 
   .journey { gap: 1.6rem; }
@@ -1165,7 +1157,7 @@ body.cart-open { overflow: hidden; }
 
 /* Product page: expandable recipe + gift spacing (kept out of the numbered
    sections above so the responsive block still wins on specificity ties) */
-.product-gift { margin-top: var(--section-y); }
+.product-gift { margin-top: var(--space-section); }
 
 .recipe-card {
   max-width: 900px;
@@ -1377,7 +1369,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 /* Page titles (h1) */
 .hero .h-display { font-size: var(--fs-display); }
 .page-hero .h-display, .ube-hero__copy .h-display, .buybox .h-display { font-size: var(--fs-h1); }
-.page-hero--small .h-display { font-size: clamp(2.4rem, 1.6rem + 3vw, 4rem); }
+.page-hero--small .h-display { font-size: clamp(2.2rem, 1.4rem + 1.8vw, 3rem); }
 
 /* Section titles (h2) — identical everywhere, banners included */
 .h-section, .story__copy h2, .gift h2, .gift--card h2, .final-cta h2,
@@ -1591,7 +1583,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 }
 
 /* Cart, checkout and legal pages on the same scale as the rest of the site */
-.page-hero--small .h-display { font-size: clamp(2.6rem, 1.6rem + 3vw, 4rem); }
+.page-hero--small .h-display { font-size: clamp(2.2rem, 1.4rem + 1.8vw, 3rem); }
 .line-item h3 { font-size: var(--fs-base); line-height: 1.3; }
 .page-lines .line-item h3 { font-size: var(--fs-md); }
 .ship-progress--page { font-size: var(--fs-base); }
@@ -1776,7 +1768,7 @@ select.input {
 }
 
 /* Formats as a vertical list with a radio dot, price on the right (all widths) */
-.variants { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.variants { grid-template-columns: minmax(0, 1fr); gap: 8px; }
 .variant label {
   display: grid;
   grid-template-columns: 20px minmax(0, 1fr) auto;
@@ -1785,7 +1777,7 @@ select.input {
   column-gap: .85rem;
   row-gap: .1rem;
   min-height: 0;
-  padding: .85rem 1rem;
+  padding: .625rem 1rem;
   text-align: left;
 }
 .variant label::before {
@@ -1836,8 +1828,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .final-cta__copy { text-align: center; }
 }
 
-/* Coffret photos fade fully into the pink instead of showing their box */
-.gift__inner img,
+/* The final call-to-action photo fades into the wall instead of showing its box */
 .final-cta img {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%),
                       linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
@@ -1988,8 +1979,8 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 @media (max-width: 700px) { .story-band__img img { aspect-ratio: 16 / 10; } }
 
 /* Product page: format content line, technical sheet placeholders */
-.variants { margin-bottom: .6rem; }
-.variants__content { margin: 0 0 1.2rem; font-size: var(--fs-sm); color: var(--muted); }
+.variants { margin-bottom: 1rem; }
+.variants__content { margin: .8rem 0 0; font-size: var(--fs-sm); color: var(--muted); }
 .variants__content span { color: var(--plum); font-weight: 600; }
 .specs .placeholder { padding: 0 .25em; border-radius: 3px; background: #fff4d6; color: #6a4b00; }
 @media (min-width: 901px) {
@@ -2005,6 +1996,10 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .hero__meta { color: var(--muted); font-size: var(--fs-sm); }
 .hero__meta strong { color: var(--plum); font-size: var(--fs-md); }
 .hero--textured .hero__copy { padding-top: clamp(1.75rem, 1rem + 3vw, 3.5rem); }
+/* Photo height follows the screen height so the whole tray fits in the first screen */
+@media (min-width: 701px) {
+  .hero__scene img { aspect-ratio: auto; height: clamp(240px, 40svh, 420px); min-height: 0; }
+}
 .ube-hero__copy .script { text-align: center; margin-left: 0; }
 
 /* ==========================================================================
