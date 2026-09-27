@@ -422,6 +422,43 @@
     if (location.hash === "#latte-signature") openRecipe();
   }
 
+  /* ---------- Swipe rows: page dots (only when the row actually scrolls) ---------- */
+
+  $$("[data-carousel]").forEach(function (track) {
+    var slides = Array.prototype.slice.call(track.children);
+    var dots = document.createElement("div");
+    dots.className = "carousel-dots";
+    dots.innerHTML = slides.map(function (s, i) {
+      return '<button type="button" aria-label="Afficher l’élément ' + (i + 1) + " sur " + slides.length + '"></button>';
+    }).join("");
+    track.after(dots);
+    var buttons = $$("button", dots);
+    function sync() {
+      var scrollable = track.scrollWidth > track.clientWidth + 4;
+      dots.hidden = !scrollable;
+      if (!scrollable) return;
+      var start = track.getBoundingClientRect().left + parseFloat(getComputedStyle(track).paddingLeft);
+      var active = 0, best = Infinity;
+      slides.forEach(function (s, i) {
+        var d = Math.abs(s.getBoundingClientRect().left - start);
+        if (d < best) { best = d; active = i; }
+      });
+      buttons.forEach(function (b, i) { b.setAttribute("aria-current", String(i === active)); });
+    }
+    buttons.forEach(function (b, i) {
+      b.addEventListener("click", function () {
+        track.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: reduceMotion ? "auto" : "smooth" });
+      });
+    });
+    var raf = null;
+    track.addEventListener("scroll", function () {
+      if (raf) return;
+      raf = requestAnimationFrame(function () { raf = null; sync(); });
+    }, { passive: true });
+    window.addEventListener("resize", sync);
+    sync();
+  });
+
   /* ---------- Forms: contact and checkout ---------- */
 
   function checkField(input) {

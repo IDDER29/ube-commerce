@@ -310,6 +310,7 @@ p { text-wrap: pretty; }
   line-height: 20px;
   text-align: center;
 }
+[hidden] { display: none !important; }
 .cart-count[hidden] { display: none; }
 .cart-count.bump { animation: bump .45s var(--ease); }
 @keyframes bump { 40% { transform: scale(1.35); } }
@@ -620,20 +621,22 @@ p { text-wrap: pretty; }
 
 /* 6. Home page ------------------------------------------------------------ */
 
-.hero { position: relative; text-align: center; overflow: hidden; }
+/* Fills the first screen like mockups 1–2: text in the upper wall, tray at the bottom */
+.hero { position: relative; display: flex; flex-direction: column; min-height: calc(100svh - 36px - var(--header-h)); text-align: center; overflow: hidden; }
 .hero__copy { position: relative; z-index: 2; padding-top: .25rem; }
 .hero .script { font-size: clamp(2.3rem, 5.4vw, 4.2rem); }
 .hero .h-display { font-size: clamp(3.2rem, 8.5vw, 6.6rem); margin-top: .12em; }
 .hero__lead { font-size: clamp(1.1rem, 1.8vw, 1.55rem); margin: .35em 0 1em; }
 .hero__meta { margin: .9rem 0 0; font-size: 1.05rem; font-weight: 500; }
-.hero__scene { margin-top: -2.5rem; }
+.hero__scene { margin-top: auto; }
 .hero__scene img {
   width: 100%;
-  max-height: 440px;
+  aspect-ratio: 4 / 1;
+  min-height: 240px;
   object-fit: cover;
   object-position: center bottom;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 30%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 10%);
 }
 
 /* 7. Product page --------------------------------------------------------- */
@@ -1129,8 +1132,9 @@ body.cart-open { overflow: hidden; }
   .announce { font-size: .85rem; }
 
   .hero .h-display { font-size: clamp(3rem, 14vw, 4rem); }
-  .hero__scene { margin-top: -.5rem; }
-  .hero__scene img { max-height: none; aspect-ratio: 4 / 3; }
+  .hero { min-height: 0; }
+  .hero__scene { margin-top: 1.5rem; }
+  .hero__scene img { min-height: 0; aspect-ratio: 2.2 / 1; }
 
   .steps,
   .recipes,
@@ -1152,11 +1156,24 @@ body.cart-open { overflow: hidden; }
   .format-card__tag { margin-bottom: .6rem; }
   .format-card .btn { margin-top: 0; padding-inline: 1.1em; }
 
-  /* Steps and recipes: two-up image rows read better than tall stacks */
-  .steps, .recipes { grid-template-columns: 1fr 1fr; }
-  .steps .step:last-child, .recipes .recipe:last-child { grid-column: 1 / -1; }
+  /* Steps: two-up rows; recipes and journey: swipeable rows with dots */
+  .steps { grid-template-columns: 1fr 1fr; }
+  .steps .step:last-child { grid-column: 1 / -1; }
   .steps .step:last-child img { aspect-ratio: 16 / 7; }
-  .recipes .recipe:last-child img { aspect-ratio: 16 / 7; }
+  .recipes, .journey {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 84%;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 0 var(--gutter) .5rem;
+    scrollbar-width: none;
+  }
+  .recipes::-webkit-scrollbar, .journey::-webkit-scrollbar { display: none; }
+  .recipes > *, .journey > * { scroll-snap-align: start; }
   .step figcaption { font-size: 1rem; gap: .6rem; }
   .steps--tall figcaption { gap: .8rem; font-size: 1.05rem; }
   .recipe h3 { font-size: 1.08rem; }
@@ -1190,8 +1207,8 @@ body.cart-open { overflow: hidden; }
 
 @media (max-width: 380px) {
   .format-card { grid-template-columns: 38% 1fr; }
-  .steps, .recipes { grid-template-columns: 1fr; }
-  .steps .step:last-child img, .recipes .recipe:last-child img { aspect-ratio: 228 / 137; }
+  .steps { grid-template-columns: 1fr; }
+  .steps .step:last-child img { aspect-ratio: 228 / 137; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1279,6 +1296,7 @@ body.cart-open { overflow: hidden; }
 .recipe-facts { display: flex; flex-wrap: wrap; gap: .75rem; list-style: none; margin: 0; padding: 0; }
 .recipe-facts li { display: grid; min-width: 7.5rem; padding: .6rem 1rem; border-radius: var(--radius); background: var(--card); text-align: center; font-size: .85rem; color: var(--muted); line-height: 1.3; }
 .recipe-facts strong { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--plum); }
+.section--cream .recipe-panel, .section--cream .recipe-facts li { background: #fbf7f6; box-shadow: 0 0 0 1px var(--line); }
 .recipe-panel { grid-area: panel; align-self: start; padding: 1.4rem 1.6rem; border-radius: var(--radius); background: var(--card); }
 .recipe-method { grid-area: method; align-self: start; }
 .recipe-panel h3, .recipe-method h3 { margin: 0 0 .8rem; font-family: var(--font-serif); font-weight: 500; color: var(--plum); font-size: 1.45rem; }
@@ -1370,3 +1388,25 @@ textarea.input { resize: vertical; }
   .form-grid { grid-template-columns: 1fr; }
   .recipe-facts li { min-width: 0; flex: 1; }
 }
+
+/* Page dots under swipeable rows (added by main.js only when the row scrolls) */
+.carousel-dots { display: flex; justify-content: center; gap: 4px; margin-top: .6rem; }
+.carousel-dots button { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; background: none; }
+.carousel-dots button::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--line); transition: width .3s var(--ease), background-color .3s; }
+.carousel-dots button[aria-current="true"]::before { width: 22px; background: var(--magenta); }
+
+/* Legal pages & 404 */
+.legal { max-width: 760px; }
+.legal-nav { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.legal-nav a { padding: .45em 1em; border-radius: 999px; background: var(--card); color: var(--plum); font-size: .9rem; font-weight: 600; text-decoration: none; }
+.legal-nav a[aria-current="page"] { background: var(--plum); color: #fff; }
+.legal-note { padding: .9rem 1.1rem; border-radius: var(--radius-sm); background: #fff4d6; color: #6a4b00; font-size: .92rem; }
+.prose h2 { margin: 1.8em 0 .5em; font-family: var(--font-serif); font-weight: 600; color: var(--plum); font-size: 1.45rem; }
+.prose p, .prose ul { margin: 0 0 1em; }
+.prose a { color: var(--magenta-dark); }
+.prose .placeholder { padding: 0 .25em; border-radius: 3px; background: #fff4d6; color: #6a4b00; }
+.copyright a { color: inherit; }
+.copyright a:hover { color: var(--pink-light); }
+.not-found .page-hero__lead { margin-bottom: 1.6rem; }
+.not-found__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 2rem; }
+.not-found .hero__scene { margin-top: 1rem; }

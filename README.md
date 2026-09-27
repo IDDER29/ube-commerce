@@ -13,8 +13,10 @@ Static HTML/CSS/JS storefront built from the UI flow mockups. No framework, no d
 | Contact | `contact.html` |
 | Panier | `panier.html` |
 | Commande | `commande.html` |
+| Mentions légales, CGV, Confidentialité | `mentions-legales.html`, `cgv.html`, `confidentialite.html` |
+| Page introuvable | `404.html` |
 
-The last six pages are not in the mockups; they reuse the mockups' components
+The pages after Découvrir l’ube are not in the mockups; they reuse the mockups' components
 (plaster-wall hero, Sacramento line, Fraunces titles, pink cards, magenta buttons)
 so every link in the design leads to a real page.
 
@@ -44,3 +46,5 @@ Home → “Choisir ce format” opens the product page with that format presele
 Open `index.html` in a browser, or serve the folder: `python3 -m http.server`.
 
 Screenshots of every page (desktop and mobile) are in `docs/screenshots/`.
+
+Legal pages are templates: complete every `[placeholder]` before going live.

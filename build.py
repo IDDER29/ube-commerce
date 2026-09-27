@@ -20,7 +20,22 @@ SRC = ROOT / "src"
 PAGES = [
     "index", "eclat-dube", "decouvrir-ube",
     "recettes", "notre-histoire", "livraison", "contact", "panier", "commande",
+    "mentions-legales", "cgv", "confidentialite", "404",
 ]
+
+
+NBSP_BEFORE = re.compile(r"[ \t]+([?!:;»])")
+SKIP_BLOCK = re.compile(r"(<script\b.*?</script>|<style\b.*?</style>)", re.S | re.I)
+
+
+def french_spacing(html):
+    """Non-breaking space before ? ! : ; » in visible text only, so French
+    punctuation never wraps onto its own line."""
+    def fix_text(chunk):
+        parts = re.split(r"(<[^>]+>)", chunk)
+        return "".join(p if p.startswith("<") else NBSP_BEFORE.sub("\u00a0\\1", p) for p in parts)
+    pieces = SKIP_BLOCK.split(html)
+    return "".join(p if SKIP_BLOCK.fullmatch(p) else fix_text(p) for p in pieces)
 
 
 def build(name):
@@ -39,6 +54,7 @@ def build(name):
     foot = (SRC / "partials" / "footer.html").read_text(encoding="utf-8")
     html = head + body + foot
     html = re.sub(r"\{\{([\w-]+)\}\}", lambda m: meta[m.group(1)], html)
+    html = french_spacing(html)
     (ROOT / f"{name}.html").write_text(html, encoding="utf-8")
     print(f"built {name}.html")
 
