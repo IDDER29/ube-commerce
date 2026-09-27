@@ -106,7 +106,7 @@
         '<button type="button" data-act="inc" aria-label="Ajouter une unité">+</button></div>';
     return (
       '<li class="line-item" data-id="' + id + '">' +
-      '<img src="' + p.img + '" alt="" width="72" height="72">' +
+      '<img src="' + p.img + '" alt="" width="72" height="54">' +
       "<div><h3>" + p.name + '</h3><div class="line-item__meta">' + p.meta + "</div>" + controls + "</div>" +
       '<div class="line-item__right"><div class="line-item__price">' + money(p.price * cart[id]) + "</div>" +
       (readonly ? "" : '<button type="button" class="line-item__remove" data-act="remove">Retirer</button>') + "</div>" +
@@ -185,7 +185,7 @@
     if (remaining <= 0 || cart["coffret-3"] || cart["coffret-6"]) return "";
     var p = PRODUCTS["coffret-3"];
     return '<li class="drawer__upsell">' +
-      '<img src="' + p.img + '" alt="" width="64" height="64">' +
+      '<img src="' + p.img + '" alt="" width="64" height="48">' +
       '<div><p class="drawer__upsell-title">Passez au coffret découverte</p>' +
       '<p class="drawer__upsell-text">3 canettes · ' + money(p.price) + ' · livraison offerte</p></div>' +
       '<button type="button" class="btn btn--sm btn--ghost" data-upsell="coffret-3">Ajouter</button></li>';
