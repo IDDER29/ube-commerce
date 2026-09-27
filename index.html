@@ -19,9 +19,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/hero-scene.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/img/hero-scene.webp" as="image" fetchpriority="high" media="not all and (min-width: 1024px) and (min-aspect-ratio: 4/3)">
   <link rel="stylesheet" href="assets/css/styles.min.css">
-</head>
+<link rel="preload" href="assets/img/hero-bg.webp" as="image" fetchpriority="high" media="(min-width: 1024px) and (min-aspect-ratio: 4/3)"></head>
 <body class="page-index">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
@@ -63,7 +63,7 @@
 
   <main id="contenu">
     <!-- Premier écran : mise en page d’origine, textes du cahier -->
-    <section class="hero hero--textured">
+    <section class="hero hero--textured hero--photo">
       <div class="wrap hero__copy">
         <p class="script">Il était une fois une racine violette…</p>
         <h1 class="h-display hero__title">Votre prochain latte, à&nbsp;l’ube.</h1>
@@ -74,9 +74,10 @@
         </div>
         <p class="hero__meta">50 g · Jusqu’à 25 lattes à 2 g · <strong>dès 17,90 €</strong></p>
       </div>
-      <div class="hero__scene">
+      <picture class="hero__scene">
+        <source media="(min-width: 1024px) and (min-aspect-ratio: 4/3)" srcset="assets/img/hero-bg.webp" width="1996" height="768">
         <img src="assets/img/hero-scene.webp" width="1672" height="941" alt="Une canette Éclat d’Ubé, un bol de poudre violette et un latte glacé à l’ube sur un plateau en bois" fetchpriority="high">
-      </div>
+      </picture>
     </section>
 
     <!-- Formats -->

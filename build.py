@@ -7,6 +7,7 @@ Each page in src/pages starts with a metadata block:
     title: ...
     description: ...
     preload_image: assets/img/...
+    preload_media: media="..."   (optional, when the preloaded image is screen-specific)
     -->
 
 Run `python3 build.py` after editing anything in src/; the generated
@@ -61,6 +62,7 @@ def build(name):
     )
     meta = {k.strip(): v.strip() for k, v in meta.items()}
     meta.setdefault("head_extra", "")
+    meta.setdefault("preload_media", "")
     meta["page"] = name
     for page in PAGES:
         meta[f"nav_{page}"] = ' aria-current="page"' if page == name else ""
