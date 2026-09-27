@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Commande | Ube Halaya</title>
+  <meta name="description" content="Finalisez votre commande Ube Halaya.">
+  <meta name="theme-color" content="#3b0b27">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ube Halaya">
+  <meta property="og:title" content="Commande | Ube Halaya">
+  <meta property="og:description" content="Finalisez votre commande Ube Halaya.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/format-1.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="page-commande">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <div class="announce">Livraison offerte dès 45&nbsp;€</div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap site-header__inner">
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only">Menu</span>
+      </button>
+      <a class="logo" href="index.html" aria-label="Ube Halaya — accueil">
+        <img src="assets/img/logo.svg" width="108" height="108" alt="">
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="eclat-dube.html">Boutique</a></li>
+          <li><a href="decouvrir-ube.html">Découvrir l’ube</a></li>
+          <li><a href="recettes.html">Recettes</a></li>
+          <li><a href="notre-histoire.html">Notre histoire</a></li>
+        </ul>
+      </nav>
+      <button class="cart-btn" type="button" data-open-cart aria-label="Ouvrir le panier" aria-controls="cart-drawer">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20l-1.4 18H7.4z"/><path d="M11.5 13V8.5a4.5 4.5 0 0 1 9 0V13"/></svg>
+        <span class="cart-count" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero page-hero--small wall">
+      <div class="wrap">
+        <p class="script">Plus qu’une étape…</p>
+        <h1 class="h-display">Commande</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap cart-page" data-checkout>
+        <form class="checkout-form" data-checkout-form data-page-filled hidden novalidate>
+          <div class="panel">
+            <h2 class="panel__title">1. Contact</h2>
+            <div class="form-grid">
+              <div class="field span-2">
+                <label for="email">Adresse e-mail</label>
+                <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+                <p class="field__error">Indiquez une adresse e-mail valide.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <h2 class="panel__title">2. Livraison</h2>
+            <div class="form-grid">
+              <div class="field"><label for="firstname">Prénom</label><input class="input" id="firstname" name="firstname" autocomplete="given-name" required><p class="field__error">Indiquez votre prénom.</p></div>
+              <div class="field"><label for="lastname">Nom</label><input class="input" id="lastname" name="lastname" autocomplete="family-name" required><p class="field__error">Indiquez votre nom.</p></div>
+              <div class="field span-2"><label for="address">Adresse</label><input class="input" id="address" name="address" autocomplete="street-address" required><p class="field__error">Indiquez votre adresse.</p></div>
+              <div class="field"><label for="zip">Code postal</label><input class="input" id="zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required><p class="field__error">Indiquez un code postal à 5 chiffres.</p></div>
+              <div class="field"><label for="city">Ville</label><input class="input" id="city" name="city" autocomplete="address-level2" required><p class="field__error">Indiquez votre ville.</p></div>
+            </div>
+            <p class="form-note">Livraison en France métropolitaine · <span data-page-shipping-label></span></p>
+          </div>
+          <div class="panel">
+            <h2 class="panel__title">3. Paiement</h2>
+            <p class="form-note">Vous serez redirigé·e vers notre partenaire de paiement sécurisé. Aucune donnée bancaire n’est saisie sur ce site.</p>
+            <label class="checkbox"><input type="checkbox" name="terms" required> J’accepte les conditions générales de vente.</label>
+            <p class="field__error" data-terms-error>Merci d’accepter les conditions générales de vente.</p>
+            <button class="btn btn--block btn--lg" type="submit">Payer <span data-page-total></span></button>
+            <p class="form-status" data-form-status role="status" hidden></p>
+          </div>
+        </form>
+        <aside class="panel cart-summary" data-page-filled hidden>
+          <h2 class="panel__title">Votre commande</h2>
+          <ul class="page-lines page-lines--compact" data-page-items data-readonly></ul>
+          <div class="drawer__row"><span>Sous-total</span><span data-page-subtotal></span></div>
+          <div class="drawer__row"><span>Livraison</span><span data-page-shipping></span></div>
+          <div class="drawer__row drawer__total"><span>Total</span><span data-page-total></span></div>
+          <a class="drawer__view" href="panier.html">Modifier le panier</a>
+        </aside>
+        <div class="empty-cart" data-page-empty hidden>
+          <p class="script">Votre panier est vide…</p>
+          <p>Ajoutez un produit avant de passer commande.</p>
+          <a class="btn" href="eclat-dube.html">Découvrir Éclat d’Ubé</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <a class="logo logo--sm" href="index.html" aria-label="Ube Halaya — accueil">
+        <img src="assets/img/logo.svg" width="72" height="72" alt="" loading="lazy">
+      </a>
+      <ul class="footer-links">
+        <li><a href="recettes.html">Recettes</a></li>
+        <li><a href="notre-histoire.html">Notre histoire</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="livraison.html">Livraison et retours</a></li>
+      </ul>
+      <form class="newsletter" novalidate>
+        <label for="nl-email">Une nouvelle recette dans votre boîte mail.</label>
+        <div class="newsletter__row">
+          <input id="nl-email" type="email" name="email" placeholder="Votre e-mail" required autocomplete="email">
+          <button type="submit">S’inscrire</button>
+        </div>
+        <p class="newsletter__msg" aria-live="polite"></p>
+      </form>
+    </div>
+    <p class="copyright">© <span data-year>2026</span> Ube Halaya</p>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="drawer-backdrop" data-close-cart></div>
+  <aside class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" inert>
+    <div class="drawer__head">
+      <h2 id="cart-title">Votre panier</h2>
+      <button class="drawer__close" type="button" data-close-cart aria-label="Fermer le panier">×</button>
+    </div>
+    <div class="ship-progress">
+      <span id="ship-msg"></span>
+      <div class="ship-progress__bar"><span id="ship-bar"></span></div>
+    </div>
+    <ul class="drawer__items" id="cart-items"></ul>
+    <div class="drawer__foot">
+      <div class="drawer__row"><span>Sous-total</span><span id="cart-subtotal">0,00 €</span></div>
+      <div class="drawer__row"><span>Livraison</span><span id="cart-shipping">—</span></div>
+      <div class="drawer__row drawer__total"><span>Total</span><span id="cart-total">0,00 €</span></div>
+      <a class="btn btn--block" href="commande.html" id="checkout-btn">Passer commande</a>
+      <a class="drawer__view" href="panier.html">Voir le panier</a>
+      <p class="drawer__note">Paiement sécurisé · Livraison offerte dès 45 €</p>
+    </div>
+  </aside>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

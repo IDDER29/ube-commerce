@@ -17,7 +17,10 @@ import re
 
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
-PAGES = ["index", "eclat-dube", "decouvrir-ube"]
+PAGES = [
+    "index", "eclat-dube", "decouvrir-ube",
+    "recettes", "notre-histoire", "livraison", "contact", "panier", "commande",
+]
 
 
 def build(name):

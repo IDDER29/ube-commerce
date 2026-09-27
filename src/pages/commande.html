@@ -1,0 +1,63 @@
+<!--
+title: Commande | Ube Halaya
+description: Finalisez votre commande Ube Halaya.
+preload_image: assets/img/format-1.webp
+-->
+  <main id="contenu">
+    <section class="page-hero page-hero--small wall">
+      <div class="wrap">
+        <p class="script">Plus qu’une étape…</p>
+        <h1 class="h-display">Commande</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap cart-page" data-checkout>
+        <form class="checkout-form" data-checkout-form data-page-filled hidden novalidate>
+          <div class="panel">
+            <h2 class="panel__title">1. Contact</h2>
+            <div class="form-grid">
+              <div class="field span-2">
+                <label for="email">Adresse e-mail</label>
+                <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+                <p class="field__error">Indiquez une adresse e-mail valide.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <h2 class="panel__title">2. Livraison</h2>
+            <div class="form-grid">
+              <div class="field"><label for="firstname">Prénom</label><input class="input" id="firstname" name="firstname" autocomplete="given-name" required><p class="field__error">Indiquez votre prénom.</p></div>
+              <div class="field"><label for="lastname">Nom</label><input class="input" id="lastname" name="lastname" autocomplete="family-name" required><p class="field__error">Indiquez votre nom.</p></div>
+              <div class="field span-2"><label for="address">Adresse</label><input class="input" id="address" name="address" autocomplete="street-address" required><p class="field__error">Indiquez votre adresse.</p></div>
+              <div class="field"><label for="zip">Code postal</label><input class="input" id="zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required><p class="field__error">Indiquez un code postal à 5 chiffres.</p></div>
+              <div class="field"><label for="city">Ville</label><input class="input" id="city" name="city" autocomplete="address-level2" required><p class="field__error">Indiquez votre ville.</p></div>
+            </div>
+            <p class="form-note">Livraison en France métropolitaine · <span data-page-shipping-label></span></p>
+          </div>
+          <div class="panel">
+            <h2 class="panel__title">3. Paiement</h2>
+            <p class="form-note">Vous serez redirigé·e vers notre partenaire de paiement sécurisé. Aucune donnée bancaire n’est saisie sur ce site.</p>
+            <label class="checkbox"><input type="checkbox" name="terms" required> J’accepte les conditions générales de vente.</label>
+            <p class="field__error" data-terms-error>Merci d’accepter les conditions générales de vente.</p>
+            <button class="btn btn--block btn--lg" type="submit">Payer <span data-page-total></span></button>
+            <p class="form-status" data-form-status role="status" hidden></p>
+          </div>
+        </form>
+        <aside class="panel cart-summary" data-page-filled hidden>
+          <h2 class="panel__title">Votre commande</h2>
+          <ul class="page-lines page-lines--compact" data-page-items data-readonly></ul>
+          <div class="drawer__row"><span>Sous-total</span><span data-page-subtotal></span></div>
+          <div class="drawer__row"><span>Livraison</span><span data-page-shipping></span></div>
+          <div class="drawer__row drawer__total"><span>Total</span><span data-page-total></span></div>
+          <a class="drawer__view" href="panier.html">Modifier le panier</a>
+        </aside>
+        <div class="empty-cart" data-page-empty hidden>
+          <p class="script">Votre panier est vide…</p>
+          <p>Ajoutez un produit avant de passer commande.</p>
+          <a class="btn" href="eclat-dube.html">Découvrir Éclat d’Ubé</a>
+        </div>
+      </div>
+    </section>
+  </main>
+

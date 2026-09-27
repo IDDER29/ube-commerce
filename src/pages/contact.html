@@ -1,0 +1,66 @@
+<!--
+title: Contact | Ube Halaya
+description: Une question sur Éclat d’Ubé, votre commande ou une idée de recette ? Écrivez-nous.
+preload_image: assets/img/wall.webp
+-->
+  <main id="contenu">
+    <section class="page-hero wall">
+      <div class="wrap">
+        <p class="script">Une question, une idée ?</p>
+        <h1 class="h-display">Écrivez-nous</h1>
+        <p class="page-hero__lead">Une commande, un conseil de préparation, une recette à partager : nous lisons chaque message.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap contact">
+        <form class="panel contact-form" data-contact-form data-email="bonjour@ubehalaya.fr" novalidate>
+          <h2 class="panel__title">Votre message</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label for="c-name">Nom</label>
+              <input class="input" id="c-name" name="name" autocomplete="name" required>
+              <p class="field__error">Indiquez votre nom.</p>
+            </div>
+            <div class="field">
+              <label for="c-email">Adresse e-mail</label>
+              <input class="input" id="c-email" name="email" type="email" autocomplete="email" required>
+              <p class="field__error">Indiquez une adresse e-mail valide.</p>
+            </div>
+            <div class="field span-2">
+              <label for="c-subject">Sujet</label>
+              <select class="input" id="c-subject" name="subject">
+                <option>Question sur Éclat d’Ubé</option>
+                <option>Suivi de commande</option>
+                <option>Livraison et retours</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="field span-2">
+              <label for="c-message">Message</label>
+              <textarea class="input" id="c-message" name="message" rows="6" required minlength="10"></textarea>
+              <p class="field__error">Votre message doit contenir au moins 10 caractères.</p>
+            </div>
+          </div>
+          <button class="btn" type="submit">Envoyer le message</button>
+          <p class="form-status" data-form-status role="status" hidden></p>
+        </form>
+
+        <aside class="contact-aside">
+          <div class="value-card">
+            <h3>Par e-mail</h3>
+            <p><a href="mailto:bonjour@ubehalaya.fr">bonjour@ubehalaya.fr</a></p>
+          </div>
+          <div class="value-card">
+            <h3>Livraison et retours</h3>
+            <p>Délais, frais et retours : <a href="livraison.html">toutes les réponses</a>.</p>
+          </div>
+          <div class="value-card">
+            <h3>Recettes</h3>
+            <p>Besoin d’inspiration ? <a href="recettes.html">Nos recettes à l’ube</a>.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+

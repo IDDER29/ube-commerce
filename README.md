@@ -4,9 +4,19 @@ Static HTML/CSS/JS storefront built from the UI flow mockups. No framework, no d
 
 | Page | File |
 | --- | --- |
-| Accueil (hero, formats, recettes, histoire, FAQ) | `index.html` |
-| Fiche produit Éclat d’Ubé (galerie, formats, panier, recette) | `eclat-dube.html` |
-| Découvrir l’ube | `decouvrir-ube.html` |
+| Accueil (mockups 1–3) | `index.html` |
+| Fiche produit Éclat d’Ubé (mockup 4) | `eclat-dube.html` |
+| Découvrir l’ube (mockup 5) | `decouvrir-ube.html` |
+| Recettes (latte signature, cake à l’ube, cookiez à l’ube) | `recettes.html` |
+| Notre histoire | `notre-histoire.html` |
+| Livraison et retours | `livraison.html` |
+| Contact | `contact.html` |
+| Panier | `panier.html` |
+| Commande | `commande.html` |
+
+The last six pages are not in the mockups; they reuse the mockups' components
+(plaster-wall hero, Sacramento line, Fraunces titles, pink cards, magenta buttons)
+so every link in the design leads to a real page.
 
 ## Editing
 

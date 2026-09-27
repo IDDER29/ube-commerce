@@ -97,7 +97,52 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 
+  function lineHTML(id, readonly) {
+    var p = PRODUCTS[id];
+    var controls = readonly
+      ? '<div class="line-item__meta">Quantité : ' + cart[id] + "</div>"
+      : '<div class="qty"><button type="button" data-act="dec" aria-label="Retirer une unité">−</button>' +
+        '<input type="number" inputmode="numeric" min="1" max="99" value="' + cart[id] + '" aria-label="Quantité : ' + p.name + '" data-act="set">' +
+        '<button type="button" data-act="inc" aria-label="Ajouter une unité">+</button></div>';
+    return (
+      '<li class="line-item" data-id="' + id + '">' +
+      '<img src="' + p.img + '" alt="" width="72" height="72">' +
+      "<div><h3>" + p.name + '</h3><div class="line-item__meta">' + p.meta + "</div>" + controls + "</div>" +
+      '<div class="line-item__right"><div class="line-item__price">' + money(p.price * cart[id]) + "</div>" +
+      (readonly ? "" : '<button type="button" class="line-item__remove" data-act="remove">Retirer</button>') + "</div>" +
+      "</li>"
+    );
+  }
+
+  /* Cart and checkout pages: same data as the drawer */
+  function renderPage() {
+    var ids = Object.keys(cart).filter(function (id) { return PRODUCTS[id]; });
+    var filled = ids.length > 0;
+    $$("[data-page-filled]").forEach(function (el) { el.hidden = !filled; });
+    $$("[data-page-empty]").forEach(function (el) { el.hidden = filled; });
+    if (!filled) return;
+    var sub = subtotal();
+    var remaining = Math.max(0, FREE_SHIPPING - sub);
+    var shipping = remaining === 0 ? 0 : SHIPPING_COST;
+    $$("[data-page-items]").forEach(function (list) {
+      var readonly = list.hasAttribute("data-readonly");
+      list.innerHTML = ids.map(function (id) { return lineHTML(id, readonly); }).join("");
+    });
+    $$("[data-page-subtotal]").forEach(function (el) { el.textContent = money(sub); });
+    $$("[data-page-shipping]").forEach(function (el) { el.textContent = shipping === 0 ? "Offerte" : money(shipping); });
+    $$("[data-page-shipping-label]").forEach(function (el) { el.textContent = shipping === 0 ? "livraison offerte" : money(shipping); });
+    $$("[data-page-total]").forEach(function (el) { el.textContent = money(sub + shipping); });
+    var msg = $("[data-page-ship-msg]");
+    if (msg) {
+      msg.innerHTML = remaining > 0
+        ? "Plus que <strong>" + money(remaining) + "</strong> pour la livraison offerte."
+        : "Bonne nouvelle : <strong>la livraison est offerte</strong> !";
+      $("[data-page-ship-bar]").style.width = Math.min(100, (sub / FREE_SHIPPING) * 100) + "%";
+    }
+  }
+
   function render() {
+    renderPage();
     var n = count();
     $$(".cart-count").forEach(function (el) {
       el.textContent = n;
@@ -123,31 +168,18 @@
         '<li class="drawer__empty"><p class="script">Votre panier est vide…</p>' +
         '<a class="btn btn--sm" href="eclat-dube.html">Découvrir Éclat d’Ubé</a></li>';
     } else {
-      itemsEl.innerHTML = ids.map(function (id) {
-        var p = PRODUCTS[id];
-        return (
-          '<li class="line-item" data-id="' + id + '">' +
-          '<img src="' + p.img + '" alt="" width="72" height="72">' +
-          "<div><h3>" + p.name + '</h3><div class="line-item__meta">' + p.meta + "</div>" +
-          '<div class="qty"><button type="button" data-act="dec" aria-label="Retirer une unité">−</button>' +
-          '<input type="number" inputmode="numeric" min="1" max="99" value="' + cart[id] + '" aria-label="Quantité : ' + p.name + '" data-act="set">' +
-          '<button type="button" data-act="inc" aria-label="Ajouter une unité">+</button></div></div>' +
-          '<div class="line-item__right"><div class="line-item__price">' + money(p.price * cart[id]) + "</div>" +
-          '<button type="button" class="line-item__remove" data-act="remove">Retirer</button></div>' +
-          "</li>"
-        );
-      }).join("");
+      itemsEl.innerHTML = ids.map(function (id) { return lineHTML(id); }).join("");
     }
 
     var shipping = sub === 0 || remaining === 0 ? 0 : SHIPPING_COST;
     $("#cart-subtotal").textContent = money(sub);
     $("#cart-shipping").textContent = sub === 0 ? "—" : shipping === 0 ? "Offerte" : money(shipping);
     $("#cart-total").textContent = money(sub + shipping);
-    $("#checkout-btn").disabled = sub === 0;
+    $("#checkout-btn").setAttribute("aria-disabled", String(sub === 0));
   }
 
-  if (itemsEl) {
-    itemsEl.addEventListener("click", function (e) {
+  function bindLines(listEl) {
+    listEl.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-act]");
       var li = e.target.closest(".line-item");
       if (!btn || !li || btn.tagName === "INPUT") return;
@@ -157,26 +189,22 @@
       if (act === "dec") setQty(id, cart[id] - 1);
       if (act === "remove") setQty(id, 0);
       // Re-rendering replaces the buttons: keep keyboard focus in the same place
-      var again = $('.line-item[data-id="' + id + '"] [data-act="' + act + '"]', itemsEl);
-      (again || $(".drawer__close", drawer)).focus();
+      var again = $('.line-item[data-id="' + id + '"] [data-act="' + act + '"]', listEl);
+      if (again) again.focus();
+      else if (drawer && listEl === itemsEl) $(".drawer__close", drawer).focus();
     });
-    itemsEl.addEventListener("change", function (e) {
+    listEl.addEventListener("change", function (e) {
       var li = e.target.closest(".line-item");
       if (!li || e.target.dataset.act !== "set") return;
       var v = parseInt(e.target.value, 10);
       setQty(li.dataset.id, isNaN(v) ? 1 : v);
     });
   }
+  if (itemsEl) bindLines(itemsEl);
+  $$("[data-page-items]:not([data-readonly])").forEach(bindLines);
 
   $$("[data-open-cart]").forEach(function (b) { b.addEventListener("click", openCart); });
   $$("[data-close-cart]").forEach(function (b) { b.addEventListener("click", closeCart); });
-
-  var checkout = document.getElementById("checkout-btn");
-  if (checkout) {
-    checkout.addEventListener("click", function () {
-      toast("Paiement bientôt disponible — merci pour votre patience !");
-    });
-  }
 
   /* ---------- Toast ---------- */
 
@@ -392,6 +420,61 @@
       a.addEventListener("click", function (e) { e.preventDefault(); openRecipe(); history.replaceState(null, "", "#latte-signature"); });
     });
     if (location.hash === "#latte-signature") openRecipe();
+  }
+
+  /* ---------- Forms: contact and checkout ---------- */
+
+  function checkField(input) {
+    var field = input.closest(".field");
+    if (!field) return true;
+    var ok = input.checkValidity() && input.value.trim() !== "";
+    field.classList.toggle("is-invalid", !ok);
+    input.setAttribute("aria-invalid", String(!ok));
+    return ok;
+  }
+  function validate(form) {
+    var bad = $$("[required]", form).filter(function (el) {
+      if (el.type === "checkbox") {
+        var err = $("[data-terms-error]", form);
+        if (err) err.classList.toggle("is-visible", !el.checked);
+        return !el.checked;
+      }
+      return !checkField(el);
+    });
+    if (bad.length) bad[0].focus();
+    return !bad.length;
+  }
+  $$("[data-contact-form], [data-checkout-form]").forEach(function (form) {
+    $$(".field [required]", form).forEach(function (el) {
+      el.addEventListener("blur", function () { if (el.value) checkField(el); });
+      el.addEventListener("input", function () { if (el.closest(".field").classList.contains("is-invalid")) checkField(el); });
+    });
+  });
+
+  var contactForm = $("[data-contact-form]");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!validate(contactForm)) return;
+      var f = contactForm.elements;
+      var status = $("[data-form-status]", contactForm);
+      location.href = "mailto:" + contactForm.dataset.email +
+        "?subject=" + encodeURIComponent("[" + f.subject.value + "] " + f.name.value) +
+        "&body=" + encodeURIComponent(f.message.value + "\n\n— " + f.name.value + " (" + f.email.value + ")");
+      status.hidden = false;
+      status.textContent = "Votre messagerie s’ouvre avec votre message prêt à partir. Rien ne s’ouvre ? Écrivez-nous à " + contactForm.dataset.email + ".";
+    });
+  }
+
+  var checkoutForm = $("[data-checkout-form]");
+  if (checkoutForm) {
+    checkoutForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!validate(checkoutForm)) return;
+      var status = $("[data-form-status]", checkoutForm);
+      status.hidden = false;
+      status.textContent = "Vos informations sont prêtes. Le paiement en ligne sera activé très prochainement : votre panier est conservé d’ici là.";
+    });
   }
 
   /* ---------- Year ---------- */
