@@ -48,3 +48,17 @@ Open `index.html` in a browser, or serve the folder: `python3 -m http.server`.
 Screenshots of every page (desktop and mobile) are in `docs/screenshots/`.
 
 Legal pages are templates: complete every `[placeholder]` before going live.
+
+## Design system
+
+All sizes come from tokens at the top of `assets/css/styles.css`:
+
+- **Type scale:** `--fs-sm` 14 · `--fs-base` 16 · `--fs-md` 18 · `--fs-lg` 22 (card titles) ·
+  `--fs-xl` 28→40 (section titles) · `--fs-h1` 42→76 (page titles) · `--fs-display` 51→104 (home hero),
+  plus `--fs-script` / `--fs-script-lg` for the handwritten lines. Nothing below 14px except badges.
+- **Spacing:** `--space-section` 56→96 above and below every section, `--space-title` between a
+  section title and its content, `--space-band` inside banners. `--measure` caps lines at 65 characters.
+- The "Rhythm & hierarchy" block at the end of the stylesheet applies these to every shared element.
+
+`build.py` also writes `assets/css/styles.min.css`, which the pages load. Edit `styles.css`, then rebuild.
+Fonts are subset to the characters used on the site; if you add text in another alphabet, re-subset them.
