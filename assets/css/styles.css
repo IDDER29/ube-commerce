@@ -2005,3 +2005,4 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .hero__meta { color: var(--muted); font-size: var(--fs-sm); }
 .hero__meta strong { color: var(--plum); font-size: var(--fs-md); }
 .hero--textured .hero__copy { padding-top: clamp(1.75rem, 1rem + 3vw, 3.5rem); }
+.ube-hero__copy .script { text-align: center; margin-left: 0; }
