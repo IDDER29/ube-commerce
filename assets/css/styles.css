@@ -1978,7 +1978,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .hero__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 1.75rem; }
 .hero__meta { color: var(--muted); font-size: var(--fs-sm); }
 .hero__meta strong { color: var(--plum); font-size: var(--fs-md); }
-.hero--textured .hero__copy { padding-top: clamp(1.75rem, 1rem + 3vw, 3.5rem); }
+.hero--textured .hero__copy { padding-top: var(--space-section); }
 /* Photo height follows the screen height; its width follows the height so the
    whole tray shows at its real proportions instead of a cropped full-width strip */
 @media (min-width: 701px) {
