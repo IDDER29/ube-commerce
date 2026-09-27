@@ -4,25 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ube Halaya — Éclat d’Ubé, la poudre d’ube pour vos lattes</title>
-  <meta name="description" content="Éclat d’Ubé : la poudre d’ube pour vos lattes et vos desserts maison. Canette de 50 g à 17,90 €. Livraison offerte dès 45 €.">
-  <meta name="theme-color" content="#3b0b27">
+  <meta name="description" content="Éclat d’Ubé : la poudre d’ube pour vos lattes et vos desserts maison. Canette de 50 g dès 17,90 €, jusqu’à 25 lattes à 2 g. Livraison offerte dès 45 €.">
+  <meta name="theme-color" content="#401838">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Ube Halaya">
   <meta property="og:title" content="Ube Halaya — Éclat d’Ubé, la poudre d’ube pour vos lattes">
-  <meta property="og:description" content="Éclat d’Ubé : la poudre d’ube pour vos lattes et vos desserts maison. Canette de 50 g à 17,90 €. Livraison offerte dès 45 €.">
+  <meta property="og:description" content="Éclat d’Ubé : la poudre d’ube pour vos lattes et vos desserts maison. Canette de 50 g dès 17,90 €, jusqu’à 25 lattes à 2 g. Livraison offerte dès 45 €.">
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/hero-scene.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/product-main.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 <body class="page-index">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <div class="announce">Livraison offerte dès 45&nbsp;€</div>
+  <div class="announce">Livraison offerte dès 45&nbsp;€ d’achat</div>
 
   <header class="site-header" id="site-header">
     <div class="wrap site-header__inner">
@@ -34,13 +34,13 @@
       </a>
       <nav class="nav" id="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="index.html" aria-current="page">Accueil</a></li>
-          <li><a href="eclat-dube.html">Boutique</a></li>
+          <li><a href="eclat-dube.html">Éclat d’Ubé</a></li>
           <li><a href="recettes.html">Recettes</a></li>
           <li><a href="notre-histoire.html">Notre histoire</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
         </ul>
         <div class="nav__extra">
-          <a class="btn btn--block" href="eclat-dube.html">Découvrir Éclat d’Ubé · 17,90&nbsp;€</a>
+          <a class="btn btn--block" href="eclat-dube.html">Découvrir Éclat d’Ubé · dès 17,90&nbsp;€</a>
           <ul class="nav__more">
             <li><a href="decouvrir-ube.html">Découvrir l’ube</a></li>
             <li><a href="livraison.html">Livraison et retours</a></li>
@@ -50,173 +50,203 @@
         </div>
       </nav>
       <div class="nav-backdrop" hidden></div>
-      <button class="cart-btn" type="button" data-open-cart aria-label="Ouvrir le panier" aria-controls="cart-drawer">
+      <button class="cart-btn" type="button" data-open-cart aria-controls="cart-drawer">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20l-1.4 18H7.4z"/><path d="M11.5 13V8.5a4.5 4.5 0 0 1 9 0V13"/></svg>
+        <span class="cart-btn__label">Panier</span>
         <span class="cart-count" hidden>0</span>
       </button>
     </div>
   </header>
 
   <main id="contenu">
-      <!-- Hero -->
-      <section class="hero wall">
-        <div class="wrap hero__copy">
-          <p class="script">Il était une fois une racine violette…</p>
-          <h1 class="h-display">Éclat d’Ubé</h1>
-          <p class="hero__lead">La poudre d’ube pour vos lattes et vos desserts maison.</p>
-          <a class="btn btn--lg" href="eclat-dube.html">Découvrir Éclat d’Ubé</a>
-          <p class="hero__meta">Canette de 50 g · 17,90 €</p>
+    <!-- Premier écran -->
+    <section class="home-hero">
+      <div class="wrap home-hero__inner">
+        <div class="home-hero__copy">
+          <h1 class="home-hero__title">Votre prochain latte, à&nbsp;l’ube.</h1>
+          <p class="home-hero__lead">Découvrez Éclat d’Ubé, notre poudre d’ube pour les lattes et les desserts maison.</p>
+          <p class="home-hero__meta">50 g · Jusqu’à 25 lattes à 2 g · <strong>dès 17,90 €</strong></p>
+          <div class="home-hero__actions">
+            <a class="btn btn--lg" href="eclat-dube.html">Découvrir Éclat d’Ubé</a>
+            <a class="link-arrow" href="#preparation">Voir la préparation</a>
+          </div>
         </div>
-        <div class="hero__scene">
-          <img src="assets/img/hero-scene.webp" width="1600" height="400" alt="Une canette Éclat d’Ubé, un bol de poudre violette et un latte à l’ube marbré sur un plateau en bois." fetchpriority="high">
-        </div>
-      </section>
+        <figure class="home-hero__media zoomable">
+          <img src="assets/img/product-main.webp" width="804" height="746" alt="Une canette Éclat d’Ubé à côté d’un latte glacé à l’ube, sur un plateau en bois" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
 
     <!-- Formats -->
-    <section class="section" id="boutique">
+    <section class="section" id="formats">
       <div class="wrap">
-        <h2 class="h-section">Choisissez votre format</h2>
-        <p class="script section-sub">Pour vous, ou à partager.</p>
+        <h2 class="h-section">Choisissez votre format.</h2>
+        <p class="section-lead">La même poudre d’ube, en une, trois ou six canettes.</p>
         <div class="formats">
           <article class="format-card">
-            <div class="format-card__media">
+            <a class="format-card__media zoomable" href="eclat-dube.html?format=canette-1" aria-label="Voir Éclat d’Ubé, une canette">
               <img src="assets/img/format-1.webp" width="227" height="118" alt="Une canette Éclat d’Ubé" loading="lazy" decoding="async">
-            </div>
+            </a>
             <div class="format-card__body">
               <h3>Une canette</h3>
               <div class="format-card__size">50 g</div>
               <div class="format-card__price">17,90 €</div>
               <div class="format-card__unit">17,90 € / canette</div>
+              <div class="format-card__detail">Jusqu’à 25 lattes à 2 g</div>
               <div class="format-card__tag">Pour découvrir</div>
-              <a class="btn btn--sm" href="eclat-dube.html?format=canette-1">Choisir ce format</a>
+              <button class="btn btn--sm" type="button" data-add="canette-1">Ajouter au panier</button>
             </div>
           </article>
           <article class="format-card">
-            <div class="format-card__media">
+            <a class="format-card__media zoomable" href="eclat-dube.html?format=coffret-3" aria-label="Voir le coffret découverte, trois canettes">
               <img src="assets/img/format-3.webp" width="226" height="118" alt="Trois canettes Éclat d’Ubé" loading="lazy" decoding="async"><span class="format-card__save">−13 %</span>
-            </div>
+            </a>
             <div class="format-card__body">
               <h3>Coffret découverte</h3>
-              <div class="format-card__size">3 canettes · 150 g</div>
+              <div class="format-card__size">3 × 50 g · 150 g</div>
               <div class="format-card__price">46,90 €</div>
               <div class="format-card__unit">15,63 € / canette</div>
+              <div class="format-card__detail">6,80 € économisés · Livraison offerte</div>
               <div class="format-card__tag">À partager</div>
-              <a class="btn btn--sm" href="eclat-dube.html?format=coffret-3">Choisir ce format</a>
+              <button class="btn btn--sm" type="button" data-add="coffret-3">Ajouter au panier</button>
             </div>
           </article>
           <article class="format-card">
-            <div class="format-card__media">
+            <a class="format-card__media zoomable" href="eclat-dube.html?format=coffret-6" aria-label="Voir le coffret à partager, six canettes">
               <img src="assets/img/format-6.webp" width="226" height="118" alt="Six canettes Éclat d’Ubé" loading="lazy" decoding="async"><span class="format-card__save">−21 %</span>
-            </div>
+            </a>
             <div class="format-card__body">
               <h3>Coffret à partager</h3>
-              <div class="format-card__size">6 canettes · 300 g</div>
+              <div class="format-card__size">6 × 50 g · 300 g</div>
               <div class="format-card__price">84,90 €</div>
               <div class="format-card__unit">14,15 € / canette</div>
+              <div class="format-card__detail">22,50 € économisés · Livraison offerte</div>
               <div class="format-card__tag">Pour en profiter plus longtemps</div>
-              <a class="btn btn--sm" href="eclat-dube.html?format=coffret-6">Choisir ce format</a>
+              <button class="btn btn--sm" type="button" data-add="coffret-6">Ajouter au panier</button>
             </div>
           </article>
         </div>
+        <p class="formats__note">La poudre revient à 0,72 € par latte à 2 g avec une canette, 0,63 € avec le coffret découverte et 0,57 € avec le coffret à partager, hors lait et garnitures.</p>
       </div>
     </section>
 
-    <!-- Steps -->
-    <section class="section section--tight">
+    <!-- Trois gestes -->
+    <section class="section section--cream" id="preparation">
       <div class="wrap">
         <h2 class="h-section">Trois gestes, un latte violet.</h2>
+        <p class="section-lead">Dosez. Mélangez. Ajoutez votre lait préféré.</p>
         <div class="steps">
           <figure class="step">
             <img src="assets/img/step-dose.webp" width="228" height="137" alt="Une cuillère verse de la poudre d’ube dans un bol" loading="lazy" decoding="async">
-            <figcaption><span class="step__num">01</span> Dosez 2 à 3 g</figcaption>
+            <figcaption><span class="step__num">01</span> Dosez 2 à 3 g de poudre.</figcaption>
           </figure>
           <figure class="step">
             <img src="assets/img/step-mix.webp" width="225" height="137" alt="La poudre mélangée au mousseur dans un bol" loading="lazy" decoding="async">
-            <figcaption><span class="step__num">02</span> Mélangez au mousseur</figcaption>
+            <figcaption><span class="step__num">02</span> Mélangez selon les indications de préparation.</figcaption>
           </figure>
           <figure class="step">
             <img src="assets/img/step-milk.webp" width="227" height="137" alt="Du lait versé dans un verre de glace et d’ube" loading="lazy" decoding="async">
-            <figcaption><span class="step__num">03</span> Ajoutez votre lait</figcaption>
+            <figcaption><span class="step__num">03</span> Ajoutez le lait de votre choix, chaud ou glacé.</figcaption>
           </figure>
         </div>
-        <p class="steps__note">Jusqu’à 25 lattes par canette, à raison de 2 g par latte.</p>
-        <p class="center"><a class="link-arrow" href="recettes.html#latte-signature">Voir la recette complète</a></p>
+        <p class="center section-cta"><a class="btn btn--ghost" href="recettes.html#latte-signature">Voir la recette complète</a></p>
       </div>
     </section>
 
-    <!-- Recipes -->
-    <section class="section section--tight" id="recettes">
+    <!-- Recettes -->
+    <section class="section" id="recettes">
       <div class="wrap">
         <h2 class="h-section">Trois façons de commencer.</h2>
         <div class="recipes" data-carousel aria-label="Recettes">
           <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-latte.webp" width="229" height="156" alt="Latte à l’ube surmonté d’une mousse vanille" loading="lazy" decoding="async"></div>
-            <h3>Latte signature, mousse vanille</h3>
-            <a class="link-arrow" href="recettes.html#latte-signature">Voir la recette</a>
+            <a class="recipe__img zoomable" href="recettes.html#latte-signature" tabindex="-1" aria-hidden="true"><img src="assets/img/recipe-latte.webp" width="229" height="156" alt="" loading="lazy" decoding="async"></a>
+            <h3><a href="recettes.html#latte-signature">Latte glacé, mousse vanille</a></h3>
+            <p class="recipe__desc">Notre recette signature.</p>
           </article>
           <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-cake.webp" width="222" height="156" alt="Cake marbré à l’ube nappé de glaçage" loading="lazy" decoding="async"></div>
-            <h3>Cake à l’ube</h3>
-            <a class="link-arrow" href="recettes.html#cake-ube">Voir la recette</a>
+            <a class="recipe__img zoomable" href="recettes.html#cake-ube" tabindex="-1" aria-hidden="true"><img src="assets/img/recipe-cake.webp" width="222" height="156" alt="" loading="lazy" decoding="async"></a>
+            <h3><a href="recettes.html#cake-ube">Cake à l’ube</a></h3>
+            <p class="recipe__desc">À couper en tranches et à partager.</p>
           </article>
           <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-cookies.webp" width="227" height="156" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy" decoding="async"></div>
-            <h3>Cookiez à l’ube</h3>
-            <a class="link-arrow" href="recettes.html#cookies-ube">Voir la recette</a>
+            <a class="recipe__img zoomable" href="recettes.html#cookies-ube" tabindex="-1" aria-hidden="true"><img src="assets/img/recipe-cookies.webp" width="227" height="156" alt="" loading="lazy" decoding="async"></a>
+            <h3><a href="recettes.html#cookies-ube">Cookies à l’ube</a></h3>
+            <p class="recipe__desc">Pour votre prochaine fournée.</p>
           </article>
         </div>
+        <p class="center section-cta"><a class="btn btn--ghost" href="recettes.html">Toutes les recettes</a></p>
       </div>
     </section>
 
-    <!-- Story -->
-    <section class="story" id="histoire">
-      <figure class="story__img">
-        <img src="assets/img/story-roots.webp" width="403" height="194" alt="Racines d’ube coupées révélant leur chair violette, dans un panier tressé" loading="lazy" decoding="async">
-        <figcaption class="img-credit">Illustration de la culture de l’ube</figcaption>
-      </figure>
+    <!-- Histoire et origine -->
+    <section class="section section--cream story-band" id="histoire">
       <div class="wrap">
-        <div class="story__copy">
+        <div class="story-band__copy">
           <p class="script">Il était une fois une racine violette…</p>
-          <h2>Des Philippines à votre cuisine.</h2>
-          <p>L’ube est une <strong>igname</strong> violette. Découvrez cette racine, puis faites-lui une place dans votre cuisine : un latte, un gâteau, un moment à partager.</p>
-          <a class="link-arrow" href="decouvrir-ube.html">Découvrir l’histoire de l’ube</a>
+          <h2 class="h-section">Des Philippines à votre cuisine.</h2>
+          <p>Une couleur qui intrigue, une première recette à essayer. Avec Éclat d’Ubé, l’histoire se poursuit dans votre cuisine : dans un latte, un cake ou une fournée de cookies.</p>
+          <a class="btn btn--ghost" href="notre-histoire.html">Découvrir notre histoire</a>
         </div>
+        <figure class="story-band__img">
+          <img src="assets/img/story-roots.webp" width="806" height="388" alt="Racines d’ube coupées révélant leur chair violette, dans un panier tressé" loading="lazy" decoding="async">
+          <figcaption class="img-credit">Illustration de la culture de l’ube</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- Gift -->
+    <!-- Offrir -->
     <section class="gift">
       <div class="wrap gift__inner">
-        <img src="assets/img/gift-trio.webp" width="262" height="117" alt="Trois canettes Éclat d’Ubé côte à côte" loading="lazy" decoding="async">
+        <img src="assets/img/gift-trio.webp" width="262" height="117" alt="Le coffret découverte : trois canettes Éclat d’Ubé" loading="lazy" decoding="async">
         <div>
           <h2>Faites découvrir l’ube à vos proches.</h2>
-          <p>Un anniversaire, une invitation, ou simplement le plaisir de partager.</p>
-          <a class="btn btn--sm" href="eclat-dube.html?format=coffret-3">Découvrir le coffret</a>
+          <p>Un anniversaire, une invitation ou le plaisir de partager une découverte : choisissez le trio Éclat d’Ubé.</p>
+          <a class="btn btn--sm" href="eclat-dube.html?format=coffret-3">Découvrir le trio</a>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section">
+    <section class="section" id="faq">
       <div class="wrap">
-        <h2 class="h-section">Une question avant de goûter ?</h2>
+        <h2 class="h-section">Une question avant de commencer ?</h2>
         <div class="faq">
           <details>
-            <summary>Comment préparer mon latte ?</summary>
-            <p>Dosez 2 à 3 g de poudre, délayez-la avec un peu d’eau chaude ou de lait au mousseur, puis complétez avec 20 cl de lait chaud ou glacé. Sucrez selon votre goût.</p>
+            <summary>Qu’est-ce que l’ube ?</summary>
+            <p>L’ube est une igname violette (<em>Dioscorea alata</em>), très présente dans les desserts philippins. Éclat d’Ubé en est la poudre : les racines sont cuites, séchées puis finement moulues.</p>
+          </details>
+          <details>
+            <summary>Quel goût a Éclat d’Ubé ?</summary>
+            <p>Un goût doux, entre vanille et noisette, avec une couleur violette naturelle.</p>
+          </details>
+          <details>
+            <summary>Comment doser la poudre ?</summary>
+            <p>Comptez 2 g pour un latte, jusqu’à 3 g pour une couleur et un goût plus intenses. Délayez la poudre dans un peu d’eau chaude, puis ajoutez le lait de votre choix.</p>
           </details>
           <details>
             <summary>Combien de lattes avec une canette ?</summary>
-            <p>Une canette de 50 g permet de préparer jusqu’à 25 lattes, à raison de 2 g par latte.</p>
+            <p>Jusqu’à 25 lattes avec 2 g par préparation, environ 16 à 3 g. La quantité varie selon le dosage et la recette.</p>
           </details>
           <details>
             <summary>Comment conserver la poudre ?</summary>
-            <p>Refermez bien la canette après chaque utilisation et conservez-la au sec, à l’abri de la lumière et de la chaleur.</p>
+            <p>Refermez bien la canette après chaque utilisation et conservez-la au sec, à l’abri de la lumière et de la chaleur. À consommer de préférence dans les 12 mois.</p>
           </details>
           <details>
             <summary>Quand la livraison est-elle offerte ?</summary>
-            <p>La livraison est offerte en France métropolitaine dès 45 € d’achat. En dessous, elle est facturée 4,90 €.</p>
+            <p>La livraison est offerte en France métropolitaine dès 45 € d’achat : le coffret découverte en profite déjà. En dessous, elle est facturée 4,90 €.</p>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dernier achat -->
+    <section class="final-cta">
+      <div class="wrap final-cta__inner">
+        <img src="assets/img/cta-tray.webp" width="415" height="163" alt="Canette Éclat d’Ubé, poudre et latte sur un plateau en bois" loading="lazy" decoding="async">
+        <div class="final-cta__copy">
+          <h2>Éclat d’Ubé vous attend.</h2>
+          <p>Canette de 50 g · dès 17,90 €</p>
+          <a class="btn btn--lg" href="#formats">Choisir mon format</a>
         </div>
       </div>
     </section>

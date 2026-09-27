@@ -4,25 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Recettes à l’ube — lattes et pâtisseries | Ube Halaya</title>
-  <meta name="description" content="Latte signature, cake à l’ube, cookiez à l’ube : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.">
-  <meta name="theme-color" content="#3b0b27">
+  <meta name="description" content="Latte glacé à la mousse vanille, cake à l’ube, cookies à l’ube : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.">
+  <meta name="theme-color" content="#401838">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Ube Halaya">
   <meta property="og:title" content="Recettes à l’ube — lattes et pâtisseries | Ube Halaya">
-  <meta property="og:description" content="Latte signature, cake à l’ube, cookiez à l’ube : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.">
+  <meta property="og:description" content="Latte glacé à la mousse vanille, cake à l’ube, cookies à l’ube : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.">
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/recipe-latte.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 <body class="page-recettes">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <div class="announce">Livraison offerte dès 45&nbsp;€</div>
+  <div class="announce">Livraison offerte dès 45&nbsp;€ d’achat</div>
 
   <header class="site-header" id="site-header">
     <div class="wrap site-header__inner">
@@ -34,13 +34,13 @@
       </a>
       <nav class="nav" id="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="eclat-dube.html">Boutique</a></li>
+          <li><a href="eclat-dube.html">Éclat d’Ubé</a></li>
           <li><a href="recettes.html" aria-current="page">Recettes</a></li>
           <li><a href="notre-histoire.html">Notre histoire</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
         </ul>
         <div class="nav__extra">
-          <a class="btn btn--block" href="eclat-dube.html">Découvrir Éclat d’Ubé · 17,90&nbsp;€</a>
+          <a class="btn btn--block" href="eclat-dube.html">Découvrir Éclat d’Ubé · dès 17,90&nbsp;€</a>
           <ul class="nav__more">
             <li><a href="decouvrir-ube.html">Découvrir l’ube</a></li>
             <li><a href="livraison.html">Livraison et retours</a></li>
@@ -50,8 +50,9 @@
         </div>
       </nav>
       <div class="nav-backdrop" hidden></div>
-      <button class="cart-btn" type="button" data-open-cart aria-label="Ouvrir le panier" aria-controls="cart-drawer">
+      <button class="cart-btn" type="button" data-open-cart aria-controls="cart-drawer">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20l-1.4 18H7.4z"/><path d="M11.5 13V8.5a4.5 4.5 0 0 1 9 0V13"/></svg>
+        <span class="cart-btn__label">Panier</span>
         <span class="cart-count" hidden>0</span>
       </button>
     </div>
@@ -63,6 +64,7 @@
         <p class="script">Un peu de violet dans la cuisine…</p>
         <h1 class="h-display">Nos recettes</h1>
         <p class="page-hero__lead">Du latte du matin au goûter du dimanche, trois façons de commencer avec votre canette.</p>
+        <p class="page-hero__note">Seule la poudre Éclat d’Ubé est vendue : lait, crème et autres ingrédients sont à prévoir.</p>
       </div>
     </section>
 
@@ -73,17 +75,20 @@
         <div class="recipes" data-carousel aria-label="Recettes">
           <article class="recipe">
             <div class="recipe__img"><img src="assets/img/recipe-latte.webp" width="458" height="312" alt="Latte à l’ube surmonté d’une mousse vanille" loading="lazy" decoding="async"></div>
-            <h3>Latte signature, mousse vanille</h3>
+            <h3>Latte glacé, mousse vanille</h3>
+            <p class="recipe__desc">Notre recette signature.</p>
             <a class="link-arrow" href="#latte-signature">Voir la recette</a>
           </article>
           <article class="recipe">
             <div class="recipe__img"><img src="assets/img/recipe-cake.webp" width="444" height="312" alt="Cake marbré à l’ube nappé de glaçage" loading="lazy" decoding="async"></div>
             <h3>Cake à l’ube</h3>
+            <p class="recipe__desc">À couper en tranches et à partager.</p>
             <a class="link-arrow" href="#cake-ube">Voir la recette</a>
           </article>
           <article class="recipe">
             <div class="recipe__img"><img src="assets/img/recipe-cookies.webp" width="454" height="312" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy" decoding="async"></div>
-            <h3>Cookiez à l’ube</h3>
+            <h3>Cookies à l’ube</h3>
+            <p class="recipe__desc">Pour votre prochaine fournée.</p>
             <a class="link-arrow" href="#cookies-ube">Voir la recette</a>
           </article>
         </div>
@@ -96,7 +101,7 @@
         <div class="recipe-detail__img"><img src="assets/img/recipe-latte.webp" width="458" height="312" alt="Latte à l’ube marbré surmonté d’une mousse vanille" loading="lazy" decoding="async"></div>
         <div class="recipe-detail__copy">
           <p class="script">Le classique</p>
-          <h2 class="recipe-detail__title">Latte signature, mousse vanille</h2>
+          <h2 class="recipe-detail__title">Latte glacé, mousse vanille</h2>
           <ul class="recipe-facts"><li><strong>5 min</strong>préparation</li><li><strong>1 verre</strong>de 30 cl</li><li><strong>Facile</strong>difficulté</li></ul>
         </div>
         <div class="recipe-panel">
@@ -114,7 +119,7 @@
           <h3>Préparation</h3>
           <ol class="method">
             <li>Déposez la poudre dans un bol et versez l’eau chaude.</li>
-            <li>Mélangez au mousseur jusqu’à obtenir une pâte lisse, sans grumeaux.</li>
+            <li>Mélangez au mousseur jusqu’à obtenir une base lisse, sans grumeaux.</li>
             <li>Sucrez à ce stade : le sucre se dissout mieux dans la base chaude.</li>
             <li>Versez la base violette dans un verre de glaçons, ou dans une tasse pour la version chaude.</li>
             <li>Ajoutez le lait doucement, sans mélanger, pour garder l’effet marbré.</li>
@@ -165,8 +170,8 @@
         <div class="recipe-detail__img"><img src="assets/img/recipe-cookies.webp" width="454" height="312" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy" decoding="async"></div>
         <div class="recipe-detail__copy">
           <p class="script">À partager</p>
-          <h2 class="recipe-detail__title">Cookiez à l’ube</h2>
-          <ul class="recipe-facts"><li><strong>30 min</strong>dont 12 min de cuisson</li><li><strong>12 cookiez</strong>environ</li><li><strong>Facile</strong>difficulté</li></ul>
+          <h2 class="recipe-detail__title">Cookies à l’ube</h2>
+          <ul class="recipe-facts"><li><strong>30 min</strong>dont 12 min de cuisson</li><li><strong>12 cookies</strong>environ</li><li><strong>Facile</strong>difficulté</li></ul>
         </div>
         <div class="recipe-panel">
           <h3>Ingrédients</h3>

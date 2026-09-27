@@ -10,9 +10,9 @@
   var STORAGE_KEY = "ube-halaya-cart";
 
   var PRODUCTS = {
-    "canette-1": { name: "Éclat d’Ubé — Une canette", meta: "1 canette · 50 g", cans: 1, price: 17.9, img: "assets/img/format-1.webp", photo: "assets/img/product-main.webp" },
-    "coffret-3": { name: "Coffret découverte", meta: "3 canettes · 150 g", cans: 3, price: 46.9, img: "assets/img/format-3.webp", photo: "assets/img/gift-pyramid.webp" },
-    "coffret-6": { name: "Coffret à partager", meta: "6 canettes · 300 g", cans: 6, price: 84.9, img: "assets/img/format-6.webp", photo: "assets/img/format-6.webp" }
+    "canette-1": { name: "Éclat d’Ubé — Une canette", meta: "1 canette · 50 g", content: "1 canette de 50 g", cans: 1, price: 17.9, img: "assets/img/format-1.webp", photo: "assets/img/product-main.webp" },
+    "coffret-3": { name: "Coffret découverte", meta: "3 canettes · 150 g", content: "3 canettes de 50 g dans un coffret cadeau", cans: 3, price: 46.9, img: "assets/img/format-3.webp", photo: "assets/img/gift-pyramid.webp" },
+    "coffret-6": { name: "Coffret à partager", meta: "6 canettes · 300 g", content: "6 canettes de 50 g dans un coffret cadeau", cans: 6, price: 84.9, img: "assets/img/format-6.webp", photo: "assets/img/format-6.webp" }
   };
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -205,6 +205,14 @@
   $$("[data-page-items]:not([data-readonly])").forEach(bindLines);
 
   $$("[data-open-cart]").forEach(function (b) { b.addEventListener("click", openCart); });
+
+  /* Format cards: add the chosen format straight to the cart */
+  $$("[data-add]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      add(b.dataset.add, 1);
+      setTimeout(openCart, 150);
+    });
+  });
   $$("[data-close-cart]").forEach(function (b) { b.addEventListener("click", closeCart); });
 
   /* ---------- Toast ---------- */
@@ -338,6 +346,8 @@
       priceEl.textContent = money(p.price);
       btnPrice.textContent = money(p.price * qty());
       unitEl.textContent = money(p.price / (p.cans * LATTES_PER_CAN));
+      var contentEl = document.getElementById("format-content");
+      if (contentEl) contentEl.textContent = p.content;
       $("#mobile-buy-price").textContent = money(p.price * qty());
       $("#mobile-buy-format").textContent = p.meta + (qty() > 1 ? " × " + qty() : "");
     };
@@ -425,16 +435,6 @@
       }).observe(addBtn);
     }
 
-    // Full recipe panel
-    var recipe = document.getElementById("latte-signature");
-    var openRecipe = function () {
-      recipe.open = true;
-      setTimeout(function () { recipe.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }, 30);
-    };
-    $$("[data-open-recipe]").forEach(function (a) {
-      a.addEventListener("click", function (e) { e.preventDefault(); openRecipe(); history.replaceState(null, "", "#latte-signature"); });
-    });
-    if (location.hash === "#latte-signature") openRecipe();
   }
 
   /* ---------- Swipe rows: page dots (only when the row actually scrolls) ---------- */
