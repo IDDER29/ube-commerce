@@ -410,7 +410,7 @@ p { text-wrap: pretty; }
   transition: transform .3s var(--ease), box-shadow .3s;
 }
 .format-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.format-card img { width: 100%; aspect-ratio: 227 / 118; object-fit: cover; }
+.format-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .format-card__body { display: flex; flex: 1; flex-direction: column; align-items: center; padding: 0 1rem; }
 .format-card h3 {
   font-family: var(--font-serif);
@@ -438,7 +438,7 @@ p { text-wrap: pretty; }
 }
 .step img {
   width: 100%;
-  aspect-ratio: 228 / 137;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius);
 }
@@ -467,8 +467,6 @@ p { text-wrap: pretty; }
 }
 .steps__note { text-align: center; margin: 1.6rem 0 .5rem; font-size: .98rem; }
 
-.steps--tall img { aspect-ratio: 232 / 203; }
-
 /* Recipes */
 .recipes {
   display: grid;
@@ -479,7 +477,7 @@ p { text-wrap: pretty; }
 .recipe__img { overflow: hidden; border-radius: var(--radius); }
 .recipe img {
   width: 100%;
-  aspect-ratio: 229 / 156;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   transition: transform .5s var(--ease);
 }
@@ -546,6 +544,8 @@ p { text-wrap: pretty; }
 .gift__inner img {
   width: 100%;
   max-width: 440px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
   margin-inline: auto;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
@@ -888,7 +888,7 @@ p { text-wrap: pretty; }
   gap: var(--gap);
   text-align: center;
 }
-.journey img { width: 100%; aspect-ratio: 303 / 192; object-fit: cover; border-radius: var(--radius-sm); }
+.journey img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-sm); }
 .journey h3 {
   font-family: var(--font-serif);
   font-weight: 500;
@@ -1228,7 +1228,7 @@ body.cart-open { overflow: hidden; }
   align-items: center;
 }
 .recipe-detail__img { grid-area: img; overflow: hidden; border-radius: var(--radius); }
-.recipe-detail__img img { width: 100%; aspect-ratio: 229 / 156; object-fit: cover; }
+.recipe-detail__img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .recipe-detail__copy { grid-area: copy; }
 .recipe-detail__copy .script { font-size: clamp(2rem, 3.4vw, 2.6rem); }
 .recipe-detail__title { margin: .1em 0 .5em; font-family: var(--font-serif); font-weight: 600; color: var(--plum); font-size: clamp(1.9rem, 3.4vw, 2.6rem); line-height: 1.1; letter-spacing: -.01em; }
@@ -1719,7 +1719,7 @@ select.input {
   .formats { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   /* Whole photo on top so the 3- and 6-can packs are visible */
   .format-card { padding-bottom: 0; }
-  .format-card img { aspect-ratio: 227 / 104; }
+  .format-card img { aspect-ratio: 16 / 10; }
   .format-card__body {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -1894,7 +1894,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 @media (max-width: 700px) {
   .steps { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .step { display: grid; grid-template-columns: 42% minmax(0, 1fr); align-items: center; gap: 1rem; margin: 0; }
-  .step img, .steps--tall img { aspect-ratio: 4 / 3; }
+  .step img { aspect-ratio: 4 / 3; }
   .step figcaption, .steps--tall figcaption { justify-content: flex-start; margin: 0; gap: .75rem; font-size: var(--fs-md); }
 }
 
@@ -1986,7 +1986,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 @media (min-width: 901px) {
   .cart-btn .cart-count { position: static; box-shadow: none; }
 }
-.story-band__img img { aspect-ratio: 3 / 1; }
+.story-band__img img { aspect-ratio: 5 / 2; }
 @media (max-width: 700px) { .story-band__img img { aspect-ratio: 16 / 10; } }
 
 /* Home hero in the original layout: centred text on the wall, tray photo below */
@@ -2018,6 +2018,10 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 
 /* Split top sections with a photo: same height as the landing pages */
 .ube-hero__inner { min-height: clamp(360px, 32vw, 460px); }
+/* The photo fills its column; the section height comes from the copy and the min-height */
+@media (min-width: 901px) {
+  .ube-hero__img img { position: absolute; inset: 0; }
+}
 .ube-hero .page-hero__note { margin: .9rem auto 0; }
 
 /* Livraison: key facts as cards */
