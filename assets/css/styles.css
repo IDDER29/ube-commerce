@@ -2006,3 +2006,38 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .hero__meta strong { color: var(--plum); font-size: var(--fs-md); }
 .hero--textured .hero__copy { padding-top: clamp(1.75rem, 1rem + 3vw, 3.5rem); }
 .ube-hero__copy .script { text-align: center; margin-left: 0; }
+
+/* ==========================================================================
+   Handwriting as before, and every page on the landing page's level
+   ========================================================================== */
+
+/* The handwritten lines keep their original, deeper pink */
+:root { --pink-script: #c43fad; }
+
+/* Same textured wall as the home hero on every page top */
+.wall { background-color: var(--cream-2); background-image: url("../img/wall.webp"); background-size: 600px 600px; }
+
+/* Script line + short text under a section title */
+.section-sub + .section-lead { margin-top: -.6rem; }
+.final-cta .script { font-size: var(--fs-script); margin-bottom: .1em; }
+
+/* Split top sections with a photo: same height as the landing pages */
+.ube-hero__inner { min-height: clamp(360px, 32vw, 460px); }
+.ube-hero .page-hero__note { margin: .9rem auto 0; }
+
+/* Livraison: key facts as cards */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, .6rem + 1.2vw, 1.5rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.info-cards li { padding: 1.5rem 1.25rem; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow-sm); text-align: center; }
+.info-cards svg { width: 32px; height: 32px; color: var(--magenta-dark); }
+.info-cards h3 { margin: .7rem 0 .3rem; font-family: var(--font-serif); font-size: var(--fs-md); font-weight: 600; color: var(--plum); }
+.info-cards p { margin: 0; font-size: var(--fs-sm); color: var(--muted); line-height: 1.5; }
+@media (max-width: 900px) { .info-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .info-cards { grid-template-columns: minmax(0, 1fr); } }
+.h-section + .section-sub + .section-lead { margin-top: calc(var(--space-title) * -.55); }
