@@ -1112,9 +1112,6 @@ body.cart-open { overflow: hidden; }
 
 
   /* Steps: two-up rows; recipes and journey: swipeable rows with dots */
-  .steps { grid-template-columns: 1fr 1fr; }
-  .steps .step:last-child { grid-column: 1 / -1; }
-  .steps .step:last-child img { aspect-ratio: 16 / 7; }
   .recipes, .journey {
     grid-template-columns: none;
     grid-auto-flow: column;
@@ -1157,8 +1154,6 @@ body.cart-open { overflow: hidden; }
 }
 
 @media (max-width: 380px) {
-  .steps { grid-template-columns: 1fr; }
-  .steps .step:last-child img { aspect-ratio: 228 / 137; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1816,4 +1811,98 @@ select.input {
   .variant label { column-gap: .6rem; padding: .8rem .8rem; }
   .variant__name { font-size: 1rem; }
   .variant__size, .variant__unit { font-size: .75rem; white-space: nowrap; }
+}
+
+/* ==========================================================================
+   Page review fixes
+   ========================================================================== */
+
+.nowrap { white-space: nowrap; }
+h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
+
+/* Final call to action: photo and copy as one centred pair */
+.final-cta__inner { gap: clamp(1.5rem, 4vw, 3.5rem); max-width: 980px; }
+@media (min-width: 901px) {
+  .final-cta__inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+}
+.final-cta img {
+  width: 100%;
+  max-width: 520px;
+  justify-self: end;
+}
+.final-cta__copy { text-align: left; }
+@media (max-width: 900px) {
+  .final-cta img { justify-self: center; }
+  .final-cta__copy { text-align: center; }
+}
+
+/* Coffret photos fade fully into the pink instead of showing their box */
+.gift__inner img,
+.final-cta img {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%),
+                      linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%),
+                      linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+          mask-composite: intersect;
+}
+
+/* One FAQ style everywhere: open rows, readable questions */
+.faq summary { font-size: var(--fs-base); font-weight: 500; color: var(--plum); }
+.faq details p { font-size: var(--fs-base); line-height: 1.6; }
+.specs .faq { max-width: none; }
+.specs .faq summary { color: var(--ink); }
+
+/* Info tables: value sits next to its label */
+@media (min-width: 701px) {
+  .specs__row { grid-template-columns: minmax(8rem, 15rem) minmax(0, 1fr); column-gap: 1.5rem; }
+}
+
+/* Recipe toggle uses the same chevron as every other expandable row */
+.recipe-card summary::after {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 9px;
+  margin-right: 4px;
+  border-right: 2px solid var(--plum);
+  border-bottom: 2px solid var(--plum);
+  transform: translateY(-3px) rotate(45deg);
+}
+.recipe-card[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+
+/* Photo credits: a discreet caption, not a sticker */
+.img-credit {
+  right: 10px;
+  bottom: 10px;
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  background: rgba(42, 19, 32, .5);
+  color: #fff;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+/* Notre histoire / Découvrir heroes: tighter script, aligned with the title */
+.ube-hero__copy .script { line-height: 1.15; }
+.page-notre-histoire .ube-hero__copy .script { text-align: center; margin-left: 0; font-size: clamp(2rem, 1.4rem + 1.6vw, 2.6rem); line-height: 1; }
+
+/* 404: the photo sits on the footer, no pale strip */
+.not-found { padding-bottom: 0; }
+
+/* Forms and cart */
+.field label { color: var(--plum); }
+.line-item__remove { font-size: var(--fs-sm); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Checkout on phones: see the order before filling the form */
+@media (max-width: 900px) {
+  [data-checkout] .cart-summary { order: -1; }
+}
+
+/* Steps on phones: three equal rows, photo left, caption right */
+@media (max-width: 700px) {
+  .steps { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .step { display: grid; grid-template-columns: 42% minmax(0, 1fr); align-items: center; gap: 1rem; margin: 0; }
+  .step img, .steps--tall img { aspect-ratio: 4 / 3; }
+  .step figcaption, .steps--tall figcaption { justify-content: flex-start; margin: 0; gap: .75rem; font-size: var(--fs-md); }
 }

@@ -120,6 +120,7 @@
     var filled = ids.length > 0;
     $$("[data-page-filled]").forEach(function (el) { el.hidden = !filled; });
     $$("[data-page-empty]").forEach(function (el) { el.hidden = filled; });
+    $$("[data-filled-text]").forEach(function (el) { el.textContent = filled ? el.dataset.filledText : el.dataset.emptyText; });
     if (!filled) return;
     var sub = subtotal();
     var remaining = Math.max(0, FREE_SHIPPING - sub);
