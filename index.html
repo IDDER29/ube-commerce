@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/product-main.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/img/hero-scene.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 <body class="page-index">
@@ -59,21 +59,19 @@
   </header>
 
   <main id="contenu">
-    <!-- Premier écran -->
-    <section class="home-hero">
-      <div class="wrap home-hero__inner">
-        <div class="home-hero__copy">
-          <h1 class="home-hero__title">Votre prochain latte, à&nbsp;l’ube.</h1>
-          <p class="home-hero__lead">Découvrez Éclat d’Ubé, notre poudre d’ube pour les lattes et les desserts maison.</p>
-          <p class="home-hero__meta">50 g · Jusqu’à 25 lattes à 2 g · <strong>dès 17,90 €</strong></p>
-          <div class="home-hero__actions">
-            <a class="btn btn--lg" href="eclat-dube.html">Découvrir Éclat d’Ubé</a>
-            <a class="link-arrow" href="#preparation">Voir la préparation</a>
-          </div>
+    <!-- Premier écran : mise en page d’origine, textes du cahier -->
+    <section class="hero hero--textured">
+      <div class="wrap hero__copy">
+        <h1 class="h-display hero__title">Votre prochain latte, à&nbsp;l’ube.</h1>
+        <p class="hero__lead">Découvrez Éclat d’Ubé, notre poudre d’ube pour les lattes et les desserts maison.</p>
+        <div class="hero__actions">
+          <a class="btn btn--lg" href="eclat-dube.html">Découvrir Éclat d’Ubé</a>
+          <a class="link-arrow" href="#preparation">Voir la préparation</a>
         </div>
-        <figure class="home-hero__media zoomable">
-          <img src="assets/img/product-main.webp" width="804" height="746" alt="Une canette Éclat d’Ubé à côté d’un latte glacé à l’ube, sur un plateau en bois" fetchpriority="high">
-        </figure>
+        <p class="hero__meta">50 g · Jusqu’à 25 lattes à 2 g · <strong>dès 17,90 €</strong></p>
+      </div>
+      <div class="hero__scene">
+        <img src="assets/img/hero-scene.webp" width="1600" height="400" alt="Une canette Éclat d’Ubé, un bol de poudre violette et un latte glacé à l’ube sur un plateau en bois" fetchpriority="high">
       </div>
     </section>
 
