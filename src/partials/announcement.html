@@ -1,1 +1,11 @@
-  <div class="announce"><p class="container">Livraison offerte dès 45&nbsp;€</p></div>
+  <div class="announce" data-announce>
+    <div class="container announce__inner">
+      <button class="announce__arrow" type="button" data-announce-prev aria-label="Message précédent">{{icon:chevron-left}}</button>
+      <div class="announce__track" aria-live="polite">
+        <p class="announce__item is-active">Livraison offerte dès 45&nbsp;€ d’achat</p>
+        <p class="announce__item">Jusqu’à 25 lattes dans chaque canette</p>
+        <p class="announce__item">Retours sous 14 jours sur les canettes non ouvertes</p>
+      </div>
+      <button class="announce__arrow" type="button" data-announce-next aria-label="Message suivant">{{icon:chevron-right}}</button>
+    </div>
+  </div>

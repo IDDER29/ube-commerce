@@ -34,21 +34,25 @@
     else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
   }
 
-  /* ---------- Announcement bar (rotates on narrow screens) ---------- */
+  /* ---------- Announcement bar (slider with arrows + autoplay) ---------- */
 
   var announce = $("[data-announce]");
-  if (announce && !reduceMotion) {
+  if (announce) {
     var msgs = $$(".announce__item", announce);
     var idx = 0;
     var paused = false;
+    var show = function (n) {
+      msgs[idx].classList.remove("is-active");
+      idx = (n + msgs.length) % msgs.length;
+      msgs[idx].classList.add("is-active");
+    };
+    $("[data-announce-prev]", announce).addEventListener("click", function () { show(idx - 1); });
+    $("[data-announce-next]", announce).addEventListener("click", function () { show(idx + 1); });
     announce.addEventListener("mouseenter", function () { paused = true; });
     announce.addEventListener("mouseleave", function () { paused = false; });
-    setInterval(function () {
-      if (paused || window.innerWidth >= 1000) return;
-      msgs[idx].classList.remove("is-active");
-      idx = (idx + 1) % msgs.length;
-      msgs[idx].classList.add("is-active");
-    }, 4000);
+    announce.addEventListener("focusin", function () { paused = true; });
+    announce.addEventListener("focusout", function () { paused = false; });
+    if (!reduceMotion) setInterval(function () { if (!paused && !document.hidden) show(idx + 1); }, 5000);
   }
 
   /* ---------- Sticky header shadow ---------- */
@@ -92,6 +96,56 @@
       if (!nav.classList.contains("is-open")) return;
       if (e.key === "Escape") setMenu(false);
       trapFocus(nav, e);
+    });
+  }
+
+  /* ---------- Predictive search ---------- */
+
+  var searchPanel = $("#search-panel");
+  if (searchPanel) {
+    var searchInput = $("[data-search-input]", searchPanel);
+    var results = $("[data-search-results]", searchPanel);
+    var index = (DATA.search || []);
+    var searchReturn = null;
+    var norm = function (t) { return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); };
+
+    var renderResults = function () {
+      var q = norm(searchInput.value.trim());
+      var list = q ? index.filter(function (it) { return norm(it.title + " " + it.text + " " + it.type).indexOf(q) !== -1; }) : index.filter(function (it) { return it.type === "Produit"; });
+      if (!list.length) {
+        results.innerHTML = '<p class="search-empty">Aucun résultat pour « ' + esc(searchInput.value) + ' ». Essayez « latte » ou « coffret ».</p>';
+        return;
+      }
+      results.innerHTML =
+        '<p class="search-results__label">' + (q ? list.length + " résultat" + (list.length > 1 ? "s" : "") : "Produits") + "</p>" +
+        '<ul class="search-results">' + list.slice(0, 6).map(function (it) {
+          return '<li><a class="search-result" href="' + it.url + '"><img src="' + it.image + '" alt="" width="56" height="56" loading="lazy">' +
+            '<span><small>' + esc(it.type) + "</small><strong>" + esc(it.title) + "</strong><span>" + esc(it.text) + "</span></span></a></li>";
+        }).join("") + "</ul>";
+    };
+    var openSearch = function () {
+      searchReturn = document.activeElement;
+      searchPanel.removeAttribute("inert");
+      document.body.classList.add("search-open");
+      renderResults();
+      setTimeout(function () { searchInput.focus(); }, 60);
+    };
+    var closeSearch = function () {
+      document.body.classList.remove("search-open");
+      searchPanel.setAttribute("inert", "");
+      if (searchReturn && searchReturn.focus) searchReturn.focus({ preventScroll: true });
+    };
+    $$("[data-open-search]").forEach(function (b) { b.addEventListener("click", openSearch); });
+    $$("[data-close-search]").forEach(function (b) { b.addEventListener("click", closeSearch); });
+    searchInput.addEventListener("input", renderResults);
+    searchPanel.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeSearch();
+      trapFocus(searchPanel, e);
+    });
+    $("[data-search-form]", searchPanel).addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = $(".search-result", results);
+      if (first) location.href = first.getAttribute("href");
     });
   }
 
@@ -217,7 +271,7 @@
         '<li class="empty-state"><div class="empty-state__icon">' + ICONS.bag + "</div>" +
         "<h3>Votre panier est vide</h3>" +
         "<p>Une canette suffit pour préparer jusqu’à 25 lattes violets.</p>" +
-        '<a class="btn" href="product.html">Découvrir Éclat d’Ubé</a></li>';
+        '<a class="btn" href="shop.html">Voir la boutique</a></li>';
       return;
     }
     list.innerHTML = lines.map(function (l) { return lineItemHTML(l); }).join("");
@@ -274,7 +328,7 @@
   /* ---------- Newsletter ---------- */
 
   $$("[data-newsletter]").forEach(function (form) {
-    var msg = $("[data-newsletter-msg]", form);
+    var msg = $("[data-newsletter-msg]", form) || $("[data-newsletter-msg]", form.parentElement);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var input = $("input[type=email]", form);

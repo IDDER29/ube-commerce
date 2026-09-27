@@ -89,20 +89,30 @@
     var p = product();
     var q = qty();
     $("[data-price]").textContent = money(p.price);
-    var saving = $("[data-saving]");
-    saving.hidden = !p.compareAt;
-    if (p.compareAt) saving.textContent = "Économisez " + money(p.compareAt - p.price);
+    $("[data-price-wrap]").classList.toggle("price--sale", !!p.compareAt);
+    var compare = $("[data-compare]");
+    compare.hidden = !p.compareAt;
+    if (p.compareAt) compare.textContent = money(p.compareAt);
+    $("[data-saving]").hidden = !p.compareAt;
+    var badge = $("[data-gallery-badge]");
+    badge.hidden = !p.savingPct;
+    badge.textContent = "−" + p.savingPct + "\u00a0%";
     $("[data-per-latte]").textContent = money(p.perLatte);
+    $("[data-variant-name]").textContent = p.variantLabel;
     $("[data-spec-content]").textContent = p.cans === 1
       ? "1 canette de poudre d’ube de 50 g"
       : p.cans + " canettes de poudre d’ube de 50 g (" + p.cans * 50 + " g)";
-    $("[data-spec-yield]").textContent = "Jusqu’à " + p.lattes + " lattes à 2 g";
+    var yieldText = "Jusqu’à " + p.lattes + " lattes à 2 g";
+    $("[data-spec-yield]").textContent = yieldText;
+    $("[data-spec-yield-short]").textContent = yieldText;
     var btnPrice = $("[data-button-price]", addBtn);
     if (btnPrice) btnPrice.textContent = money(p.price * q);
     $("[data-sticky-name]").textContent = p.variantLabel + (q > 1 ? " × " + q : "");
     $("[data-sticky-price]").textContent = money(p.price * q);
     $('[data-qty-step="-1"]', form).disabled = q <= 1;
     $('[data-qty-step="1"]', form).disabled = q >= Cart.MAX_QTY;
+    // "Vous aimerez aussi": show the other formats only
+    $$("[data-related] [data-product-card]").forEach(function (c) { c.hidden = c.dataset.id === p.id; });
   }
 
   function selectFormat(id, opts) {
@@ -143,6 +153,24 @@
     setTimeout(UI.openCart, 300);
   }
   form.addEventListener("submit", function (e) { e.preventDefault(); addSelection(); });
+
+  // "Acheter maintenant": add the selection and go straight to checkout
+  $("[data-buy-now]").addEventListener("click", function () {
+    Cart.add(selectedId(), qty());
+    location.href = "checkout.html";
+  });
+
+  // Share: native share sheet on phones, copy link elsewhere
+  var shareBtn = $("[data-share]");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", function () {
+      var data = { title: document.title, url: location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); return; }
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(location.href).then(function () { UI.toast("Lien copié dans le presse-papiers"); });
+      }
+    });
+  }
 
   // "Découvrir le trio": pick the 3-can box without reloading the page
   $$("[data-select-format]").forEach(function (a) {

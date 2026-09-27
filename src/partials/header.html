@@ -2,7 +2,8 @@
     <div class="container site-header__inner">
       <button class="icon-btn menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu">{{icon:menu}}</button>
       <a class="brand" href="index.html" aria-label="Ube Halaya — accueil">
-        <img src="assets/img/logo.svg" width="108" height="108" alt="">
+        <img src="assets/img/logo.svg" width="56" height="56" alt="">
+        <span class="brand__name">Ube Halaya</span>
       </a>
       <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
         <div class="main-nav__head">
@@ -10,21 +11,44 @@
           <button class="icon-btn" type="button" data-close-menu aria-label="Fermer le menu">{{icon:close}}</button>
         </div>
         <ul class="main-nav__list">
-          <li><a href="index.html"{{nav_home}}>Accueil</a></li>
-          <li><a href="product.html"{{nav_product}}>Boutique</a></li>
+          <li class="has-dropdown">
+            <a href="shop.html"{{nav_shop}}>Boutique {{icon:chevron-down}}</a>
+            <ul class="dropdown">
+              <li><a href="shop.html">Tous les produits</a></li>
+              <li><a href="product.html?format=canette-1">Une canette · 50 g</a></li>
+              <li><a href="product.html?format=coffret-3">Coffret découverte · 3 canettes</a></li>
+              <li><a href="product.html?format=coffret-6">Coffret à partager · 6 canettes</a></li>
+            </ul>
+          </li>
           <li><a href="decouvrir-ube.html"{{nav_discover}}>Découvrir l’ube</a></li>
           <li><a href="recipes.html"{{nav_recipes}}>Recettes</a></li>
           <li><a href="about.html"{{nav_about}}>Notre histoire</a></li>
+          <li><a href="contact.html"{{nav_contact}}>Contact</a></li>
         </ul>
         <div class="main-nav__foot">
-          <a class="btn btn--block" href="product.html">Découvrir Éclat d’Ubé</a>
+          <a class="btn btn--block" href="shop.html">Voir la boutique</a>
           <p>Livraison offerte dès 45&nbsp;€</p>
         </div>
       </nav>
-      <button class="icon-btn cart-btn" type="button" data-open-cart aria-controls="cart-drawer" aria-label="Ouvrir le panier">
-        {{icon:bag}}
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </button>
+      <div class="site-header__icons">
+        <button class="icon-btn" type="button" data-open-search aria-controls="search-panel" aria-label="Rechercher">{{icon:search}}</button>
+        <button class="icon-btn cart-btn" type="button" data-open-cart aria-controls="cart-drawer" aria-label="Ouvrir le panier">
+          {{icon:bag}}
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </button>
+      </div>
+    </div>
+    <div class="search-panel" id="search-panel" role="dialog" aria-modal="true" aria-label="Recherche" inert>
+      <div class="container">
+        <form class="search-panel__form" role="search" data-search-form>
+          <span class="search-panel__icon">{{icon:search}}</span>
+          <label class="sr-only" for="site-search">Rechercher</label>
+          <input id="site-search" type="search" placeholder="Rechercher un produit, une recette…" autocomplete="off" data-search-input>
+          <button class="icon-btn" type="button" data-close-search aria-label="Fermer la recherche">{{icon:close}}</button>
+        </form>
+        <div class="search-panel__results" data-search-results aria-live="polite"></div>
+      </div>
     </div>
   </header>
   <div class="nav-backdrop" data-close-menu></div>
+  <div class="search-backdrop" data-close-search></div>

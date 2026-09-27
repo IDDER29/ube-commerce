@@ -15,14 +15,14 @@
 .cart-lines { margin-top: var(--space-2); }
 .cart-lines .line-item { grid-template-columns: 110px 1fr auto; gap: 1.25rem; padding-block: 1.5rem; }
 .cart-lines .line-item__img { width: 110px; height: 110px; border-radius: var(--radius); }
-.cart-lines .line-item__title { font-size: 1.3rem; }
-.cart-lines .line-item__price { font-family: var(--font-serif); font-size: 1.2rem; }
+.cart-lines .line-item__title { font-size: 1.05rem; }
+.cart-lines .line-item__price { font-size: 1.05rem; }
 .cart-main__continue { margin-top: var(--space-6); }
 .cart-main__continue svg { order: -1; }
 .cart-main__continue:hover svg { transform: translateX(-3px); }
 
-.cart-summary { position: sticky; top: calc(var(--header-h) + 20px); display: grid; gap: var(--space-5); }
-.cart-summary__title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; color: var(--plum-900); }
+.cart-summary { position: sticky; top: calc(var(--header-h) + 20px); display: grid; gap: var(--space-5); background: var(--soft); border-color: var(--soft); }
+.cart-summary__title { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .totals__savings dd, .totals__savings dt { color: var(--success); }
 .cart-summary__trust { display: grid; gap: .6rem; padding-top: var(--space-4); border-top: 1px solid var(--line); font-size: var(--fs-sm); color: var(--muted); }
 .cart-summary__trust li { display: flex; align-items: flex-start; gap: .55em; }
@@ -49,16 +49,7 @@
 
 .checkout-form { display: grid; gap: var(--space-5); }
 .checkout-block { padding: clamp(1.25rem, 1rem + 1.5vw, 2.25rem); border-radius: var(--radius-lg); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
-.checkout-block__title {
-  display: flex;
-  align-items: center;
-  gap: .7rem;
-  margin-bottom: var(--space-5);
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 500;
-  color: var(--plum-900);
-}
+.checkout-block__title { display: flex; align-items: center; gap: .7rem; margin-bottom: var(--space-5); font-size: 1.2rem; font-weight: 600; color: var(--ink); }
 .checkout-block__title span {
   display: grid;
   place-items: center;

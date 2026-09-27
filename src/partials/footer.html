@@ -1,30 +1,56 @@
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <a class="brand brand--footer" href="index.html" aria-label="Ube Halaya — accueil"><img src="assets/img/logo.svg" width="80" height="80" alt="" loading="lazy"></a>
-      <nav aria-label="Liens utiles">
-        <ul class="site-footer__links">
-          <li><a href="recipes.html">Recettes</a></li>
-          <li><a href="about.html">Notre histoire</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="faq.html#livraison">Livraison et retours</a></li>
-        </ul>
-      </nav>
-      <form class="site-footer__newsletter" data-newsletter novalidate>
-        <label class="site-footer__nl-title" for="newsletter-email">Une nouvelle recette dans votre boîte mail.</label>
-        <div class="site-footer__field">
-          <input id="newsletter-email" type="email" name="email" placeholder="Votre e-mail" autocomplete="email" required>
-          <button type="submit">S’inscrire</button>
-        </div>
-        <p class="site-footer__msg" data-newsletter-msg aria-live="polite"></p>
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <div class="container newsletter__inner">
+      <h2 class="newsletter__title" id="newsletter-title">Une nouvelle recette dans votre boîte mail.</h2>
+      <p class="newsletter__text">Recettes, conseils de préparation et nouveautés. Désinscription en un clic.</p>
+      <form class="newsletter__form" data-newsletter novalidate>
+        <label class="sr-only" for="newsletter-email">Adresse e-mail</label>
+        <input class="input" id="newsletter-email" type="email" name="email" placeholder="Votre e-mail" autocomplete="email" required>
+        <button class="btn" type="submit">S’inscrire</button>
       </form>
+      <p class="newsletter__msg" data-newsletter-msg aria-live="polite"></p>
     </div>
-    <div class="container site-footer__bottom">
-      <p>© <span data-year>2026</span> Ube Halaya</p>
-      <ul class="site-footer__legal">
-        <li><a href="faq.html">Aide</a></li>
-        <li><a href="mentions-legales.html">Mentions légales</a></li>
-        <li><a href="cgv.html">CGV</a></li>
-        <li><a href="confidentialite.html">Confidentialité</a></li>
-      </ul>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand brand--footer" href="index.html" aria-label="Ube Halaya — accueil"><img src="assets/img/logo.svg" width="64" height="64" alt="" loading="lazy"></a>
+          <p>La poudre d’ube pour vos lattes et vos desserts maison.</p>
+        </div>
+        <nav class="site-footer__col" aria-label="Boutique">
+          <h2>Boutique</h2>
+          <ul>
+            <li><a href="shop.html">Tous les produits</a></li>
+            <li><a href="product.html?format=canette-1">Une canette</a></li>
+            <li><a href="product.html?format=coffret-3">Coffret découverte</a></li>
+            <li><a href="product.html?format=coffret-6">Coffret à partager</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__col" aria-label="Découvrir">
+          <h2>Découvrir</h2>
+          <ul>
+            <li><a href="decouvrir-ube.html">Découvrir l’ube</a></li>
+            <li><a href="recipes.html">Recettes</a></li>
+            <li><a href="about.html">Notre histoire</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__col" aria-label="Aide">
+          <h2>Aide</h2>
+          <ul>
+            <li><a href="faq.html">Questions fréquentes</a></li>
+            <li><a href="faq.html#livraison">Livraison et retours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> Ube Halaya · Prix TTC en euros</p>
+        <ul class="site-footer__legal">
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cgv.html">CGV</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+        </ul>
+      </div>
     </div>
   </footer>

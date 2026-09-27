@@ -1,0 +1,111 @@
+<!--
+title: Boutique — Éclat d’Ubé | Ube Halaya
+description: Tous les formats d’Éclat d’Ubé, la poudre d’ube : une canette de 50 g, le coffret découverte de 3 canettes ou le coffret à partager de 6 canettes.
+nav: shop
+styles: shop
+scripts: shop
+-->
+    <header class="collection-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+          <ol><li><a href="index.html">Accueil</a></li><li aria-current="page">Boutique</li></ol>
+        </nav>
+        <h1 class="h1 collection-hero__title">Boutique</h1>
+        <p class="lead">Éclat d’Ubé, la poudre d’ube pour vos lattes et vos desserts maison. Choisissez votre format : pour vous, ou à partager.</p>
+      </div>
+    </header>
+
+    <section class="section section--first collection" aria-label="Produits">
+      <div class="container collection__layout">
+        <!-- Filters -->
+        <aside class="filters" id="filters" aria-label="Filtres" data-filters>
+          <div class="filters__head">
+            <h2 class="filters__title">Filtrer</h2>
+            <button class="icon-btn filters__close" type="button" data-close-filters aria-label="Fermer les filtres">{{icon:close}}</button>
+          </div>
+          <details class="filter" open>
+            <summary>Format</summary>
+            <ul>
+              <li><label class="checkbox"><input type="checkbox" name="cans" value="1"> 1 canette · 50 g <span class="filter__count">(1)</span></label></li>
+              <li><label class="checkbox"><input type="checkbox" name="cans" value="3"> 3 canettes · 150 g <span class="filter__count">(1)</span></label></li>
+              <li><label class="checkbox"><input type="checkbox" name="cans" value="6"> 6 canettes · 300 g <span class="filter__count">(1)</span></label></li>
+            </ul>
+          </details>
+          <details class="filter" open>
+            <summary>Prix</summary>
+            <ul>
+              <li><label class="checkbox"><input type="checkbox" name="price" value="0-30"> Moins de 30&nbsp;€</label></li>
+              <li><label class="checkbox"><input type="checkbox" name="price" value="30-60"> De 30 à 60&nbsp;€</label></li>
+              <li><label class="checkbox"><input type="checkbox" name="price" value="60-999"> Plus de 60&nbsp;€</label></li>
+            </ul>
+          </details>
+          <details class="filter" open>
+            <summary>Offre</summary>
+            <ul>
+              <li><label class="checkbox"><input type="checkbox" name="offer" value="sale"> En promotion</label></li>
+              <li><label class="checkbox"><input type="checkbox" name="offer" value="free-shipping"> Livraison offerte</label></li>
+            </ul>
+          </details>
+          <div class="filters__foot">
+            <button class="btn btn--outline" type="button" data-clear-filters>Tout effacer</button>
+            <button class="btn filters__apply" type="button" data-close-filters>Voir les produits</button>
+          </div>
+        </aside>
+
+        <div class="collection__main">
+          <div class="collection__toolbar">
+            <button class="btn btn--outline btn--sm filters-toggle" type="button" data-open-filters aria-controls="filters">{{icon:filter}}<span>Filtrer et trier</span></button>
+            <p class="collection__count" data-product-count>3 produits</p>
+            <div class="collection__sort">
+              <label for="sort">Trier par</label>
+              <select class="select select--sm" id="sort" data-sort>
+                <option value="order">En vedette</option>
+                <option value="price-asc">Prix croissant</option>
+                <option value="price-desc">Prix décroissant</option>
+                <option value="per-latte">Prix par latte</option>
+              </select>
+            </div>
+          </div>
+          <div class="active-filters" data-active-filters hidden></div>
+          <div class="product-grid" data-product-list>
+            {{card:canette-1}}
+            {{card:coffret-3}}
+            {{card:coffret-6}}
+          </div>
+          <div class="collection__empty" data-empty hidden>
+            <p>Aucun produit ne correspond à ces filtres.</p>
+            <button class="btn btn--outline" type="button" data-clear-filters>Effacer les filtres</button>
+          </div>
+        </div>
+      </div>
+      <div class="filters-backdrop" data-close-filters></div>
+    </section>
+
+    <section aria-label="Nos engagements">
+      <ul class="trust">
+        <li>{{icon:truck}}<span>Livraison offerte dès 45&nbsp;€</span></li>
+        <li>{{icon:cup}}<span>Jusqu’à 25 lattes par canette</span></li>
+        <li>{{icon:snow}}<span>Chaud ou glacé</span></li>
+        <li>{{icon:return}}<span>Retours sous 14 jours</span></li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="compare-title">
+      <div class="container container--narrow">
+        <h2 class="section-title" id="compare-title">Quel format choisir ?</h2>
+        <div class="faq-list">
+          <details open>
+            <summary>Une canette · 50 g — pour découvrir</summary>
+            <div><p>Jusqu’à 25 lattes, soit 0,72&nbsp;€ de poudre par latte. Idéale pour goûter l’ube et tester vos premières recettes.</p></div>
+          </details>
+          <details>
+            <summary>Coffret découverte · 3 canettes — à partager</summary>
+            <div><p>Jusqu’à 75 lattes, soit 0,63&nbsp;€ par latte (−13&nbsp;% par rapport à trois canettes achetées séparément). La livraison est offerte.</p></div>
+          </details>
+          <details>
+            <summary>Coffret à partager · 6 canettes — pour en profiter plus longtemps</summary>
+            <div><p>Jusqu’à 150 lattes, soit 0,57&nbsp;€ par latte : le meilleur prix (−21&nbsp;%). La livraison est offerte.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>

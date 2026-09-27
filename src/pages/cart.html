@@ -17,7 +17,7 @@ scripts: cart
             <div class="ship-meter__track"><span class="ship-meter__bar" data-ship-bar></span></div>
           </div>
           <ul class="cart-lines" data-page-items></ul>
-          <a class="link cart-main__continue" href="product.html">{{icon:arrow-left}} Continuer mes achats</a>
+          <a class="link cart-main__continue" href="shop.html">{{icon:arrow-left}} Continuer mes achats</a>
         </section>
 
         <aside class="cart-summary panel" aria-labelledby="summary-title">
@@ -47,9 +47,14 @@ scripts: cart
 
     <section class="section section--tint" aria-labelledby="upsell-title">
       <div class="container">
-        <h2 class="section-title" id="upsell-title">Choisissez votre format</h2>
-        <p class="script section-sub">Pour vous, ou à partager.</p>
-        <div class="formats">
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="section-title" id="upsell-title">Choisissez votre format</h2>
+            <p class="script section-sub">Pour vous, ou à partager.</p>
+          </div>
+          <a class="text-link" href="shop.html">Tout voir</a>
+        </div>
+        <div class="product-grid">
           {{card:canette-1}}
           {{card:coffret-3}}
           {{card:coffret-6}}

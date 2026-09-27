@@ -1,0 +1,14 @@
+<article class="card" data-product-card data-id="{{id}}" data-price="{{price_raw}}" data-per-latte="{{per_latte_raw}}" data-cans="{{cans}}" data-order="{{order}}">
+  <a class="card__media" href="{{url}}" tabindex="-1" aria-hidden="true">
+    <img class="card__img" src="assets/img/{{image}}" width="600" height="600" alt="" loading="lazy">
+    <img class="card__img card__img--hover" src="assets/img/{{hover_image}}" width="600" height="600" alt="" loading="lazy">
+    {{badge}}
+  </a>
+  <div class="card__info">
+    <h3 class="card__title"><a href="{{url}}">{{name}}</a></h3>
+    <p class="card__meta">{{size}} · {{tag}}</p>
+    <p class="price{{price_class}}"><span class="sr-only">Prix </span><span class="price__current">{{price}}</span>{{compare}}</p>
+    <p class="card__unit">{{per_latte}} / latte</p>
+  </div>
+  <button class="btn btn--outline btn--block card__add" type="button" data-add-to-cart="{{id}}"><span>Ajouter au panier</span></button>
+</article>

@@ -17,7 +17,7 @@ window.UBE_DATA = {
       "savingPct": 0,
       "perLatte": 0.72,
       "lattes": 25,
-      "thumb": "assets/img/format-1.webp",
+      "thumb": "assets/img/product-main.webp",
       "photo": "assets/img/product-main.webp",
       "gallery": [
         "assets/img/product-main.webp",
@@ -39,7 +39,7 @@ window.UBE_DATA = {
       "savingPct": 13,
       "perLatte": 0.63,
       "lattes": 75,
-      "thumb": "assets/img/format-3.webp",
+      "thumb": "assets/img/gift-pyramid.webp",
       "photo": "assets/img/gift-pyramid.webp",
       "gallery": [
         "assets/img/gift-pyramid.webp",
@@ -71,5 +71,77 @@ window.UBE_DATA = {
       ],
       "url": "product.html?format=coffret-6"
     }
-  }
+  },
+  "search": [
+    {
+      "type": "Produit",
+      "title": "Éclat d’Ubé — Une canette",
+      "text": "1 canette · 50 g · 17,90 €",
+      "url": "product.html?format=canette-1",
+      "image": "assets/img/product-main.webp"
+    },
+    {
+      "type": "Produit",
+      "title": "Éclat d’Ubé — Coffret découverte",
+      "text": "3 canettes · 150 g · 46,90 €",
+      "url": "product.html?format=coffret-3",
+      "image": "assets/img/gift-pyramid.webp"
+    },
+    {
+      "type": "Produit",
+      "title": "Éclat d’Ubé — Coffret à partager",
+      "text": "6 canettes · 300 g · 84,90 €",
+      "url": "product.html?format=coffret-6",
+      "image": "assets/img/format-6.webp"
+    },
+    {
+      "type": "Recette",
+      "title": "Latte signature, mousse vanille",
+      "text": "Boisson · 5 min",
+      "url": "recipes.html#latte-signature",
+      "image": "assets/img/recipe-latte.webp"
+    },
+    {
+      "type": "Recette",
+      "title": "Cake à l’ube",
+      "text": "Pâtisserie · 1 h 05",
+      "url": "recipes.html#cake-ube",
+      "image": "assets/img/recipe-cake.webp"
+    },
+    {
+      "type": "Recette",
+      "title": "Cookiez à l’ube",
+      "text": "Pâtisserie · 30 min",
+      "url": "recipes.html#cookies-ube",
+      "image": "assets/img/recipe-cookies.webp"
+    },
+    {
+      "type": "Page",
+      "title": "Découvrir l’ube",
+      "text": "Une racine. Une couleur. Mille envies.",
+      "url": "decouvrir-ube.html",
+      "image": "assets/img/ube-root.webp"
+    },
+    {
+      "type": "Page",
+      "title": "Notre histoire",
+      "text": "Des Philippines à votre cuisine.",
+      "url": "about.html",
+      "image": "assets/img/story-roots.webp"
+    },
+    {
+      "type": "Page",
+      "title": "Aide et livraison",
+      "text": "Dosage, livraison, retours",
+      "url": "faq.html",
+      "image": "assets/img/ube-powder.webp"
+    },
+    {
+      "type": "Page",
+      "title": "Contact",
+      "text": "Écrivez-nous",
+      "url": "contact.html",
+      "image": "assets/img/pstep-milk.webp"
+    }
+  ]
 };
