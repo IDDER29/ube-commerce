@@ -1885,7 +1885,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 
 /* Notre histoire / Découvrir heroes: tighter script, aligned with the title */
 .ube-hero__copy .script { line-height: 1.15; }
-.page-notre-histoire .ube-hero__copy .script { text-align: center; margin-left: 0; font-size: clamp(2rem, 1.4rem + 1.6vw, 2.6rem); line-height: 1; }
+.page-notre-histoire .ube-hero__copy .script { text-align: center; margin-left: 0; }
 
 /* 404: the photo sits on the footer, no pale strip */
 .not-found { padding-bottom: 0; }
