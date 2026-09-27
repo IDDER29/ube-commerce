@@ -234,19 +234,33 @@
 
   var toggle = $(".menu-toggle");
   var nav = document.getElementById("site-nav");
+  var navBackdrop = $(".nav-backdrop");
+  var mobileMenu = window.matchMedia("(max-width: 900px)");
   function setMenu(open) {
     nav.classList.toggle("is-open", open);
+    document.body.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    if (navBackdrop) navBackdrop.hidden = !open;
+    if (open) { var first = $("a", nav); if (first) first.focus({ preventScroll: true }); }
   }
   if (toggle && nav) {
     toggle.addEventListener("click", function () { setMenu(!nav.classList.contains("is-open")); });
     nav.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+    if (navBackdrop) navBackdrop.addEventListener("click", function () { setMenu(false); });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && nav.classList.contains("is-open")) { setMenu(false); toggle.focus(); }
+      if (!nav.classList.contains("is-open")) return;
+      if (e.key === "Escape") { setMenu(false); toggle.focus(); return; }
+      // Keep Tab inside the open menu (the toggle closes it)
+      if (e.key === "Tab") {
+        var items = [toggle].concat($$("a", nav));
+        var i = items.indexOf(document.activeElement);
+        if (e.shiftKey && i <= 0) { e.preventDefault(); items[items.length - 1].focus(); }
+        else if (!e.shiftKey && i === items.length - 1) { e.preventDefault(); items[0].focus(); }
+      }
     });
-    document.addEventListener("click", function (e) {
-      if (nav.classList.contains("is-open") && !e.target.closest("#site-nav, .menu-toggle")) setMenu(false);
-    });
+    var onBreakpoint = function () { if (!mobileMenu.matches && nav.classList.contains("is-open")) setMenu(false); };
+    if (mobileMenu.addEventListener) mobileMenu.addEventListener("change", onBreakpoint);
   }
 
   /* ---------- Newsletter ---------- */
