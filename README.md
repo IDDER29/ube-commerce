@@ -65,12 +65,20 @@ Fonts are subset to the characters used on the site; if you add text in another 
 
 ## Avant la mise en ligne
 
-Le site est complet côté pages, parcours d’achat et responsive. Restent à fournir :
+Le site est complet côté pages, parcours d’achat et responsive. Le paiement sera géré par **Shopify**
+lors de l’intégration. Toutes les informations encore inconnues sont signalées sur le site par un
+encadré jaune `[entre crochets]` (classe `.placeholder`) : il suffit de chercher `class="placeholder"`
+dans `src/` pour toutes les retrouver.
 
-- [ ] **Paiement** : brancher le prestataire (Stripe, PayPal…) sur `commande.html` ; le bouton « Payer » affiche pour l’instant un message d’attente.
-- [ ] **Étiquette** : valeurs nutritionnelles et responsable de mise sur le marché (fiche produit, lignes surlignées en jaune).
-- [ ] **Pages légales** : compléter les éléments entre crochets (mentions légales, CGV, confidentialité).
-- [ ] **E-mail de contact** : remplacer `bonjour@ubehalaya.fr` s’il ne s’agit pas de l’adresse réelle.
-- [ ] **Photos** : remplacer les visuels provisoires par la séance photo prévue dans le cahier de modifications (mêmes noms de fichiers dans `assets/img/`).
-- [ ] **Avis clients et réseaux sociaux** : à ajouter uniquement avec des avis et des comptes réels.
-- [ ] **Commande test** : vérifier prix, seuil de 45 € et e-mail de confirmation une fois le paiement branché.
+| Placeholder | Où |
+|---|---|
+| `[adresse e-mail de contact]` | pied de page, contact, pages légales (et `data-email` du formulaire de contact) |
+| `[lien Instagram]`, `[lien TikTok]` | pied de page |
+| `[Avis client réel…]`, `[Prénom, initiale]`, `[date]` | accueil, section « Vous l’avez goûté » — uniquement des avis réels |
+| `[à relier au stock Shopify]` | fiche produit, disponibilité |
+| `[délai]`, `[transporteur et délai]` | fiche produit, page livraison, CGV |
+| valeurs nutritionnelles, responsable | fiche produit, fiche technique |
+| raison sociale, SIREN, hébergeur, médiateur… | mentions légales, CGV, confidentialité |
+
+Photos : les visuels actuels sont provisoires ; les remplacer par la séance photo prévue dans le
+cahier de modifications, avec les mêmes noms de fichiers dans `assets/img/`.

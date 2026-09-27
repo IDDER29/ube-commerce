@@ -526,6 +526,11 @@
       if (!validate(contactForm)) return;
       var f = contactForm.elements;
       var status = $("[data-form-status]", contactForm);
+      if (!contactForm.dataset.email) {
+        status.hidden = false;
+        status.textContent = "Merci ! Le formulaire sera relié à notre adresse de contact avant l’ouverture de la boutique.";
+        return;
+      }
       location.href = "mailto:" + contactForm.dataset.email +
         "?subject=" + encodeURIComponent("[" + f.subject.value + "] " + f.name.value) +
         "&body=" + encodeURIComponent(f.message.value + "\n\n— " + f.name.value + " (" + f.email.value + ")");
