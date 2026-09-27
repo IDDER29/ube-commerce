@@ -2041,3 +2041,42 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 @media (max-width: 900px) { .info-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .info-cards { grid-template-columns: minmax(0, 1fr); } }
 .h-section + .section-sub + .section-lead { margin-top: calc(var(--space-title) * -.55); }
+
+/* ==========================================================================
+   Store-ready pass: cart drawer, mobile menu, small-screen cards
+   ========================================================================== */
+
+/* Empty cart: no totals or checkout button, just the invitation */
+.drawer.is-empty .drawer__foot { display: none; }
+.drawer.is-empty .ship-progress { display: none; }
+.drawer__empty { padding: 3rem 0; }
+
+/* Suggestion to reach free delivery */
+.drawer__upsell {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .9rem;
+  margin-top: 1.25rem;
+  padding: .9rem;
+  border-radius: var(--radius);
+  background: var(--cream-2);
+  list-style: none;
+}
+.drawer__upsell img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; }
+.drawer__upsell-title { margin: 0; font-family: var(--font-serif); font-weight: 600; color: var(--plum); }
+.drawer__upsell-text { margin: .15rem 0 0; font-size: var(--fs-sm); color: var(--muted); }
+.drawer__upsell .btn { min-height: 40px; padding: .5em 1.1em; }
+
+/* Mobile menu: room between the close button and the first link */
+@media (max-width: 900px) {
+  .nav { padding-top: 104px; }
+}
+
+/* Découvrir cards on phones: photo on top, full-width text */
+@media (max-width: 560px) {
+  .discover-card { grid-template-columns: minmax(0, 1fr); }
+  .discover-card img { order: -1; width: 100%; aspect-ratio: 16 / 9; height: auto; }
+  .discover-card__copy { padding: 1rem 1.1rem 1.2rem; }
+}
+@media (max-width: 560px) { .discover-card img { -webkit-mask-image: none; mask-image: none; } }

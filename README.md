@@ -62,3 +62,15 @@ All sizes come from tokens at the top of `assets/css/styles.css`:
 
 `build.py` also writes `assets/css/styles.min.css`, which the pages load. Edit `styles.css`, then rebuild.
 Fonts are subset to the characters used on the site; if you add text in another alphabet, re-subset them.
+
+## Avant la mise en ligne
+
+Le site est complet côté pages, parcours d’achat et responsive. Restent à fournir :
+
+- [ ] **Paiement** : brancher le prestataire (Stripe, PayPal…) sur `commande.html` ; le bouton « Payer » affiche pour l’instant un message d’attente.
+- [ ] **Étiquette** : valeurs nutritionnelles et responsable de mise sur le marché (fiche produit, lignes surlignées en jaune).
+- [ ] **Pages légales** : compléter les éléments entre crochets (mentions légales, CGV, confidentialité).
+- [ ] **E-mail de contact** : remplacer `bonjour@ubehalaya.fr` s’il ne s’agit pas de l’adresse réelle.
+- [ ] **Photos** : remplacer les visuels provisoires par la séance photo prévue dans le cahier de modifications (mêmes noms de fichiers dans `assets/img/`).
+- [ ] **Avis clients et réseaux sociaux** : à ajouter uniquement avec des avis et des comptes réels.
+- [ ] **Commande test** : vérifier prix, seuil de 45 € et e-mail de confirmation une fois le paiement branché.
