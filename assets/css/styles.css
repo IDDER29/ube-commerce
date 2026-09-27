@@ -625,7 +625,7 @@ p { text-wrap: pretty; }
 
 /* 7. Product page --------------------------------------------------------- */
 
-.breadcrumb { font-size: .88rem; padding: .4rem 0 .75rem; }
+.breadcrumb { font-size: .88rem; padding: 1.125rem 0 .875rem; }
 .breadcrumb ol { display: flex; gap: .5rem; list-style: none; margin: 0; padding: 0; }
 .breadcrumb li + li::before { content: "/"; margin-right: .5rem; color: var(--muted); }
 .breadcrumb a { text-decoration: none; }
@@ -699,7 +699,7 @@ p { text-wrap: pretty; }
   line-height: 1.15;
   margin: .2em 0 .25em;
 }
-.buybox__desc { margin: 0 0 .7rem; }
+.buybox__desc { margin: 0 0 .5rem; }
 .buybox__dose { font-size: .92rem; color: var(--muted); margin: 0 0 1.5rem; }
 .buybox h2 {
   font-family: var(--font-serif);
@@ -1979,7 +1979,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 @media (max-width: 700px) { .story-band__img img { aspect-ratio: 16 / 10; } }
 
 /* Product page: format content line, technical sheet placeholders */
-.variants { margin-bottom: 1rem; }
+.variants { margin-bottom: .75rem; }
 .variants__content { margin: .8rem 0 0; font-size: var(--fs-sm); color: var(--muted); }
 .variants__content span { color: var(--plum); font-weight: 600; }
 .specs .placeholder { padding: 0 .25em; border-radius: 3px; background: #fff4d6; color: #6a4b00; }
