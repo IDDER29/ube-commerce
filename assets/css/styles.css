@@ -1983,9 +1983,22 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .hero__meta { color: var(--muted); font-size: var(--fs-sm); }
 .hero__meta strong { color: var(--plum); font-size: var(--fs-md); }
 .hero--textured .hero__copy { padding-top: clamp(1.75rem, 1rem + 3vw, 3.5rem); }
-/* Photo height follows the screen height so the whole tray fits in the first screen */
+/* Photo height follows the screen height; its width follows the height so the
+   whole tray shows at its real proportions instead of a cropped full-width strip */
 @media (min-width: 701px) {
-  .hero__scene img { aspect-ratio: auto; height: clamp(240px, 40svh, 420px); min-height: 0; }
+  .hero__scene img {
+    --scene-h: clamp(240px, 100svh - 450px, 500px);
+    aspect-ratio: auto;
+    height: var(--scene-h);
+    min-height: 0;
+    width: min(100%, calc(var(--scene-h) * 2.8));
+    margin-inline: auto;
+    object-position: 50% 100%;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%), linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent);
+    -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to bottom, transparent 0, #000 18%), linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent);
+            mask-composite: intersect;
+  }
 }
 .ube-hero__copy .script { text-align: center; margin-left: 0; }
 
