@@ -861,7 +861,7 @@ p { text-wrap: pretty; }
   align-items: center;
   min-height: 400px;
 }
-.ube-hero__copy { text-align: center; position: relative; z-index: 1; padding: 1rem 0 2.2rem; }
+.ube-hero__copy { text-align: center; position: relative; z-index: 1; padding: 1rem 0 var(--space-section); }
 .ube-hero__copy .script { font-size: clamp(2.4rem, 4.4vw, 3.6rem); text-align: left; margin-left: 5%; }
 .ube-hero__copy .h-display { font-size: clamp(2.6rem, 5.4vw, 4.2rem); line-height: 1.02; margin: .2em 0 .4em; }
 .ube-hero__copy p { font-size: 1.2rem; margin: 0; }
@@ -1417,7 +1417,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 .empty-cart p { max-width: var(--measure); margin-inline: auto; }
 
 /* Page heroes: equal space above and below the title block */
-.page-hero { padding-block: var(--space-band); }
+.page-hero { padding-block: var(--space-section); }
 
 /* ==========================================================================
    Header & footer — navigation on the type scale, off-canvas mobile menu,
@@ -2031,6 +2031,8 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 /* The photo fills its column; the section height comes from the copy and the min-height */
 @media (min-width: 901px) {
   .ube-hero__img img { position: absolute; inset: 0; }
+  .ube-hero__inner { align-items: start; }
+  .ube-hero__copy { padding-block: var(--space-section); }
 }
 .ube-hero .page-hero__note { margin: .9rem auto 0; }
 
