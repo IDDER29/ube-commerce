@@ -1956,14 +1956,32 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .recipe__desc { margin: .15rem 0 .6rem; font-size: var(--fs-sm); color: var(--muted); }
 .page-hero__note { max-width: var(--measure); margin: .6rem auto 0; font-size: var(--fs-sm); color: var(--muted); }
 
-/* Story and origin: title and short text, then a documentary photo band */
-.story-band__copy { max-width: 720px; margin: 0 auto var(--space-title); text-align: center; }
+/* Story and origin: the text beside two overlapping photos, the field in the
+   Philippines and the kitchen, so the pair reads as the journey in the title */
+.story-band__inner { display: grid; gap: var(--space-title); align-items: center; }
+.story-band__copy { max-width: 720px; margin: 0 auto; text-align: center; }
 .story-band__copy .script { font-size: var(--fs-script); }
 .story-band__copy .h-section { margin: .15em 0 .45em; }
 .story-band__copy p:not(.script) { max-width: var(--measure); margin: 0 auto 1.5rem; font-size: var(--fs-md); line-height: 1.6; }
-.story-band__img { position: relative; max-width: 980px; margin: 0 auto; overflow: hidden; border-radius: var(--radius); }
-.story-band__img img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
-@media (max-width: 700px) { .story-band__img img { aspect-ratio: 3 / 2; } }
+.story-band__photos { position: relative; width: 100%; max-width: 640px; margin: 0 auto; padding-bottom: 12%; }
+.story-band__img { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); }
+.story-band__img img { width: 100%; object-fit: cover; }
+.story-band__img--field { width: 86%; margin-left: auto; }
+.story-band__img--field img { aspect-ratio: 3 / 2; }
+.story-band__img--hands {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34%;
+  box-shadow: 0 0 0 6px var(--cream-2), var(--shadow);
+}
+.story-band__img--hands img { aspect-ratio: 4 / 5; }
+@media (min-width: 901px) {
+  .story-band__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 4vw, 4rem); }
+  .story-band__copy { margin: 0; text-align: left; }
+  .story-band__copy > * { text-align: left; margin-inline: 0; }
+  .story-band__photos { max-width: none; }
+}
 
 /* Product page: format content line, technical sheet placeholders */
 .variants { margin-bottom: .75rem; }
