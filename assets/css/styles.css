@@ -1837,7 +1837,6 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 /* Notre histoire / Découvrir heroes: tighter script, aligned with the title */
 .ube-hero__copy .script { line-height: 1.15; }
 .page-notre-histoire .ube-hero__copy .script { text-align: center; margin-left: 0; }
-.page-decouvrir-ube .ube-hero__img img { object-position: 100% 45%; }
 
 /* 404: the photo sits on the footer, no pale strip */
 .not-found { padding-bottom: 0; }
@@ -2118,3 +2117,14 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 /* Placeholders: information still to provide, clearly marked everywhere */
 .placeholder { padding: 0 .3em; border-radius: 3px; background: #fff4d6; color: #6a4b00; font-style: normal; }
 .footer-social { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 1rem 0 0; padding: 0; font-size: var(--fs-sm); }
+/* Hero with the photo behind the whole band, copy left-aligned over its empty side */
+@media (min-width: 901px) {
+  .ube-hero--cover .ube-hero__img { position: absolute; inset: 0; margin: 0; }
+  .ube-hero--cover .ube-hero__img img { object-position: 50% 40%; -webkit-mask-image: none; mask-image: none; }
+  .ube-hero--cover .ube-hero__copy,
+  .ube-hero--cover .ube-hero__copy .script { text-align: left; }
+  .ube-hero--cover .ube-hero__copy p { margin-inline: 0; }
+}
+@media (min-width: 1700px) {
+  .ube-hero--cover .ube-hero__img img { object-position: 50% 60%; }
+}
