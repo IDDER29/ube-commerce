@@ -4,7 +4,7 @@
    2. Base
    3. Typography, buttons, links
    4. Header & footer
-   5. Shared sections (formats, steps, recipes, story, gift, FAQ)
+   5. Shared sections (formats, steps, recipes, story, gift card, FAQ)
    6. Home page
    7. Product page
    8. Découvrir l'ube page
@@ -527,38 +527,40 @@ p { text-wrap: pretty; }
 }
 .story__copy p { font-size: 1.1rem; margin: 0 0 1.1em; }
 
-/* Gift banner */
-.gift { background: linear-gradient(90deg, #f7e8f4 0%, #f9eef7 45%, #f2ddee 100%); }
-.gift__inner {
+/* Gift offer card: pack photo filling the left half, the offer on pink */
+.gift-card {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  align-items: center;
-  gap: 2rem;
-  padding: 1.5rem 0;
-}
-/* Studio photos have a cream backdrop that can't fade into the pink: show them as a tile */
-.gift__inner img {
-  width: 100%;
-  max-width: 440px;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  margin-inline: auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  max-width: 1000px;
+  margin: 0 auto;
   border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(90deg, #f7e8f4 0%, #f9eef7 45%, #f2ddee 100%);
   box-shadow: var(--shadow-sm);
 }
-.gift h2 {
+.gift-card > img { width: 100%; height: 100%; object-fit: cover; }
+.gift-card__copy { align-self: center; padding: clamp(1.75rem, 1rem + 2.5vw, 3rem); }
+.gift-card h2 {
   font-family: var(--font-serif);
   font-weight: 500;
   color: var(--plum);
-  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
-  letter-spacing: -.01em;
-  margin: 0 0 .25em;
+  margin: 0 0 .35em;
 }
-.gift p { margin: 0 0 1.2rem; font-size: 1.08rem; }
-
-.gift--card { border-radius: 14px; overflow: hidden; }
-.gift--card .gift__inner { padding: 1.5rem 2.5rem; }
-.gift--card h2 { font-weight: 600; font-size: clamp(2rem, 4vw, 3rem); }
+.gift-card p { margin: 0 0 1rem; }
+.gift-card__facts { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.5rem; padding: 0; list-style: none; }
+.gift-card__facts li {
+  padding: .35em .85em;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, .8);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--plum);
+}
+@media (max-width: 700px) {
+  .gift-card { grid-template-columns: minmax(0, 1fr); text-align: center; }
+  .gift-card > img { height: auto; aspect-ratio: 5 / 4; }
+  .gift-card__facts { justify-content: center; }
+}
 
 /* FAQ accordion */
 .faq { max-width: 1100px; margin-inline: auto; }
@@ -1071,10 +1073,8 @@ body.cart-open { overflow: hidden; }
 
   .product { grid-template-columns: 1fr; }
   .gallery { position: static; }
-  .gift__inner,
   .final-cta__inner,
   .ube-hero__inner { grid-template-columns: 1fr; text-align: center; }
-  .gift--card .gift__inner { padding: 1.5rem 1.2rem; }
   .ube-hero__inner { min-height: 0; }
   .ube-hero__img { margin: 0 calc(var(--gutter) * -1); order: -1; }
   .ube-hero__img img { -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent); }
@@ -1356,10 +1356,9 @@ textarea.input { resize: vertical; }
 .section--cream + .section--cream { padding-top: 0; }
 main > :last-child.section { padding-bottom: var(--space-section); }
 
-/* Banners (story, gift, final CTA): same breathing room inside */
+/* Banners (story, final CTA): same breathing room inside */
 .story__copy { padding-block: var(--space-band); }
-.gift__inner, .final-cta__inner { padding-block: var(--space-section); }
-.gift--card .gift__inner { padding-block: clamp(1.5rem, 1rem + 2vw, 2.5rem); }
+.final-cta__inner { padding-block: var(--space-section); }
 
 /* Page titles (h1) */
 .hero .h-display { font-size: var(--fs-display); }
@@ -1367,7 +1366,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 .page-hero--small .h-display { font-size: clamp(2.2rem, 1.4rem + 1.8vw, 3rem); }
 
 /* Section titles (h2) — identical everywhere, banners included */
-.h-section, .story__copy h2, .gift h2, .gift--card h2, .final-cta h2,
+.h-section, .story__copy h2, .gift-card h2, .final-cta h2,
 .recipe-detail__title { font-size: var(--fs-xl); line-height: 1.12; letter-spacing: -.01em; }
 .h-section { margin-bottom: var(--space-title); }
 .h-section:has(+ .section-sub) { margin-bottom: 0; }
@@ -1383,11 +1382,11 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 .hero .script, .page-hero .script, .ube-hero__copy .script { font-size: var(--fs-script-lg); }
 
 /* Body & leads */
-.hero__lead, .page-hero__lead, .ube-hero__copy p, .story__copy p, .gift p,
+.hero__lead, .page-hero__lead, .ube-hero__copy p, .story__copy p, .gift-card p,
 .final-cta p, .story-text p { font-size: var(--fs-md); line-height: 1.55; }
 
 /* Comfortable line length */
-.hero__lead, .page-hero__lead, .story__copy p, .gift p, .story-text p,
+.hero__lead, .page-hero__lead, .story__copy p, .gift-card p, .story-text p,
 .faq details p, .ube-hero__copy p, .steps__note { max-width: var(--measure); }
 .hero__lead, .page-hero__lead, .story-text p, .steps__note { margin-inline: auto; }
 .faq, .faq--panel { max-width: 860px; margin-inline: auto; }
@@ -1396,7 +1395,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 .formats, .steps, .recipes, .journey, .discover, .values { gap: clamp(1rem, .6rem + 1.2vw, 1.5rem); }
 
 /* Calls to action: one primary button per section, full size */
-.format-card .btn, .gift .btn--sm, .empty-cart .btn { min-height: 48px; padding: .75em 1.8em; font-size: var(--fs-base); }
+.format-card .btn, .empty-cart .btn { min-height: 48px; padding: .75em 1.8em; font-size: var(--fs-base); }
 .format-card .btn { align-self: stretch; margin-inline: 1.25rem; }
 .format-card__price { font-size: 1.75rem; }
 .format-card__tag { font-size: var(--fs-sm); }
@@ -1614,7 +1613,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
   box-shadow: none;
 }
 .btn:hover { box-shadow: 0 8px 20px rgba(196, 107, 184, .28); }
-.btn--sm, .format-card .btn, .gift .btn--sm, .empty-cart .btn { min-height: 48px; }
+.btn--sm, .format-card .btn, .empty-cart .btn { min-height: 48px; }
 .btn--lg { min-height: 56px; }
 .mobile-buy .btn { min-height: 48px; padding-inline: 1.4em; }
 
