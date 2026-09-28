@@ -2113,6 +2113,10 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .cart-btn { justify-self: end; height: 48px; }
   .cart-btn__label { font-size: .875rem; letter-spacing: .1em; line-height: 1; }
 }
+@media (min-width: 901px) and (max-width: 1023px) {
+  .cart-btn { padding: 0; justify-content: center; }
+  .cart-btn__label { display: none; }
+}
 
 /* Mobile menu: room between the close button and the first link */
 @media (max-width: 900px) {
