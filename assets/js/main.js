@@ -490,6 +490,25 @@
     sync();
   });
 
+  /* ---------- Recipe filters ---------- */
+
+  var recipeTabs = $(".recipe-tabs");
+  if (recipeTabs) {
+    var recipeGrid = $(".recipe-grid");
+    var tabButtons = $$("button", recipeTabs);
+    recipeTabs.hidden = false;
+    tabButtons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var cat = b.dataset.filter;
+        tabButtons.forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+        $$(".recipe", recipeGrid).forEach(function (card) {
+          card.hidden = cat !== "all" && card.dataset.cat !== cat;
+        });
+        recipeGrid.classList.toggle("is-filtered", cat !== "all");
+      });
+    });
+  }
+
   /* ---------- Forms: contact and checkout ---------- */
 
   function checkField(input) {

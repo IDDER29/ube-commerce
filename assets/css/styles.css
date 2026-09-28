@@ -2197,6 +2197,9 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .offer-band--flip .offer-band__inner { min-height: clamp(300px, 24vw, 440px); }
   .offer-band--flip .offer-band__img { left: auto; width: auto; max-width: none; -webkit-mask-image: linear-gradient(to right, transparent, #000 30%); mask-image: linear-gradient(to right, transparent, #000 30%); }
 }
+@media (min-width: 701px) {
+  .offer-band--tall .offer-band__inner { min-height: clamp(300px, 22vw, 440px); }
+}
 @media (max-width: 700px) {
   .offer-band--flip { background: var(--cream-2); }
   .offer-band--flip .offer-band__img { object-position: 100% 50%; }
@@ -2215,4 +2218,51 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .ube-hero--history .ube-hero__img img { object-position: 50% 88%; }
 @media (max-width: 900px) {
   .ube-hero--history .ube-hero__img img { aspect-ratio: 4 / 3; object-position: 100% 85%; }
+}
+
+/* Recipes hero: the signature latte, named beside the glass */
+.hero-pick { position: relative; z-index: 1; padding-bottom: var(--space-section); text-align: center; }
+.hero-pick .script { margin: 0; font-size: var(--fs-script); line-height: 1.15; }
+.hero-pick__title { margin: .1em 0 .75em; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-xl); line-height: 1.12; letter-spacing: -.01em; color: var(--plum); }
+@media (min-width: 901px) {
+  .hero-pick { grid-column: 2; grid-row: 1; align-self: center; justify-self: start; max-width: 16em; margin-left: clamp(0rem, 6vw - 3.5rem, 4rem); padding: 0; text-align: left; }
+  .ube-hero--recipes .ube-hero__img img { object-position: 100% 55%; }
+}
+@media (max-width: 900px) {
+  .ube-hero--recipes .ube-hero__copy { padding-bottom: 1.75rem; }
+  .hero-pick::before { content: ""; display: block; width: 2.5rem; height: 1px; margin: 0 auto 1.5rem; background: var(--magenta); opacity: .5; }
+}
+@media (min-width: 561px) and (max-width: 900px) {
+  .ube-hero--recipes .ube-hero__img img { aspect-ratio: 16 / 10; object-position: 100% 70%; }
+}
+
+/* Recipe filters: a centred row of tabs between two hairlines */
+.recipe-tabs { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, .5rem + 2vw, 2.5rem); margin-bottom: clamp(1.5rem, 1rem + 1.5vw, 2.5rem); }
+.recipe-tabs[hidden] { display: none; }
+.recipe-tabs::before, .recipe-tabs::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.recipe-tabs button { flex: none; min-height: 44px; padding: 0 .15rem; border: 0; border-bottom: 2px solid transparent; background: none; font: inherit; font-size: var(--fs-md); color: var(--ink); cursor: pointer; transition: color .2s var(--ease), border-color .2s var(--ease); }
+.recipe-tabs button:hover { color: var(--magenta-dark); }
+.recipe-tabs button[aria-pressed="true"] { border-bottom-color: var(--magenta); color: var(--magenta-dark); }
+@media (max-width: 560px) {
+  .recipe-tabs { gap: 1rem; }
+  .recipe-tabs::before, .recipe-tabs::after { display: none; }
+  .recipe-tabs button { font-size: var(--fs-base); }
+  .recipe-tabs__more { display: none; }
+}
+
+/* Recipe grid: two large cards, then three; two per row once filtered */
+.recipe-grid { --grid-gap: clamp(1rem, .6rem + 1.2vw, 1.75rem); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: calc(var(--grid-gap) * 1.25) var(--grid-gap); }
+.recipe-grid .recipe { grid-column: span 2; }
+.recipe-grid .recipe:nth-child(-n+2) { grid-column: span 3; }
+.recipe-grid .recipe:nth-child(-n+2) img { aspect-ratio: 16 / 9; }
+.recipe-grid .recipe h3 { margin: .9rem 0 .2rem; font-weight: 600; }
+.recipe-grid.is-filtered { display: flex; flex-wrap: wrap; justify-content: center; }
+.recipe-grid.is-filtered .recipe { width: calc((100% - var(--grid-gap)) / 2); }
+.recipe-grid.is-filtered .recipe img { aspect-ratio: 16 / 9; }
+@media (max-width: 700px) {
+  .recipe-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .recipe-grid .recipe, .recipe-grid .recipe:nth-child(n+2) { grid-column: span 1; }
+  .recipe-grid .recipe:first-child { grid-column: span 2; }
+  .recipe-grid .recipe:nth-child(n+2) img, .recipe-grid.is-filtered .recipe img { aspect-ratio: 4 / 3; }
+  .recipe-grid .recipe:nth-child(n+2) h3 { font-size: var(--fs-md); }
 }

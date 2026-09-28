@@ -1,19 +1,27 @@
 <!--
-title: Recettes à l’ube — lattes et pâtisseries | Ube Halaya
-description: Latte glacé à la mousse vanille, cake à l’ube, cookies à l’ube : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.
+title: Recettes à l’ube — lattes, pâtisseries et glace | Ube Halaya
+description: Latte glacé à la mousse vanille, latte chaud, cake, cookies et glace à l’ube : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.
 preload_image: assets/img/recettes-hero.webp
 -->
   <main id="contenu">
-    <section class="ube-hero wall">
+    <section class="ube-hero ube-hero--cover ube-hero--recipes wall">
       <div class="wrap ube-hero__inner">
         <div class="ube-hero__copy">
-          <p class="script">Un peu de violet dans la cuisine…</p>
-          <h1 class="h-display">Nos recettes</h1>
-          <p>Du latte du matin au goûter du dimanche, trois façons de commencer avec votre canette.</p>
+          <p class="script">À chaque envie, sa recette.</p>
+          <h1 class="h-display">L’ube se met à table.</h1>
+          <p>Des idées à préparer, à goûter, à partager.</p>
           <p class="page-hero__note">Seule la poudre Éclat d’Ubé est vendue : lait, crème et autres ingrédients sont à prévoir.</p>
         </div>
+        <div class="hero-pick">
+          <p class="script">Notre latte signature</p>
+          <p class="hero-pick__title">Latte glacé &amp; mousse vanille</p>
+          <a class="btn" href="#latte-signature">Voir la recette</a>
+        </div>
         <figure class="ube-hero__img">
-          <img src="assets/img/recettes-hero.webp" width="1400" height="788" alt="Cake à l’ube nappé de glaçage, une tranche coupée" fetchpriority="high">
+          <picture>
+            <source media="(max-width: 900px)" srcset="assets/img/recettes-hero-sm.webp" width="900" height="675">
+            <img src="assets/img/recettes-hero.webp" width="2400" height="711" alt="Latte glacé à l’ube marbré de violet, surmonté d’une mousse vanille, sur un plateau en bois" fetchpriority="high">
+          </picture>
         </figure>
       </div>
     </section>
@@ -21,36 +29,70 @@ preload_image: assets/img/recettes-hero.webp
     <!-- Recipes -->
     <section class="section">
       <div class="wrap">
-        <h2 class="h-section">Trois façons de commencer.</h2>
-        <div class="recipes" data-carousel aria-label="Recettes">
-          <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-latte.webp" width="1000" height="750" alt="Latte à l’ube surmonté d’une mousse vanille" loading="lazy" decoding="async"></div>
+        <h2 class="sr-only">Nos recettes</h2>
+        <div class="recipe-tabs" role="group" aria-label="Filtrer les recettes" hidden>
+          <button type="button" aria-pressed="true" data-filter="all">Toutes<span class="recipe-tabs__more"> les recettes</span></button>
+          <button type="button" aria-pressed="false" data-filter="boisson">Boissons</button>
+          <button type="button" aria-pressed="false" data-filter="gateau">Gâteaux</button>
+          <button type="button" aria-pressed="false" data-filter="glace">Glaces</button>
+        </div>
+        <div class="recipe-grid">
+          <article class="recipe" data-cat="boisson">
+            <div class="recipe__img"><img src="assets/img/recipe-latte.webp" width="1000" height="750" alt="Latte glacé à l’ube surmonté d’une mousse vanille" loading="lazy" decoding="async"></div>
             <h3>Latte glacé, mousse vanille</h3>
-            <p class="recipe__desc">Notre recette signature.</p>
             <a class="link-arrow" href="#latte-signature">Voir la recette</a>
           </article>
-          <article class="recipe">
+          <article class="recipe" data-cat="gateau">
             <div class="recipe__img"><img src="assets/img/recipe-cake.webp" width="1000" height="750" alt="Cake marbré à l’ube nappé de glaçage" loading="lazy" decoding="async"></div>
             <h3>Cake à l’ube</h3>
-            <p class="recipe__desc">À couper en tranches et à partager.</p>
             <a class="link-arrow" href="#cake-ube">Voir la recette</a>
           </article>
-          <article class="recipe">
+          <article class="recipe" data-cat="gateau">
             <div class="recipe__img"><img src="assets/img/recipe-cookies.webp" width="1000" height="750" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy" decoding="async"></div>
             <h3>Cookies à l’ube</h3>
-            <p class="recipe__desc">Pour votre prochaine fournée.</p>
             <a class="link-arrow" href="#cookies-ube">Voir la recette</a>
+          </article>
+          <article class="recipe" data-cat="glace">
+            <div class="recipe__img"><img src="assets/img/recipe-glace.webp" width="1000" height="750" alt="Deux boules de glace à l’ube dans un bol en céramique" loading="lazy" decoding="async"></div>
+            <h3>Glace à l’ube</h3>
+            <a class="link-arrow" href="#glace-ube">Voir la recette</a>
+          </article>
+          <article class="recipe" data-cat="boisson">
+            <div class="recipe__img"><img src="assets/img/recipe-latte-chaud.webp" width="1000" height="750" alt="Tasse de latte chaud à l’ube, mousse de lait marbrée de violet" loading="lazy" decoding="async"></div>
+            <h3>Latte chaud à l’ube</h3>
+            <a class="link-arrow" href="#latte-chaud">Voir la recette</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Latte -->
-    <article class="section section--cream recipe-detail" id="latte-signature">
+    <!-- First latte -->
+    <section class="section section--cream">
+      <div class="wrap">
+        <h2 class="h-section">Votre premier latte, en trois gestes.</h2>
+        <div class="steps">
+          <figure class="step">
+            <img src="assets/img/step-dose.webp" width="900" height="675" alt="Une cuillère verse de la poudre d’ube dans un bol" loading="lazy" decoding="async">
+            <figcaption><span class="step__num">01</span> Dosez 2 à 3 g de poudre.</figcaption>
+          </figure>
+          <figure class="step">
+            <img src="assets/img/step-mix.webp" width="900" height="675" alt="La poudre mélangée au mousseur dans un bol" loading="lazy" decoding="async">
+            <figcaption><span class="step__num">02</span> Mélangez au mousseur.</figcaption>
+          </figure>
+          <figure class="step">
+            <img src="assets/img/step-milk.webp" width="900" height="675" alt="Du lait versé dans un verre de glace et d’ube" loading="lazy" decoding="async">
+            <figcaption><span class="step__num">03</span> Ajoutez votre lait.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Iced latte -->
+    <article class="section recipe-detail" id="latte-signature">
       <div class="wrap recipe-detail__inner">
         <div class="recipe-detail__img"><img src="assets/img/recipe-latte.webp" width="1000" height="750" alt="Latte à l’ube marbré surmonté d’une mousse vanille" loading="lazy" decoding="async"></div>
         <div class="recipe-detail__copy">
-          <p class="script">Le classique</p>
+          <p class="script">Notre signature</p>
           <h2 class="recipe-detail__title">Latte glacé, mousse vanille</h2>
           <ul class="recipe-facts"><li><strong>5 min</strong>préparation</li><li><strong>1 verre</strong>de 30 cl</li><li><strong>Facile</strong>difficulté</li></ul>
         </div>
@@ -59,9 +101,9 @@ preload_image: assets/img/recettes-hero.webp
           <ul class="ingredients">
             <li>2 à 3 g d’<a href="eclat-dube.html">Éclat d’Ubé</a> (1 c. à café rase)</li>
             <li>3 cl d’eau chaude, non bouillante</li>
-            <li>20 cl de lait, chaud ou froid</li>
+            <li>20 cl de lait froid</li>
             <li>Sucre ou sirop, selon votre goût</li>
-            <li>Glaçons, pour la version glacée</li>
+            <li>Glaçons</li>
             <li>5 cl de crème liquide entière et ½ c. à café de vanille</li>
           </ul>
         </div>
@@ -71,9 +113,41 @@ preload_image: assets/img/recettes-hero.webp
             <li>Déposez la poudre dans un bol et versez l’eau chaude.</li>
             <li>Mélangez au mousseur jusqu’à obtenir une base lisse, sans grumeaux.</li>
             <li>Sucrez à ce stade : le sucre se dissout mieux dans la base chaude.</li>
-            <li>Versez la base violette dans un verre de glaçons, ou dans une tasse pour la version chaude.</li>
+            <li>Versez la base violette dans un verre rempli de glaçons.</li>
             <li>Ajoutez le lait doucement, sans mélanger, pour garder l’effet marbré.</li>
             <li>Fouettez la crème et la vanille en mousse souple et déposez-la sur le dessus.</li>
+          </ol>
+        </div>
+      </div>
+    </article>
+
+    <!-- Hot latte -->
+    <article class="section section--cream recipe-detail" id="latte-chaud">
+      <div class="wrap recipe-detail__inner">
+        <div class="recipe-detail__img"><img src="assets/img/recipe-latte-chaud.webp" width="1000" height="750" alt="Tasse de latte chaud à l’ube, mousse de lait marbrée de violet" loading="lazy" decoding="async"></div>
+        <div class="recipe-detail__copy">
+          <p class="script">Pour les matins frais</p>
+          <h2 class="recipe-detail__title">Latte chaud à l’ube</h2>
+          <ul class="recipe-facts"><li><strong>5 min</strong>préparation</li><li><strong>1 tasse</strong>de 25 cl</li><li><strong>Facile</strong>difficulté</li></ul>
+        </div>
+        <div class="recipe-panel">
+          <h3>Ingrédients</h3>
+          <ul class="ingredients">
+            <li>2 à 3 g d’<a href="eclat-dube.html">Éclat d’Ubé</a> (1 c. à café rase)</li>
+            <li>3 cl d’eau chaude, non bouillante</li>
+            <li>20 cl de lait, animal ou végétal</li>
+            <li>Sucre ou sirop, selon votre goût</li>
+          </ul>
+        </div>
+        <div class="recipe-method">
+          <h3>Préparation</h3>
+          <ol class="method">
+            <li>Déposez la poudre dans une tasse et versez l’eau chaude.</li>
+            <li>Mélangez au mousseur jusqu’à obtenir une base lisse, puis sucrez.</li>
+            <li>Chauffez le lait sans le faire bouillir.</li>
+            <li>Faites-le mousser quelques secondes au mousseur.</li>
+            <li>Versez le lait sur la base en retenant la mousse, puis déposez-la sur le dessus.</li>
+            <li>Tracez une vague avec la pointe d’une cuillère pour marbrer la mousse.</li>
           </ol>
         </div>
       </div>
@@ -148,15 +222,50 @@ preload_image: assets/img/recettes-hero.webp
       </div>
     </article>
 
-    <section class="final-cta wall">
-      <div class="wrap final-cta__inner">
-        <img src="assets/img/cta-tray.webp" width="1200" height="471" alt="Canette Éclat d’Ubé, poudre et latte sur un plateau en bois" loading="lazy" decoding="async">
-        <div class="final-cta__copy">
-          <h2>Prêt à préparer votre premier latte ?</h2>
-          <p>Éclat d’Ubé · 50 g · 17,90 €</p>
-          <a class="btn btn--lg" href="eclat-dube.html">Découvrir Éclat d’Ubé</a>
+    <!-- Ice cream -->
+    <article class="section recipe-detail" id="glace-ube">
+      <div class="wrap recipe-detail__inner">
+        <div class="recipe-detail__img"><img src="assets/img/recipe-glace.webp" width="1000" height="750" alt="Deux boules de glace à l’ube dans un bol en céramique" loading="lazy" decoding="async"></div>
+        <div class="recipe-detail__copy">
+          <p class="script">Sans sorbetière</p>
+          <h2 class="recipe-detail__title">Glace à l’ube</h2>
+          <ul class="recipe-facts"><li><strong>15 min</strong>et 6 h au congélateur</li><li><strong>8 boules</strong>environ</li><li><strong>Facile</strong>difficulté</li></ul>
+        </div>
+        <div class="recipe-panel">
+          <h3>Ingrédients</h3>
+          <ul class="ingredients">
+            <li>10 g d’<a href="eclat-dube.html">Éclat d’Ubé</a></li>
+            <li>2 c. à soupe de lait chaud</li>
+            <li>40 cl de crème liquide entière, très froide</li>
+            <li>1 boîte de lait concentré sucré (397 g)</li>
+            <li>½ c. à café de vanille</li>
+          </ul>
+        </div>
+        <div class="recipe-method">
+          <h3>Préparation</h3>
+          <ol class="method">
+            <li>Délayez la poudre d’ube dans le lait chaud jusqu’à obtenir une pâte lisse.</li>
+            <li>Mélangez-la au lait concentré et à la vanille.</li>
+            <li>Fouettez la crème bien froide en chantilly ferme.</li>
+            <li>Incorporez la chantilly au mélange violet en deux fois, délicatement, à la spatule.</li>
+            <li>Versez dans une boîte, couvrez et placez au congélateur au moins 6 heures.</li>
+            <li>Sortez la glace 10 minutes avant de former les boules.</li>
+          </ol>
+        </div>
+      </div>
+    </article>
+
+    <section class="offer-band offer-band--tall">
+      <picture>
+        <source media="(max-width: 700px)" srcset="assets/img/recipe-band-sm.webp" width="640" height="400">
+        <img class="offer-band__img" src="assets/img/recipe-band.webp" width="2200" height="775" alt="Canette Éclat d’Ubé et bol de poudre violette sur un plateau en bois" loading="lazy" decoding="async">
+      </picture>
+      <div class="wrap offer-band__inner">
+        <div class="offer-band__copy">
+          <h2>Tout commence avec Éclat d’Ubé.</h2>
+          <p>Canette de 50 g <span aria-hidden="true">·</span> 17,90 €</p>
+          <a class="btn" href="eclat-dube.html">Découvrir la canette</a>
         </div>
       </div>
     </section>
   </main>
-
