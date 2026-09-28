@@ -25,6 +25,7 @@ PAGES = [
 
 
 NBSP_BEFORE = re.compile(r"[ \t]+([?!:;»])")
+NBSP_UNIT = re.compile(r"(\d) (?=€|%|g\b|cl\b|min\b|h\b|jours\b|canettes?\b|lattes?\b|parts\b)")
 SKIP_BLOCK = re.compile(r"(<script\b.*?</script>|<style\b.*?</style>)", re.S | re.I)
 
 
@@ -33,7 +34,7 @@ def french_spacing(html):
     punctuation never wraps onto its own line."""
     def fix_text(chunk):
         parts = re.split(r"(<[^>]+>)", chunk)
-        return "".join(p if p.startswith("<") else NBSP_BEFORE.sub("\u00a0\\1", p) for p in parts)
+        return "".join(p if p.startswith("<") else NBSP_UNIT.sub("\\1\u00a0", NBSP_BEFORE.sub("\u00a0\\1", p)) for p in parts)
     pieces = SKIP_BLOCK.split(html)
     return "".join(p if SKIP_BLOCK.fullmatch(p) else fix_text(p) for p in pieces)
 

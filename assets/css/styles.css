@@ -1664,3 +1664,51 @@ body.dialog-open { overflow: hidden; }
 /* Very small phones: product page columns may shrink below their content */
 @media (max-width: 900px) { .product { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 360px) { .buyrow .btn { min-width: 0; padding-inline: .9em; } .buyrow { gap: 8px; } }
+
+/* ==========================================================================
+   Production pass — states, mobile menu, checkout, placeholders
+   ========================================================================== */
+
+/* Empty cart: only the invitation, no 0,00 € total or checkout button */
+.drawer.is-empty .drawer__foot,
+.drawer.is-empty .ship-progress { display: none; }
+.drawer__empty { padding: 3rem 0; }
+
+/* Suggestion to reach free delivery */
+.drawer__upsell {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .9rem;
+  margin-top: 1.25rem;
+  padding: .9rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  list-style: none;
+}
+.drawer__upsell img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; }
+.drawer__upsell-title { margin: 0; font-family: var(--font-serif); font-weight: 600; color: var(--plum); }
+.drawer__upsell-text { margin: .15rem 0 0; font-size: var(--fs-sm); color: var(--muted); }
+.drawer__upsell .btn { min-height: 40px; padding: .5em 1.1em; }
+
+/* Mobile menu: page dimmed and locked behind the open menu */
+@media (max-width: 900px) {
+  body.menu-open { overflow: hidden; }
+  body.menu-open::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(42, 19, 32, .45);
+    animation: fade-in .25s ease;
+  }
+}
+@keyframes fade-in { from { opacity: 0; } }
+
+/* Checkout on phones: see the order before filling the form */
+@media (max-width: 900px) {
+  [data-checkout] .cart-summary { order: -1; }
+}
+
+/* Information still to provide */
+.placeholder { padding: 0 .3em; border-radius: 3px; background: #fff4d6; color: #6a4b00; font-style: normal; }

@@ -62,3 +62,14 @@ All sizes come from tokens at the top of `assets/css/styles.css`:
 
 `build.py` also writes `assets/css/styles.min.css`, which the pages load. Edit `styles.css`, then rebuild.
 Fonts are subset to the characters used on the site; if you add text in another alphabet, re-subset them.
+
+## Avant la mise en ligne
+
+Le site est complet côté pages, parcours d’achat et responsive. Le paiement sera géré par **Shopify**.
+Les informations encore inconnues sont signalées par un encadré jaune `[entre crochets]`
+(classe `.placeholder`) : chercher `class="placeholder"` dans `src/` pour toutes les retrouver.
+
+- `[adresse e-mail de contact]` : page contact, pages légales, et l’attribut `data-email` du formulaire de contact.
+- Mentions légales, CGV, confidentialité : raison sociale, SIREN, hébergeur, médiateur, etc.
+- Photos : visuels d’intention, à remplacer par les vraies photos (mêmes noms de fichiers dans `assets/img/`).
+- Recettes « Glace à l’ube » et « Latte chaud à l’ube » : à tester avant publication.

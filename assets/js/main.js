@@ -120,6 +120,7 @@
     var filled = ids.length > 0;
     $$("[data-page-filled]").forEach(function (el) { el.hidden = !filled; });
     $$("[data-page-empty]").forEach(function (el) { el.hidden = filled; });
+    $$("[data-filled-text]").forEach(function (el) { el.textContent = filled ? el.dataset.filledText : el.dataset.emptyText; });
     if (!filled) return;
     var sub = subtotal();
     var remaining = Math.max(0, FREE_SHIPPING - sub);
@@ -168,14 +169,26 @@
         '<li class="drawer__empty"><p class="script">Votre panier est vide…</p>' +
         '<a class="btn btn--sm" href="eclat-dube.html">Découvrir Éclat d’Ubé</a></li>';
     } else {
-      itemsEl.innerHTML = ids.map(function (id) { return lineHTML(id); }).join("");
+      itemsEl.innerHTML = ids.map(function (id) { return lineHTML(id); }).join("") + upsellHTML(remaining);
     }
+    drawer.classList.toggle("is-empty", !ids.length);
 
     var shipping = sub === 0 || remaining === 0 ? 0 : SHIPPING_COST;
     $("#cart-subtotal").textContent = money(sub);
     $("#cart-shipping").textContent = sub === 0 ? "—" : shipping === 0 ? "Offerte" : money(shipping);
     $("#cart-total").textContent = money(sub + shipping);
     $("#checkout-btn").setAttribute("aria-disabled", String(sub === 0));
+  }
+
+  /* Below the free-delivery threshold, suggest the coffret that reaches it */
+  function upsellHTML(remaining) {
+    if (remaining <= 0 || cart["coffret-3"] || cart["coffret-6"]) return "";
+    var p = PRODUCTS["coffret-3"];
+    return '<li class="drawer__upsell">' +
+      '<img src="' + p.img + '" alt="" width="64" height="64">' +
+      '<div><p class="drawer__upsell-title">Passez au coffret découverte</p>' +
+      '<p class="drawer__upsell-text">3 canettes · ' + money(p.price) + ' · livraison offerte</p></div>' +
+      '<button type="button" class="btn btn--sm" data-upsell="coffret-3">Ajouter</button></li>';
   }
 
   function bindLines(listEl) {
@@ -204,6 +217,10 @@
   $$("[data-page-items]:not([data-readonly])").forEach(bindLines);
 
   $$("[data-open-cart]").forEach(function (b) { b.addEventListener("click", openCart); });
+  if (itemsEl) itemsEl.addEventListener("click", function (e) {
+    var up = e.target.closest("[data-upsell]");
+    if (up) add(up.dataset.upsell, 1);
+  });
   $$("[data-close-cart]").forEach(function (b) { b.addEventListener("click", closeCart); });
 
   /* ---------- Toast ---------- */
@@ -236,6 +253,7 @@
   var nav = document.getElementById("site-nav");
   function setMenu(open) {
     nav.classList.toggle("is-open", open);
+    document.body.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", String(open));
   }
   if (toggle && nav) {
@@ -495,6 +513,11 @@
       if (!validate(contactForm)) return;
       var f = contactForm.elements;
       var status = $("[data-form-status]", contactForm);
+      if (!contactForm.dataset.email) {
+        status.hidden = false;
+        status.textContent = "Merci ! Le formulaire sera relié à notre adresse de contact avant l’ouverture de la boutique.";
+        return;
+      }
       location.href = "mailto:" + contactForm.dataset.email +
         "?subject=" + encodeURIComponent("[" + f.subject.value + "] " + f.name.value) +
         "&body=" + encodeURIComponent(f.message.value + "\n\n— " + f.name.value + " (" + f.email.value + ")");
