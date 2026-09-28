@@ -2,6 +2,7 @@
 title: Notre histoire — Des Philippines à votre cuisine | Ube Halaya
 description: Ube Halaya est né d’une racine violette des Philippines. Découvrez l’histoire d’Éclat d’Ubé, de la racine à votre cuisine.
 preload_image: assets/img/history-hero.webp
+preload_media: media="(min-width: 901px)"
 -->
   <main id="contenu">
     <section class="ube-hero ube-hero--cover ube-hero--history wall">
@@ -12,7 +13,10 @@ preload_image: assets/img/history-hero.webp
           <p>L’histoire d’une racine et d’une envie de la partager.</p>
         </div>
         <figure class="ube-hero__img">
-          <img src="assets/img/history-hero.webp" width="1376" height="768" alt="Panier de racines d’ube, l’une coupée sur sa chair violette, devant une maison en bambou" fetchpriority="high">
+          <picture>
+            <source media="(max-width: 900px)" srcset="assets/img/history-hero-sm.webp" width="836" height="768">
+            <img src="assets/img/history-hero.webp" width="1376" height="768" alt="Panier de racines d’ube, l’une coupée sur sa chair violette, devant une maison en bambou" fetchpriority="high">
+          </picture>
           <figcaption class="img-credit">Illustration de l’univers de l’ube</figcaption>
         </figure>
       </div>

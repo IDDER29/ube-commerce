@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/recettes-hero.webp" as="image" fetchpriority="high" >
+  <link rel="preload" href="assets/img/recettes-hero.webp" as="image" fetchpriority="high" media="(min-width: 901px)">
   <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 <body class="page-recettes">
@@ -72,6 +72,7 @@
         </div>
         <figure class="ube-hero__img">
           <picture>
+            <source media="(max-width: 560px)" srcset="assets/img/recettes-hero-xs.webp" width="800" height="814">
             <source media="(max-width: 900px)" srcset="assets/img/recettes-hero-sm.webp" width="900" height="675">
             <img src="assets/img/recettes-hero.webp" width="1255" height="941" alt="Latte glacé à l’ube marbré de violet, surmonté d’une mousse vanille, sur un plateau en bois" fetchpriority="high">
           </picture>

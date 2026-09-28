@@ -1062,9 +1062,9 @@ body.cart-open { overflow: hidden; }
   .final-cta__inner,
   .ube-hero__inner { grid-template-columns: 1fr; text-align: center; }
   .ube-hero__inner { min-height: 0; }
-  .ube-hero__img { margin: 0 calc(var(--gutter) * -1); order: -1; }
-  .ube-hero__img img { -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent); }
-  .ube-hero__copy { padding-top: 0; }
+  .ube-hero__img { margin: 0 calc(var(--gutter) * -1); }
+  .ube-hero__img img { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%); mask-image: linear-gradient(to bottom, transparent 0, #000 30%); }
+  .ube-hero__copy { padding: var(--space-section) 0 0; }
   .ube-hero__copy .script { text-align: center; margin-left: 0; }
   .story__img { position: relative; inset: auto; height: 260px; }
   .story__img img { -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
@@ -2025,10 +2025,10 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .section-sub + .section-lead { margin-top: -.6rem; }
 .final-cta .script { font-size: var(--fs-script); margin-bottom: .1em; }
 
-/* Split top sections with a photo: same height as the landing pages */
-.ube-hero__inner { min-height: clamp(360px, 32vw, 460px); }
-/* The photo fills its column; the section height comes from the copy and the min-height */
+/* Split top sections with a photo: same height as the landing pages.
+   The photo fills its column; the section height comes from the copy and the min-height */
 @media (min-width: 901px) {
+  .ube-hero__inner { min-height: clamp(360px, 32vw, 460px); }
   .ube-hero__img img { position: absolute; inset: 0; }
   .ube-hero__inner { align-items: start; }
   .ube-hero__copy { padding-block: var(--space-section); }
@@ -2131,7 +2131,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 @media (max-width: 380px) { .discover-banner h3 { font-size: 1.25rem; white-space: nowrap; } }
 
 /* Photo credit on stacked heroes: small, in the photo's top corner, clear of the text */
-@media (max-width: 900px) { .ube-hero .img-credit { top: 10px; bottom: auto; font-size: .6875rem; } }
+@media (max-width: 900px) { .ube-hero .img-credit { top: auto; bottom: 10px; font-size: .75rem; } }
 
 /* Placeholders: information still to provide, clearly marked everywhere */
 .placeholder { padding: 0 .3em; border-radius: 3px; background: #fff4d6; color: #6a4b00; font-style: normal; }
@@ -2252,12 +2252,15 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 /* History hero: the basket sits low in the photo */
 .ube-hero--history .ube-hero__img img { object-position: 50% 88%; }
 @media (max-width: 900px) {
-  .ube-hero--history .ube-hero__img img { aspect-ratio: 4 / 3; object-position: 100% 85%; }
+  .ube-hero--history .ube-hero__img img { aspect-ratio: 4 / 3; object-position: 50% 100%; }
 }
 
 /* Recipes hero: the glass sits low on its tray */
 .ube-hero--recipes .ube-hero__img img { object-position: 50% 60%; }
 @media (min-width: 1600px) { .ube-hero--recipes .ube-hero__img img { object-position: 50% 42%; } }
+@media (max-width: 560px) {
+  .ube-hero--recipes .ube-hero__img img { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 20%); mask-image: linear-gradient(to bottom, transparent 0, #000 20%); }
+}
 @media (min-width: 561px) and (max-width: 900px) {
   .ube-hero--recipes .ube-hero__img img { aspect-ratio: 16 / 10; object-position: 100% 70%; }
 }
