@@ -908,7 +908,13 @@ p { text-wrap: pretty; }
 .journey p { margin: 0 auto; max-width: 30ch; font-size: .98rem; }
 
 .discover { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); }
-.discover .recipe img { aspect-ratio: 16 / 10; }
+.discover-banner { position: relative; display: block; overflow: hidden; aspect-ratio: 12 / 5; border-radius: var(--radius); background: var(--cream-2); color: var(--ink); text-decoration: none; }
+.discover-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 55%; transition: transform .6s var(--ease); }
+.discover-banner:hover img { transform: scale(1.03); }
+.discover-banner__copy { position: relative; display: flex; flex-direction: column; justify-content: center; width: 50%; height: 100%; padding-left: clamp(1.25rem, 5%, 2rem); }
+.discover-banner h3 { margin: 0 0 .3em; font-family: var(--font-serif); font-weight: 700; font-size: clamp(1.375rem, 1rem + .8vw, 1.75rem); line-height: 1.15; color: var(--plum); letter-spacing: -.01em; transition: color .25s var(--ease); }
+.discover-banner:hover h3 { color: var(--magenta-dark); }
+.discover-banner p { margin: 0; max-width: 24ch; font-size: clamp(.875rem, .8rem + .2vw, 1rem); line-height: 1.5; }
 
 .final-cta__inner {
   display: grid;
@@ -2109,7 +2115,12 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 }
 
 /* Découvrir cards on phones: one per row */
-@media (max-width: 560px) { .discover { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 900px) { .discover { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) {
+  .discover-banner { aspect-ratio: 2 / 1; }
+  .discover-banner__copy { width: 47%; padding: 0 0 1.75rem 1rem; }
+}
+@media (max-width: 380px) { .discover-banner h3 { font-size: 1.25rem; white-space: nowrap; } }
 
 /* Photo credit on stacked heroes: small, in the photo's top corner, clear of the text */
 @media (max-width: 900px) { .ube-hero .img-credit { top: 10px; bottom: auto; font-size: .6875rem; } }
