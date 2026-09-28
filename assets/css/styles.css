@@ -1335,6 +1335,7 @@ textarea.input { resize: vertical; }
 .carousel-dots button { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; background: none; }
 .carousel-dots button::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--line); transition: width .3s var(--ease), background-color .3s; }
 .carousel-dots button[aria-current="true"]::before { width: 22px; background: var(--magenta); }
+.carousel-dots + .section-cta { margin-top: 1rem; }
 
 /* Legal pages & 404 */
 .legal { max-width: 760px; }
@@ -1377,7 +1378,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 .recipe-detail__title { font-size: var(--fs-xl); line-height: 1.12; letter-spacing: -.01em; }
 .h-section { margin-bottom: var(--space-title); }
 .h-section:has(+ .section-sub) { margin-bottom: 0; }
-.section-sub { margin: .1em 0 var(--space-title); }
+.section-sub { margin: .25em 0 var(--space-title); }
 
 /* Card titles (h3) */
 .format-card h3, .recipe h3, .journey h3, .discover-card h3, .value-card h3,
