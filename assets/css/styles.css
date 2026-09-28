@@ -907,39 +907,8 @@ p { text-wrap: pretty; }
 }
 .journey p { margin: 0 auto; max-width: 30ch; font-size: .98rem; }
 
-.discover {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-}
-.discover-card {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  align-items: center;
-  background: linear-gradient(90deg, #f3f1ee 0%, #ece8e3 100%);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  text-decoration: none;
-  transition: box-shadow .3s, transform .3s var(--ease);
-}
-.discover-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-.discover-card__copy { padding: 1.3rem 0 1.3rem 1.4rem; }
-.discover-card h3 {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  color: var(--plum);
-  font-size: 1.6rem;
-  margin: 0 0 .3rem;
-}
-.discover-card p { margin: 0; font-size: .98rem; }
-.discover-card img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 298 / 186;
-  object-fit: cover;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%);
-          mask-image: linear-gradient(to right, transparent 0, #000 22%);
-}
+.discover { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); }
+.discover .recipe img { aspect-ratio: 16 / 10; }
 
 .final-cta__inner {
   display: grid;
@@ -1094,7 +1063,6 @@ body.cart-open { overflow: hidden; }
   .story__img { position: relative; inset: auto; height: 260px; }
   .story__img img { -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
   .story__copy { padding: .5rem 0 2.5rem; }
-  .discover { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 700px) {
@@ -1130,9 +1098,6 @@ body.cart-open { overflow: hidden; }
   .recipe h3 { font-size: 1.08rem; }
 
   .journey { gap: 1.6rem; }
-  .discover-card { grid-template-columns: 1fr 1fr; }
-  .discover-card__copy { padding: 1rem 0 1rem 1rem; }
-  .discover-card h3 { font-size: 1.35rem; }
 
   .variants { gap: 8px; }
   .variant label { font-size: var(--fs-sm); }
@@ -1382,7 +1347,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 .section-sub { margin: .25em 0 var(--space-title); }
 
 /* Card titles (h3) */
-.format-card h3, .recipe h3, .journey h3, .discover-card h3, .value-card h3,
+.format-card h3, .recipe h3, .journey h3, .value-card h3,
 .panel__title, .recipe-panel h3, .recipe-method h3, .buybox h2 { font-size: var(--fs-lg); line-height: 1.25; }
 
 /* Handwritten lines: fixed ratio to their title */
@@ -2144,13 +2109,11 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .nav { padding-top: 104px; }
 }
 
-/* Découvrir cards on phones: photo on top, full-width text */
-@media (max-width: 560px) {
-  .discover-card { grid-template-columns: minmax(0, 1fr); }
-  .discover-card img { order: -1; width: 100%; aspect-ratio: 16 / 9; height: auto; }
-  .discover-card__copy { padding: 1rem 1.1rem 1.2rem; }
-}
-@media (max-width: 560px) { .discover-card img { -webkit-mask-image: none; mask-image: none; } }
+/* Découvrir cards on phones: one per row */
+@media (max-width: 560px) { .discover { grid-template-columns: minmax(0, 1fr); } }
+
+/* Photo credit on stacked heroes: small, in the photo's top corner, clear of the text */
+@media (max-width: 900px) { .ube-hero .img-credit { top: 10px; bottom: auto; font-size: .6875rem; } }
 
 /* Placeholders: information still to provide, clearly marked everywhere */
 .placeholder { padding: 0 .3em; border-radius: 3px; background: #fff4d6; color: #6a4b00; font-style: normal; }
