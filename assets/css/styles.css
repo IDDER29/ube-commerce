@@ -2091,7 +2091,8 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
     min-height: 48px;
     padding: 0;
     border-bottom: 0;
-    font-size: .875rem;
+    font-size: .8125rem;
+    font-weight: 700;
     letter-spacing: .1em;
     line-height: 1;
   }
@@ -2110,7 +2111,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .nav a:hover::after { transform: scaleX(.6); }
   .nav a[aria-current="page"]::after { transform: scaleX(1); }
   .cart-btn { justify-self: end; height: 48px; }
-  .cart-btn__label { font-size: .875rem; letter-spacing: .1em; line-height: 1; }
+  .cart-btn__label { font-size: .8125rem; font-weight: 700; letter-spacing: .1em; line-height: 1; }
 }
 @media (min-width: 901px) and (max-width: 1023px) {
   .cart-btn { padding: 0; justify-content: center; }
