@@ -2220,18 +2220,9 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .ube-hero--history .ube-hero__img img { aspect-ratio: 4 / 3; object-position: 100% 85%; }
 }
 
-/* Recipes hero: the signature latte, named beside the glass */
-.hero-pick { position: relative; z-index: 1; padding-bottom: var(--space-section); text-align: center; }
-.hero-pick .script { margin: 0; font-size: var(--fs-script); line-height: 1.15; }
-.hero-pick__title { margin: .1em 0 .75em; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-xl); line-height: 1.12; letter-spacing: -.01em; color: var(--plum); }
-@media (min-width: 901px) {
-  .hero-pick { grid-column: 2; grid-row: 1; align-self: center; justify-self: start; max-width: 16em; margin-left: clamp(0rem, 6vw - 3.5rem, 4rem); padding: 0; text-align: left; }
-  .ube-hero--recipes .ube-hero__img img { object-position: 100% 55%; }
-}
-@media (max-width: 900px) {
-  .ube-hero--recipes .ube-hero__copy { padding-bottom: 1.75rem; }
-  .hero-pick::before { content: ""; display: block; width: 2.5rem; height: 1px; margin: 0 auto 1.5rem; background: var(--magenta); opacity: .5; }
-}
+/* Recipes hero: the glass sits low on its tray */
+.ube-hero--recipes .ube-hero__img img { object-position: 50% 60%; }
+@media (min-width: 1600px) { .ube-hero--recipes .ube-hero__img img { object-position: 50% 42%; } }
 @media (min-width: 561px) and (max-width: 900px) {
   .ube-hero--recipes .ube-hero__img img { aspect-ratio: 16 / 10; object-position: 100% 70%; }
 }
@@ -2256,6 +2247,8 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 .recipe-grid .recipe:nth-child(-n+2) { grid-column: span 3; }
 .recipe-grid .recipe:nth-child(-n+2) img { aspect-ratio: 16 / 9; }
 .recipe-grid .recipe h3 { margin: .9rem 0 .2rem; font-weight: 600; }
+.recipe-grid .recipe__img { position: relative; }
+.recipe__tag { position: absolute; left: .75rem; top: .75rem; padding: .3rem .8rem; border-radius: 999px; background: rgba(255, 255, 255, .92); font-size: var(--fs-sm); font-weight: 600; line-height: 1.4; color: var(--magenta-dark); }
 .recipe-grid.is-filtered { display: flex; flex-wrap: wrap; justify-content: center; }
 .recipe-grid.is-filtered .recipe { width: calc((100% - var(--grid-gap)) / 2); }
 .recipe-grid.is-filtered .recipe img { aspect-ratio: 16 / 9; }
