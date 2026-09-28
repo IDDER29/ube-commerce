@@ -542,7 +542,8 @@ p { text-wrap: pretty; }
 .gift-card__copy { align-self: center; padding: clamp(1.75rem, 1rem + 2.5vw, 3rem); }
 .gift-card h2 {
   font-family: var(--font-serif);
-  font-weight: 500;
+  font-weight: 600;
+  font-variation-settings: "opsz" 36;
   color: var(--plum);
   margin: 0 0 .35em;
 }
@@ -1993,7 +1994,7 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 }
 /* Home hero in the original layout: centred text on the wall, tray photo below */
 .hero--textured { background-color: var(--cream-2); background-image: url("../img/wall.webp"); background-size: 600px 600px; }
-.hero .hero__title { font-size: var(--fs-h1); line-height: 1.02; }
+.hero .hero__title { font-size: var(--fs-h1); line-height: 1.08; }
 .hero__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 1.75rem; }
 .hero__meta { color: var(--muted); font-size: var(--fs-sm); }
 .hero__meta strong { color: var(--plum); font-size: var(--fs-md); }
