@@ -1258,6 +1258,7 @@ body.cart-open { overflow: hidden; }
 /* Notre histoire */
 .story-text { max-width: 760px; text-align: center; }
 .story-text p { margin: 0 0 1em; font-size: 1.12rem; }
+.story-text .section-more { margin: 1.4rem 0 0; }
 .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
 .value-card { padding: 1.6rem 1.4rem; border-radius: var(--radius); background: var(--card); text-align: center; }
 .value-card h3 { margin: 0 0 .35rem; font-family: var(--font-serif); font-weight: 500; color: var(--plum); font-size: 1.4rem; }
@@ -1357,7 +1358,7 @@ main > :last-child.section { padding-bottom: var(--space-section); }
 
 /* Banners (story, gift, final CTA): same breathing room inside */
 .story__copy { padding-block: var(--space-band); }
-.gift__inner, .final-cta__inner { padding-block: var(--space-band); }
+.gift__inner, .final-cta__inner { padding-block: var(--space-section); }
 .gift--card .gift__inner { padding-block: clamp(1.5rem, 1rem + 2vw, 2.5rem); }
 
 /* Page titles (h1) */
