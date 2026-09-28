@@ -2133,9 +2133,6 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .ube-hero--cover .ube-hero__img { position: absolute; inset: 0; margin: 0; }
   .ube-hero--cover .ube-hero__img img { object-position: 50% 40%; -webkit-mask-image: none; mask-image: none; }
 }
-.ube-hero--cover .ube-hero__copy .script { font-size: clamp(2.2rem, 1rem + 2.6vw, 3.5rem); }
-.ube-hero--cover .ube-hero__copy .h-display { font-size: clamp(2.6rem, 1.2rem + 3.9vw, 5rem); font-weight: 700; line-height: .98; letter-spacing: -.025em; margin: .12em 0 .3em; }
-.ube-hero--cover .ube-hero__copy p:not(.script) { font-size: clamp(1.125rem, .8rem + .9vw, 1.5rem); line-height: 1.5; }
 @media (min-width: 901px) {
   .ube-hero--cover .ube-hero__copy { padding-block: clamp(2rem, 1rem + 2vw, 3rem); }
 }
