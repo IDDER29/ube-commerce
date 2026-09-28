@@ -2198,6 +2198,15 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .offer-band--flip .offer-band__img { object-position: 100% 50%; }
 }
 
+/* Reviews: quote cards, filled only with real customer words */
+.reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, .6rem + 1.2vw, 1.5rem); }
+.review { margin: 0; padding: 1.25rem 1.5rem 1.5rem; border-radius: var(--radius); background: #fff; box-shadow: 0 0 0 1px var(--line); text-align: center; }
+.review::before { content: "\201C"; display: block; height: 1.5rem; text-align: left; font-family: var(--font-serif); font-size: 3.5rem; font-weight: 700; line-height: 1; color: var(--pink-script); }
+.review blockquote { margin: .75rem 0 0; font-family: var(--font-serif); font-size: var(--fs-md); line-height: 1.5; color: var(--plum); }
+.review figcaption { font-size: var(--fs-sm); color: var(--magenta); }
+.review figcaption::before { content: ""; display: block; width: 2.5rem; height: 1px; margin: 1rem auto; background: currentColor; opacity: .5; }
+@media (max-width: 800px) { .reviews { grid-template-columns: minmax(0, 1fr); } }
+
 /* History hero: the basket sits low in the photo */
 .ube-hero--history .ube-hero__img img { object-position: 50% 88%; }
 @media (max-width: 900px) {
