@@ -308,7 +308,7 @@
 
   /* ---------- Reveal on scroll ---------- */
 
-  var revealTargets = $$(".h-section, .format-card, .step, .recipe, .discover-banner, .journey article, .why, .story__copy, .gift-card, .offer-band__copy, .faq, .specs, .final-cta__inner");
+  var revealTargets = $$(".h-section, .format-card, .step, .recipe, .discover-banner, .journey article, .why, .tale, .story__copy, .gift-card, .offer-band__copy, .faq, .specs, .final-cta__inner");
   if ("IntersectionObserver" in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {

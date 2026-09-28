@@ -2156,6 +2156,22 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
   .why__img { aspect-ratio: 4 / 3; object-position: 50% 75%; }
 }
 
+/* Story: copy beside two kitchen photos */
+.h-section--long { max-width: 22em; margin-inline: auto; }
+.tale { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 1rem + 3vw, 4rem); align-items: center; }
+.tale__copy h3 { margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-xl); line-height: 1.12; letter-spacing: -.01em; color: var(--plum); }
+.tale__copy .script { margin: .1em 0 .7em; font-size: var(--fs-script); line-height: 1.15; }
+.tale__copy p:not(.script) { margin: 0 0 1em; font-size: var(--fs-md); line-height: 1.55; }
+.tale__copy .btn { margin-top: .5rem; }
+.tale__photos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.75rem, .5rem + .6vw, 1rem); }
+.tale__photos img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+@media (max-width: 900px) {
+  .tale { grid-template-columns: minmax(0, 1fr); }
+  .tale__copy { text-align: center; }
+  .tale__photos { order: -1; }
+  .tale__copy p:not(.script) { max-width: var(--measure); margin-inline: auto; }
+}
+
 /* Offer band: product photo across the full width, copy over the empty wall on the right */
 .offer-band { position: relative; overflow: hidden; background: var(--cream-2); }
 .offer-band__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0% 60%; }
@@ -2167,4 +2183,23 @@ h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
 @media (max-width: 700px) {
   .offer-band__img { position: static; display: block; height: auto; aspect-ratio: 8 / 5; object-position: 50% 50%; }
   .offer-band__inner { display: block; min-height: 0; padding-block: 1.75rem 2.25rem; }
+}
+
+/* Mirrored band: photo on the right, fading into a wall of the same colour, copy on the left */
+.offer-band--flip { background: url("../img/wall.webp") 0 0 / 600px 600px, linear-gradient(#f5e1cf 65%, #f9e9dc 65%); background-blend-mode: multiply; }
+.offer-band--flip .offer-band__copy { grid-column: 1; }
+.offer-band--flip p { max-width: 34ch; margin-inline: auto; }
+@media (min-width: 701px) {
+  .offer-band--flip .offer-band__inner { min-height: clamp(300px, 24vw, 440px); }
+  .offer-band--flip .offer-band__img { left: auto; width: auto; max-width: none; -webkit-mask-image: linear-gradient(to right, transparent, #000 30%); mask-image: linear-gradient(to right, transparent, #000 30%); }
+}
+@media (max-width: 700px) {
+  .offer-band--flip { background: var(--cream-2); }
+  .offer-band--flip .offer-band__img { object-position: 100% 50%; }
+}
+
+/* History hero: the basket sits low in the photo */
+.ube-hero--history .ube-hero__img img { object-position: 50% 88%; }
+@media (max-width: 900px) {
+  .ube-hero--history .ube-hero__img img { aspect-ratio: 4 / 3; object-position: 100% 85%; }
 }
