@@ -518,4 +518,49 @@
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
   render();
+
+  /* ---------- Recipes page: filter and recipe windows ---------- */
+
+  var tabs = $$(".recipe-tabs [data-filter]");
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      var f = tab.dataset.filter;
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle("is-active", on);
+        t.setAttribute("aria-pressed", String(on));
+      });
+      $$(".recipe-grid [data-cat]").forEach(function (card) {
+        card.hidden = f !== "all" && card.dataset.cat !== f;
+      });
+    });
+  });
+
+  var openDialog = function (id) {
+    var d = document.getElementById(id);
+    if (!d || d.tagName !== "DIALOG" || d.open) return false;
+    d.showModal();
+    document.body.classList.add("dialog-open");
+    return true;
+  };
+  $$("[data-open-dialog]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (openDialog(a.dataset.openDialog)) {
+        e.preventDefault();
+        history.replaceState(null, "", "#" + a.dataset.openDialog);
+      }
+    });
+  });
+  $$("dialog.recipe-dialog").forEach(function (d) {
+    d.addEventListener("close", function () {
+      document.body.classList.remove("dialog-open");
+      if (location.hash === "#" + d.id) history.replaceState(null, "", location.pathname + location.search);
+    });
+    // click on the dimmed backdrop closes the window
+    d.addEventListener("click", function (e) { if (e.target === d) d.close(); });
+    $$("[data-close-dialog]", d).forEach(function (b) { b.addEventListener("click", function () { d.close(); }); });
+  });
+  if (location.hash) openDialog(location.hash.slice(1));
+  window.addEventListener("hashchange", function () { if (location.hash) openDialog(location.hash.slice(1)); });
+
 })();

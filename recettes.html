@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recettes à l’ube — lattes et pâtisseries | Ube Halaya</title>
-  <meta name="description" content="Latte signature, cake à l’ube, cookiez à l’ube : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.">
+  <title>Recettes à l’ube — lattes, gâteaux et glaces | Ube Halaya</title>
+  <meta name="description" content="Ube glacé et mousse vanille, cake, cookies, glace et latte chaud à l’ube : nos recettes avec Éclat d’Ubé, la poudre d’ube.">
   <meta name="theme-color" content="#3b0b27">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Ube Halaya">
-  <meta property="og:title" content="Recettes à l’ube — lattes et pâtisseries | Ube Halaya">
-  <meta property="og:description" content="Latte signature, cake à l’ube, cookiez à l’ube : nos recettes faciles avec Éclat d’Ubé, la poudre d’ube.">
+  <meta property="og:title" content="Recettes à l’ube — lattes, gâteaux et glaces | Ube Halaya">
+  <meta property="og:description" content="Ube glacé et mousse vanille, cake, cookies, glace et latte chaud à l’ube : nos recettes avec Éclat d’Ubé, la poudre d’ube.">
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/recipe-latte.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/img/recipes-hero.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="page-recettes">
@@ -34,10 +34,11 @@
       </a>
       <nav class="nav" id="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="index.html">Accueil</a></li>
           <li><a href="eclat-dube.html">Boutique</a></li>
+          <li><a href="decouvrir-ube.html">Découvrir l’ube</a></li>
           <li><a href="recettes.html" aria-current="page">Recettes</a></li>
           <li><a href="notre-histoire.html">Notre histoire</a></li>
+          <li><a href="contact.html">Aide</a></li>
         </ul>
       </nav>
       <button class="cart-btn" type="button" data-open-cart aria-label="Ouvrir le panier" aria-controls="cart-drawer">
@@ -48,47 +49,101 @@
   </header>
 
   <main id="contenu">
-    <section class="page-hero wall">
-      <div class="wrap">
-        <p class="script">Un peu de violet dans la cuisine…</p>
-        <h1 class="h-display">Nos recettes</h1>
-        <p class="page-hero__lead">Du latte du matin au goûter du dimanche, trois façons de commencer avec votre canette.</p>
+    <!-- Hero -->
+    <section class="recipes-hero">
+      <img class="recipes-hero__bg" src="assets/img/recipes-hero.webp" width="1540" height="616" alt="Une canette Éclat d’Ubé, un ube glacé à la mousse vanille et un bol de poudre violette sur un plateau en bois" fetchpriority="high">
+      <div class="wrap recipes-hero__inner">
+        <div class="recipes-hero__intro">
+          <h1 class="recipes-hero__title">L’ube se met à&nbsp;table.</h1>
+          <p class="script">À chaque envie, sa recette.</p>
+          <p class="recipes-hero__lead">Des idées à préparer, à goûter, à partager.</p>
+        </div>
+        <div class="recipes-hero__feature">
+          <p class="script">Notre latte signature</p>
+          <p class="recipes-hero__feature-title">Ube glacé &amp; mousse vanille</p>
+          <a class="btn btn--sm recipes-hero__btn" href="#latte-signature" data-open-dialog="latte-signature">Voir la recette <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 
     <!-- Recipes -->
-    <section class="section">
+    <section class="section recipes-list">
       <div class="wrap">
-        <h2 class="h-section">Trois façons de commencer.</h2>
-        <div class="recipes" data-carousel aria-label="Recettes">
-          <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-latte.webp" width="458" height="312" alt="Latte à l’ube surmonté d’une mousse vanille" loading="lazy"></div>
-            <h3>Latte signature, mousse vanille</h3>
-            <a class="link-arrow" href="#latte-signature">Voir la recette</a>
-          </article>
-          <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-cake.webp" width="444" height="312" alt="Cake marbré à l’ube nappé de glaçage" loading="lazy"></div>
+        <div class="recipe-tabs" role="toolbar" aria-label="Filtrer les recettes">
+          <button type="button" class="is-active" aria-pressed="true" data-filter="all">Toutes les recettes</button>
+          <button type="button" aria-pressed="false" data-filter="boissons">Boissons</button>
+          <button type="button" aria-pressed="false" data-filter="gateaux">Gâteaux</button>
+          <button type="button" aria-pressed="false" data-filter="glaces">Glaces</button>
+        </div>
+        <div class="recipe-grid">
+          <article class="recipe-card-v1" data-cat="gateaux">
+            <a class="recipe-card-v1__img" href="#cake-ube" data-open-dialog="cake-ube" tabindex="-1" aria-hidden="true"><img src="assets/img/recipes-cake.webp" width="686" height="352" alt="" loading="lazy" decoding="async"></a>
             <h3>Cake à l’ube</h3>
-            <a class="link-arrow" href="#cake-ube">Voir la recette</a>
+            <a class="link-arrow link-arrow--pink" href="#cake-ube" data-open-dialog="cake-ube">Voir la recette</a>
           </article>
-          <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-cookies.webp" width="454" height="312" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy"></div>
-            <h3>Cookiez à l’ube</h3>
-            <a class="link-arrow" href="#cookies-ube">Voir la recette</a>
+          <article class="recipe-card-v1" data-cat="gateaux">
+            <a class="recipe-card-v1__img" href="#cookies-ube" data-open-dialog="cookies-ube" tabindex="-1" aria-hidden="true"><img src="assets/img/recipes-cookies.webp" width="686" height="352" alt="" loading="lazy" decoding="async"></a>
+            <h3>Cookies à l’ube</h3>
+            <a class="link-arrow link-arrow--pink" href="#cookies-ube" data-open-dialog="cookies-ube">Voir la recette</a>
+          </article>
+          <article class="recipe-card-v1" data-cat="glaces">
+            <a class="recipe-card-v1__img" href="#glace-ube" data-open-dialog="glace-ube" tabindex="-1" aria-hidden="true"><img src="assets/img/recipes-glace.webp" width="686" height="356" alt="" loading="lazy" decoding="async"></a>
+            <h3>Glace à l’ube</h3>
+            <a class="link-arrow link-arrow--pink" href="#glace-ube" data-open-dialog="glace-ube">Voir la recette</a>
+          </article>
+          <article class="recipe-card-v1" data-cat="boissons">
+            <a class="recipe-card-v1__img" href="#latte-chaud" data-open-dialog="latte-chaud" tabindex="-1" aria-hidden="true"><img src="assets/img/recipes-latte-chaud.webp" width="686" height="356" alt="" loading="lazy" decoding="async"></a>
+            <h3>Latte chaud à l’ube</h3>
+            <a class="link-arrow link-arrow--pink" href="#latte-chaud" data-open-dialog="latte-chaud">Voir la recette</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Latte -->
-    <article class="section section--cream recipe-detail" id="latte-signature">
-      <div class="wrap recipe-detail__inner">
-        <div class="recipe-detail__img"><img src="assets/img/recipe-latte.webp" width="458" height="312" alt="Latte à l’ube marbré surmonté d’une mousse vanille" loading="lazy"></div>
-        <div class="recipe-detail__copy">
-          <p class="script">Le classique</p>
-          <h2 class="recipe-detail__title">Latte signature, mousse vanille</h2>
+    <!-- Steps -->
+    <section class="section section--cream recipes-steps">
+      <div class="wrap">
+        <h2 class="h-section">Votre premier latte, en trois gestes.</h2>
+        <div class="steps">
+          <figure class="step">
+            <img src="assets/img/step-dose.webp" width="228" height="137" alt="Une cuillère verse de la poudre d’ube dans un bol" loading="lazy" decoding="async">
+            <figcaption><span class="step__num">01</span> Dosez 2 à 3 g</figcaption>
+          </figure>
+          <figure class="step">
+            <img src="assets/img/step-mix.webp" width="225" height="137" alt="La poudre mélangée au mousseur dans un bol" loading="lazy" decoding="async">
+            <figcaption><span class="step__num">02</span> Mélangez au mousseur</figcaption>
+          </figure>
+          <figure class="step">
+            <img src="assets/img/step-milk.webp" width="227" height="137" alt="Du lait versé dans un verre de glace et d’ube" loading="lazy" decoding="async">
+            <figcaption><span class="step__num">03</span> Ajoutez votre lait</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="recipes-cta">
+      <div class="recipes-cta__img"><img src="assets/img/recipes-cta.webp" width="820" height="392" alt="Une canette Éclat d’Ubé et un bol de poudre d’ube parmi des fleurs blanches" loading="lazy" decoding="async"></div>
+      <div class="wrap recipes-cta__inner">
+        <div class="recipes-cta__copy">
+          <h2><span>Tout commence avec</span> Éclat d’Ubé.</h2>
+          <p>Canette de 50 g · <strong>17,90 €</strong></p>
+          <a class="btn btn--sm" href="eclat-dube.html">Découvrir la canette</a>
+        </div>
+      </div>
+    </section>
+    <p class="recipes-note">Photographies d’intention — recettes à tester avant publication.</p>
+
+    <dialog class="recipe-dialog" id="latte-signature" aria-labelledby="latte-signature-title">
+      <div class="recipe-dialog__box">
+        <button class="recipe-dialog__close" type="button" data-close-dialog aria-label="Fermer la recette">×</button>
+        <div class="recipe-dialog__img"><img src="assets/img/recipe-latte.webp" width="458" height="312" alt="Latte glacé à l’ube surmonté d’une mousse vanille" loading="lazy" decoding="async"></div>
+        <div class="recipe-dialog__head">
+          <p class="script">Notre latte signature</p>
+          <h2 class="recipe-detail__title" id="latte-signature-title">Ube glacé &amp; mousse vanille</h2>
           <ul class="recipe-facts"><li><strong>5 min</strong>préparation</li><li><strong>1 verre</strong>de 30 cl</li><li><strong>Facile</strong>difficulté</li></ul>
         </div>
+        <div class="recipe-dialog__body">
         <div class="recipe-panel">
           <h3>Ingrédients</h3>
           <ul class="ingredients">
@@ -111,18 +166,20 @@
             <li>Fouettez la crème et la vanille en mousse souple et déposez-la sur le dessus.</li>
           </ol>
         </div>
+        </div>
       </div>
-    </article>
+    </dialog>
 
-    <!-- Cake -->
-    <article class="section recipe-detail" id="cake-ube">
-      <div class="wrap recipe-detail__inner">
-        <div class="recipe-detail__img"><img src="assets/img/recipe-cake.webp" width="444" height="312" alt="Cake marbré à l’ube nappé d’un glaçage blanc" loading="lazy"></div>
-        <div class="recipe-detail__copy">
+    <dialog class="recipe-dialog" id="cake-ube" aria-labelledby="cake-ube-title">
+      <div class="recipe-dialog__box">
+        <button class="recipe-dialog__close" type="button" data-close-dialog aria-label="Fermer la recette">×</button>
+        <div class="recipe-dialog__img"><img src="assets/img/recipes-cake.webp" width="686" height="352" alt="Cake à l’ube nappé de glaçage blanc" loading="lazy" decoding="async"></div>
+        <div class="recipe-dialog__head">
           <p class="script">Pour le goûter</p>
-          <h2 class="recipe-detail__title">Cake à l’ube</h2>
+          <h2 class="recipe-detail__title" id="cake-ube-title">Cake à l’ube</h2>
           <ul class="recipe-facts"><li><strong>1 h 05</strong>dont 50 min de cuisson</li><li><strong>8 parts</strong>moule à cake</li><li><strong>Facile</strong>difficulté</li></ul>
         </div>
+        <div class="recipe-dialog__body">
         <div class="recipe-panel">
           <h3>Ingrédients</h3>
           <ul class="ingredients">
@@ -146,18 +203,20 @@
             <li>Enfournez 45 à 50 minutes, laissez refroidir puis nappez de glaçage.</li>
           </ol>
         </div>
+        </div>
       </div>
-    </article>
+    </dialog>
 
-    <!-- Cookies -->
-    <article class="section section--cream recipe-detail" id="cookies-ube">
-      <div class="wrap recipe-detail__inner">
-        <div class="recipe-detail__img"><img src="assets/img/recipe-cookies.webp" width="454" height="312" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy"></div>
-        <div class="recipe-detail__copy">
+    <dialog class="recipe-dialog" id="cookies-ube" aria-labelledby="cookies-ube-title">
+      <div class="recipe-dialog__box">
+        <button class="recipe-dialog__close" type="button" data-close-dialog aria-label="Fermer la recette">×</button>
+        <div class="recipe-dialog__img"><img src="assets/img/recipes-cookies.webp" width="686" height="352" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy" decoding="async"></div>
+        <div class="recipe-dialog__head">
           <p class="script">À partager</p>
-          <h2 class="recipe-detail__title">Cookiez à l’ube</h2>
+          <h2 class="recipe-detail__title" id="cookies-ube-title">Cookies à l’ube</h2>
           <ul class="recipe-facts"><li><strong>30 min</strong>dont 12 min de cuisson</li><li><strong>12 cookiez</strong>environ</li><li><strong>Facile</strong>difficulté</li></ul>
         </div>
+        <div class="recipe-dialog__body">
         <div class="recipe-panel">
           <h3>Ingrédients</h3>
           <ul class="ingredients">
@@ -180,21 +239,79 @@
             <li>Faites cuire 11 à 12 minutes : le centre doit rester tendre.</li>
           </ol>
         </div>
-      </div>
-    </article>
-
-    <section class="final-cta wall">
-      <div class="wrap final-cta__inner">
-        <img src="assets/img/cta-tray.webp" width="415" height="163" alt="Canette Éclat d’Ubé, poudre et latte sur un plateau en bois" loading="lazy">
-        <div class="final-cta__copy">
-          <h2>Prêt à préparer votre premier latte ?</h2>
-          <p>Éclat d’Ubé · 50 g · 17,90 €</p>
-          <a class="btn btn--lg" href="eclat-dube.html">Découvrir Éclat d’Ubé</a>
         </div>
       </div>
-    </section>
-  </main>
+    </dialog>
 
+    <dialog class="recipe-dialog" id="glace-ube" aria-labelledby="glace-ube-title">
+      <div class="recipe-dialog__box">
+        <button class="recipe-dialog__close" type="button" data-close-dialog aria-label="Fermer la recette">×</button>
+        <div class="recipe-dialog__img"><img src="assets/img/recipes-glace.webp" width="686" height="356" alt="Boule de glace violette à l’ube dans un bol" loading="lazy" decoding="async"></div>
+        <div class="recipe-dialog__head">
+          <p class="script">Pour l’été</p>
+          <h2 class="recipe-detail__title" id="glace-ube-title">Glace à l’ube</h2>
+          <ul class="recipe-facts"><li><strong>15 min</strong>+ 6 h au congélateur</li><li><strong>6 pers.</strong>environ 75 cl</li><li><strong>Facile</strong>sans sorbetière</li></ul>
+        </div>
+        <div class="recipe-dialog__body">
+        <div class="recipe-panel">
+          <h3>Ingrédients</h3>
+          <ul class="ingredients">
+            <li>10 g d’<a href="eclat-dube.html">Éclat d’Ubé</a></li>
+            <li>2 c. à soupe de lait chaud</li>
+            <li>200 g de lait concentré sucré</li>
+            <li>25 cl de crème liquide entière, très froide</li>
+            <li>½ c. à café d’extrait de vanille</li>
+          </ul>
+        </div>
+        <div class="recipe-method">
+          <h3>Préparation</h3>
+          <ol class="method">
+            <li>Délayez la poudre d’ube dans le lait chaud jusqu’à obtenir une base lisse.</li>
+            <li>Mélangez-la au lait concentré sucré et à la vanille.</li>
+            <li>Fouettez la crème bien froide en chantilly ferme.</li>
+            <li>Incorporez la chantilly à la base violette, délicatement, à la spatule.</li>
+            <li>Versez dans une boîte et laissez prendre au moins 6 heures au congélateur.</li>
+            <li>Sortez la glace 10 minutes avant de former les boules.</li>
+          </ol>
+        </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="recipe-dialog" id="latte-chaud" aria-labelledby="latte-chaud-title">
+      <div class="recipe-dialog__box">
+        <button class="recipe-dialog__close" type="button" data-close-dialog aria-label="Fermer la recette">×</button>
+        <div class="recipe-dialog__img"><img src="assets/img/recipes-latte-chaud.webp" width="686" height="356" alt="Tasse de latte chaud à l’ube saupoudré de poudre violette" loading="lazy" decoding="async"></div>
+        <div class="recipe-dialog__head">
+          <p class="script">Pour l’hiver</p>
+          <h2 class="recipe-detail__title" id="latte-chaud-title">Latte chaud à l’ube</h2>
+          <ul class="recipe-facts"><li><strong>5 min</strong>préparation</li><li><strong>1 tasse</strong>de 25 cl</li><li><strong>Facile</strong>difficulté</li></ul>
+        </div>
+        <div class="recipe-dialog__body">
+        <div class="recipe-panel">
+          <h3>Ingrédients</h3>
+          <ul class="ingredients">
+            <li>2 à 3 g d’<a href="eclat-dube.html">Éclat d’Ubé</a> (1 c. à café rase)</li>
+            <li>3 cl d’eau chaude, non bouillante</li>
+            <li>20 cl de lait</li>
+            <li>Sucre ou sirop, selon votre goût</li>
+          </ul>
+        </div>
+        <div class="recipe-method">
+          <h3>Préparation</h3>
+          <ol class="method">
+            <li>Déposez la poudre dans une tasse et versez l’eau chaude.</li>
+            <li>Mélangez au mousseur jusqu’à obtenir une base lisse, sans grumeaux.</li>
+            <li>Sucrez à ce stade : le sucre se dissout mieux dans la base chaude.</li>
+            <li>Faites chauffer le lait sans le faire bouillir, puis faites-le mousser.</li>
+            <li>Versez le lait sur la base violette.</li>
+            <li>Terminez par une pincée de poudre d’ube sur la mousse.</li>
+          </ol>
+        </div>
+        </div>
+      </div>
+    </dialog>
+  </main>
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
@@ -202,11 +319,11 @@
         <img src="assets/img/logo.svg" width="72" height="72" alt="" loading="lazy">
       </a>
       <ul class="footer-links">
+        <li><a href="eclat-dube.html">Boutique</a></li>
         <li><a href="decouvrir-ube.html">Découvrir l’ube</a></li>
         <li><a href="recettes.html">Recettes</a></li>
         <li><a href="notre-histoire.html">Notre histoire</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="livraison.html">Livraison et retours</a></li>
+        <li><a href="contact.html">Aide</a></li>
       </ul>
       <form class="newsletter" novalidate>
         <label for="nl-email">Une nouvelle recette dans votre boîte mail.</label>
@@ -217,7 +334,7 @@
         <p class="newsletter__msg" aria-live="polite"></p>
       </form>
     </div>
-    <p class="copyright">© <span data-year>2026</span> Ube Halaya · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="confidentialite.html">Confidentialité</a></p>
+    <p class="copyright">© <span data-year>2026</span> Ube Halaya · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="livraison.html">Livraison et retours</a> · <a href="confidentialite.html">Confidentialité</a></p>
   </footer>
 
   <!-- Cart drawer -->
