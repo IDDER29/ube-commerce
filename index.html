@@ -17,7 +17,7 @@
   <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero-scene.webp" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 <body class="page-index">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -59,7 +59,7 @@
           <p class="hero__meta">Canette de 50 g · 17,90 €</p>
         </div>
         <div class="hero__scene">
-          <img src="assets/img/hero-scene.webp" width="1600" height="400" alt="Une canette Éclat d’Ubé, un bol de poudre violette et un latte à l’ube marbré sur un plateau en bois.">
+          <img src="assets/img/hero-scene.webp" width="1600" height="400" alt="Une canette Éclat d’Ubé, un bol de poudre violette et un latte à l’ube marbré sur un plateau en bois." fetchpriority="high">
         </div>
       </section>
 
@@ -70,7 +70,7 @@
         <p class="script section-sub">Pour vous, ou à partager.</p>
         <div class="formats">
           <article class="format-card">
-            <img src="assets/img/format-1.webp" width="227" height="118" alt="Une canette Éclat d’Ubé" loading="lazy">
+            <img src="assets/img/format-1.webp" width="227" height="118" alt="Une canette Éclat d’Ubé" loading="lazy" decoding="async">
             <div class="format-card__body">
               <h3>Une canette</h3>
               <div class="format-card__size">50 g</div>
@@ -80,7 +80,7 @@
             </div>
           </article>
           <article class="format-card">
-            <img src="assets/img/format-3.webp" width="226" height="118" alt="Trois canettes Éclat d’Ubé" loading="lazy">
+            <img src="assets/img/format-3.webp" width="226" height="118" alt="Trois canettes Éclat d’Ubé" loading="lazy" decoding="async">
             <div class="format-card__body">
               <h3>Coffret découverte</h3>
               <div class="format-card__size">3 canettes · 150 g</div>
@@ -90,7 +90,7 @@
             </div>
           </article>
           <article class="format-card">
-            <img src="assets/img/format-6.webp" width="226" height="118" alt="Six canettes Éclat d’Ubé" loading="lazy">
+            <img src="assets/img/format-6.webp" width="226" height="118" alt="Six canettes Éclat d’Ubé" loading="lazy" decoding="async">
             <div class="format-card__body">
               <h3>Coffret à partager</h3>
               <div class="format-card__size">6 canettes · 300 g</div>
@@ -109,15 +109,15 @@
         <h2 class="h-section">Trois gestes, un latte violet.</h2>
         <div class="steps">
           <figure class="step">
-            <img src="assets/img/step-dose.webp" width="228" height="137" alt="Une cuillère verse de la poudre d’ube dans un bol" loading="lazy">
+            <img src="assets/img/step-dose.webp" width="228" height="137" alt="Une cuillère verse de la poudre d’ube dans un bol" loading="lazy" decoding="async">
             <figcaption><span class="step__num">01</span> Dosez 2 à 3 g</figcaption>
           </figure>
           <figure class="step">
-            <img src="assets/img/step-mix.webp" width="225" height="137" alt="La poudre mélangée au mousseur dans un bol" loading="lazy">
+            <img src="assets/img/step-mix.webp" width="225" height="137" alt="La poudre mélangée au mousseur dans un bol" loading="lazy" decoding="async">
             <figcaption><span class="step__num">02</span> Mélangez au mousseur</figcaption>
           </figure>
           <figure class="step">
-            <img src="assets/img/step-milk.webp" width="227" height="137" alt="Du lait versé dans un verre de glace et d’ube" loading="lazy">
+            <img src="assets/img/step-milk.webp" width="227" height="137" alt="Du lait versé dans un verre de glace et d’ube" loading="lazy" decoding="async">
             <figcaption><span class="step__num">03</span> Ajoutez votre lait</figcaption>
           </figure>
         </div>
@@ -132,17 +132,17 @@
         <h2 class="h-section">Trois façons de commencer.</h2>
         <div class="recipes" data-carousel aria-label="Recettes">
           <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-latte.webp" width="229" height="156" alt="Latte à l’ube surmonté d’une mousse vanille" loading="lazy"></div>
+            <div class="recipe__img"><img src="assets/img/recipe-latte.webp" width="229" height="156" alt="Latte à l’ube surmonté d’une mousse vanille" loading="lazy" decoding="async"></div>
             <h3>Latte signature, mousse vanille</h3>
             <a class="link-arrow" href="recettes.html#latte-signature">Voir la recette</a>
           </article>
           <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-cake.webp" width="222" height="156" alt="Cake marbré à l’ube nappé de glaçage" loading="lazy"></div>
+            <div class="recipe__img"><img src="assets/img/recipe-cake.webp" width="222" height="156" alt="Cake marbré à l’ube nappé de glaçage" loading="lazy" decoding="async"></div>
             <h3>Cake à l’ube</h3>
             <a class="link-arrow" href="recettes.html#cake-ube">Voir la recette</a>
           </article>
           <article class="recipe">
-            <div class="recipe__img"><img src="assets/img/recipe-cookies.webp" width="227" height="156" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy"></div>
+            <div class="recipe__img"><img src="assets/img/recipe-cookies.webp" width="227" height="156" alt="Cookies violets à l’ube et pépites de chocolat blanc" loading="lazy" decoding="async"></div>
             <h3>Cookiez à l’ube</h3>
             <a class="link-arrow" href="recettes.html#cookies-ube">Voir la recette</a>
           </article>
@@ -153,7 +153,7 @@
     <!-- Story -->
     <section class="story" id="histoire">
       <figure class="story__img">
-        <img src="assets/img/story-roots.webp" width="403" height="194" alt="Racines d’ube coupées révélant leur chair violette, dans un panier tressé" loading="lazy">
+        <img src="assets/img/story-roots.webp" width="403" height="194" alt="Racines d’ube coupées révélant leur chair violette, dans un panier tressé" loading="lazy" decoding="async">
         <figcaption class="img-credit">Illustration de la culture de l’ube</figcaption>
       </figure>
       <div class="wrap">
@@ -169,7 +169,7 @@
     <!-- Gift -->
     <section class="gift">
       <div class="wrap gift__inner">
-        <img src="assets/img/gift-trio.webp" width="262" height="117" alt="Trois canettes Éclat d’Ubé côte à côte" loading="lazy">
+        <img src="assets/img/gift-trio.webp" width="262" height="117" alt="Trois canettes Éclat d’Ubé côte à côte" loading="lazy" decoding="async">
         <div>
           <h2>Faites découvrir l’ube à vos proches.</h2>
           <p>Un anniversaire, une invitation, ou simplement le plaisir de partager.</p>

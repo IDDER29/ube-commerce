@@ -38,6 +38,19 @@ def french_spacing(html):
     return "".join(p if SKIP_BLOCK.fullmatch(p) else fix_text(p) for p in pieces)
 
 
+def minify_css():
+    """Write assets/css/styles.min.css (comments and whitespace removed).
+    Edit styles.css; the pages load the minified copy."""
+    css = (ROOT / "assets" / "css" / "styles.css").read_text(encoding="utf-8")
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    css = re.sub(r"\s+", " ", css)
+    css = re.sub(r"\s*([{}:;,>])\s*", r"\1", css)
+    css = css.replace(";}", "}").strip()
+    # a space is required around + and - inside calc(), and in "a +b" selectors keep as is
+    (ROOT / "assets" / "css" / "styles.min.css").write_text(css, encoding="utf-8")
+    return len(css)
+
+
 def build(name):
     raw = (SRC / "pages" / f"{name}.html").read_text(encoding="utf-8")
     meta_block, body = re.match(r"\s*<!--(.*?)-->\n?(.*)", raw, re.S).groups()
@@ -60,5 +73,6 @@ def build(name):
 
 
 if __name__ == "__main__":
+    print(f"minified css: {minify_css() / 1024:.1f} KB")
     for page in PAGES:
         build(page)
